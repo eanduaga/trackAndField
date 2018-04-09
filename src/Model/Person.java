@@ -52,6 +52,10 @@ public class Person
         setAddress();
         setHomeTown();
     }
+    public Person(boolean bl)
+    {
+        
+    }
     
     // Define a method to print the information
     public void printInfo()

@@ -329,7 +329,7 @@ public class addDiscipline extends javax.swing.JFrame {
     int yMouse;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_reset;
-    private javax.swing.JButton jButton_save;
+    public javax.swing.JButton jButton_save;
     private javax.swing.JLabel jLabel_description;
     private javax.swing.JLabel jLabel_exit;
     private javax.swing.JLabel jLabel_femaleWR;
@@ -343,9 +343,9 @@ public class addDiscipline extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTextField jTextField_description;
-    private javax.swing.JTextField jTextField_femaleWR;
-    private javax.swing.JTextField jTextField_maleWR;
-    private javax.swing.JTextField jTextField_name;
+    public javax.swing.JTextField jTextField_description;
+    public javax.swing.JTextField jTextField_femaleWR;
+    public javax.swing.JTextField jTextField_maleWR;
+    public javax.swing.JTextField jTextField_name;
     // End of variables declaration//GEN-END:variables
 }

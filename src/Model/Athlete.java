@@ -41,6 +41,10 @@ public class Athlete extends Person implements Serializable
         setNumMedals();
         setTeam();
     }
+    public Athlete(boolean bl)
+    {
+        super(false);
+    }
         
     // Define a method to print the information
     @Override

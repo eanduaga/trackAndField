@@ -194,9 +194,9 @@ public class addRegistration extends javax.swing.JFrame {
     int yMouse;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_reset;
-    private javax.swing.JButton jButton_save;
-    private javax.swing.JComboBox<String> jComboBox_athlete;
-    private javax.swing.JComboBox<String> jComboBox_competition;
+    public javax.swing.JButton jButton_save;
+    public javax.swing.JComboBox<String> jComboBox_athlete;
+    public javax.swing.JComboBox<String> jComboBox_competition;
     private javax.swing.JLabel jLabel_athlete;
     private javax.swing.JLabel jLabel_competition;
     private javax.swing.JLabel jLabel_exit;

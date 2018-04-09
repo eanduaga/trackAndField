@@ -34,6 +34,10 @@ public class Team implements Serializable
         setCountry();
         setTown();
     }
+    public Team(boolean bl)
+    {
+        
+    }
     
     // Define a method to print the information
     public void printInfo()

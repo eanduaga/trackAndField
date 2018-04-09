@@ -28,12 +28,10 @@ public class AthleteDataAccess
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_RESET = "\u001B[0m";
     
-    public static void writeAthlete() throws IOException
+    public static void writeAthlete(Athlete ath) throws IOException
     {
         // Define the variables
-        char repeat = 0;
         File athFl = new File("F:/DAM/Program/TrackAndFieldProyect/Files/athlete.ser");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         
         try
         {
@@ -57,37 +55,7 @@ public class AthleteDataAccess
             };
 
             // Create a new object and write it in the file
-            Athlete ath = new Athlete();
             os.writeObject(ath);
-
-            System.out.println();
-            System.out.print(ANSI_GREEN + "The athlete has been added successfully." + ANSI_RESET);
-            System.out.println();
-
-            /*
-            do
-            {
-                System.out.println();
-                System.out.print("Do you want to register in a competition (Yes - Y, No - N)? ");
-
-                try
-                {
-                    repeat = reader.readLine().charAt(0);
-                    System.out.println();
-                }
-                catch(IOException ex1)
-                {
-                    System.out.println("Couldn't read.");
-                }
-            }
-            while(Character.toUpperCase(repeat) != 'Y' && Character.toUpperCase(repeat) != 'N');
-
-            if(Character.toUpperCase(repeat) == 'Y')
-            {
-                RegistrationDataAccess.writeRegistration();
-            }
-            */
-        
             os.close();
             fs.close();
         }

@@ -9,6 +9,9 @@ package View;
  *
  * @author Eider
  */
+
+import org.jdesktop.swingx.JXDatePicker;
+
 public class addSchedule extends javax.swing.JFrame {
 
     /**
@@ -30,10 +33,8 @@ public class addSchedule extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel_discipline = new javax.swing.JLabel();
         jLabel_competition = new javax.swing.JLabel();
-        jTextField_location = new javax.swing.JTextField();
         jLabel_round = new javax.swing.JLabel();
         jLabel_date = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
         jLabel_gender = new javax.swing.JLabel();
         jPanel_header = new javax.swing.JPanel();
         jLabel_exit = new javax.swing.JLabel();
@@ -45,6 +46,7 @@ public class addSchedule extends javax.swing.JFrame {
         jComboBox_discipline = new javax.swing.JComboBox<>();
         jComboBox_gender = new javax.swing.JComboBox<>();
         jComboBox_round = new javax.swing.JComboBox<>();
+        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -63,38 +65,20 @@ public class addSchedule extends javax.swing.JFrame {
         jLabel_competition.setText("COMPETITION:");
         jPanel1.add(jLabel_competition, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
 
-        jTextField_location.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jTextField_location.setForeground(new java.awt.Color(52, 50, 46));
-        jTextField_location.setText("Enter the date");
-        jTextField_location.setBorder(null);
-        jTextField_location.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField_locationFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField_locationFocusLost(evt);
-            }
-        });
-        jPanel1.add(jTextField_location, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 300, 30));
-
         jLabel_round.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel_round.setForeground(new java.awt.Color(52, 50, 46));
         jLabel_round.setText("ROUND:");
-        jPanel1.add(jLabel_round, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, -1, -1));
+        jPanel1.add(jLabel_round, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, -1, -1));
 
         jLabel_date.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel_date.setForeground(new java.awt.Color(52, 50, 46));
         jLabel_date.setText("DATE:");
         jPanel1.add(jLabel_date, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, -1, 20));
 
-        jSeparator6.setBackground(new java.awt.Color(52, 50, 46));
-        jSeparator6.setForeground(new java.awt.Color(52, 50, 46));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 300, 10));
-
         jLabel_gender.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel_gender.setForeground(new java.awt.Color(52, 50, 46));
         jLabel_gender.setText("GENDER:");
-        jPanel1.add(jLabel_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, -1, -1));
+        jPanel1.add(jLabel_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, -1, -1));
 
         jPanel_header.setBackground(new java.awt.Color(52, 50, 46));
         jPanel_header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -111,7 +95,7 @@ public class addSchedule extends javax.swing.JFrame {
 
         jLabel_exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/30x30_exit4.png"))); // NOI18N
-        jLabel_exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_exit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel_exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel_exitMouseClicked(evt);
@@ -121,7 +105,7 @@ public class addSchedule extends javax.swing.JFrame {
 
         jLabel_minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/30x30_minimize_1.png"))); // NOI18N
-        jLabel_minimize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_minimize.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel_minimize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel_minimizeMouseClicked(evt);
@@ -140,15 +124,15 @@ public class addSchedule extends javax.swing.JFrame {
         jButton_save.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton_save.setForeground(new java.awt.Color(52, 50, 46));
         jButton_save.setText("SAVE");
-        jButton_save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 670, 140, 50));
+        jButton_save.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(jButton_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 660, 140, 50));
 
         jButton_reset.setBackground(new java.awt.Color(163, 67, 26));
         jButton_reset.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton_reset.setForeground(new java.awt.Color(52, 50, 46));
         jButton_reset.setText("RESET");
-        jButton_reset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 670, 140, 50));
+        jButton_reset.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(jButton_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 660, 140, 50));
 
         jComboBox_competition.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jComboBox_competition.setForeground(new java.awt.Color(52, 50, 46));
@@ -163,13 +147,19 @@ public class addSchedule extends javax.swing.JFrame {
         jComboBox_gender.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jComboBox_gender.setForeground(new java.awt.Color(52, 50, 46));
         jComboBox_gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
-        jPanel1.add(jComboBox_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 300, 30));
+        jPanel1.add(jComboBox_gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 580, 300, 30));
 
         jComboBox_round.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jComboBox_round.setForeground(new java.awt.Color(52, 50, 46));
         jComboBox_round.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Round", "Second Round", "Semi Finals", "Finals" }));
         jComboBox_round.setToolTipText("");
-        jPanel1.add(jComboBox_round, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 300, 30));
+        jPanel1.add(jComboBox_round, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 300, 30));
+
+        jXDatePicker1.setForeground(new java.awt.Color(52, 50, 46));
+        jXDatePicker1.setToolTipText("Schedule Date");
+        jXDatePicker1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jXDatePicker1.setName(""); // NOI18N
+        jPanel1.add(jXDatePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 300, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,26 +169,12 @@ public class addSchedule extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 771, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField_locationFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_locationFocusGained
-        if(jTextField_location.getText().equals("Enter the location"))
-        {
-            jTextField_location.setText("");
-        }
-    }//GEN-LAST:event_jTextField_locationFocusGained
-
-    private void jTextField_locationFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_locationFocusLost
-        if(jTextField_location.getText().equals(""))
-        {
-            jTextField_location.setText("Enter the location");
-        }
-    }//GEN-LAST:event_jTextField_locationFocusLost
 
     private void jLabel_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_exitMouseClicked
         System.exit(0);
@@ -258,11 +234,11 @@ public class addSchedule extends javax.swing.JFrame {
     int yMouse;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_reset;
-    private javax.swing.JButton jButton_save;
-    private javax.swing.JComboBox<String> jComboBox_competition;
-    private javax.swing.JComboBox<String> jComboBox_discipline;
-    private javax.swing.JComboBox<String> jComboBox_gender;
-    private javax.swing.JComboBox<String> jComboBox_round;
+    public javax.swing.JButton jButton_save;
+    public javax.swing.JComboBox<String> jComboBox_competition;
+    public javax.swing.JComboBox<String> jComboBox_discipline;
+    public javax.swing.JComboBox<String> jComboBox_gender;
+    public javax.swing.JComboBox<String> jComboBox_round;
     private javax.swing.JLabel jLabel_competition;
     private javax.swing.JLabel jLabel_date;
     private javax.swing.JLabel jLabel_discipline;
@@ -273,7 +249,6 @@ public class addSchedule extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_viewTitle;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel_header;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTextField jTextField_location;
+    public org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     // End of variables declaration//GEN-END:variables
 }

@@ -43,6 +43,10 @@ public class Registration implements Serializable
         setCompetition();
         setRegDate();
     }
+    public Registration(boolean bl)
+    {
+        
+    }
     
     // Define a method to print the information
     public void printInfo()

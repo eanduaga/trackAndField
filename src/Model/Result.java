@@ -53,7 +53,7 @@ public class Result implements Serializable
         setPosition();
         setDate();
     }
-    public Result(int a)
+    public Result(boolean bl)
     {
         
     }

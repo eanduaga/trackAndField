@@ -43,6 +43,10 @@ public class Schedule implements Serializable
         setDiscipline();
         setDate();
     }
+    public Schedule(boolean bl)
+    {
+        
+    }
             
     // Define a method to print the information
     public void printInfo()

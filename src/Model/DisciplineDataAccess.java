@@ -30,16 +30,13 @@ public class DisciplineDataAccess
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_RESET = "\u001B[0m";
     
-    public static void writeDiscipline() throws IOException
+    public static void writeDiscipline(Discipline dis) throws IOException
     {
         // Define the variables
         File disFl = new File("F:/DAM/Program/TrackAndFieldProyect/Files/discipline.ser");
         
         try
         {
-            // Create a new object
-            Discipline dis = new Discipline();
-            
             // If the file doesn't exist, create a new ObjectOutputStream to write the header
             if(!disFl.exists())
             {

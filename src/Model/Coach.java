@@ -37,6 +37,10 @@ public class Coach extends Person implements Serializable
         super();
         setStartYear();
     }
+    public Coach(boolean bl)
+    {
+        super(false);
+    }
 
     // Define a method to print the information
     @Override

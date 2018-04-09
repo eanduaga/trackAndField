@@ -19,18 +19,15 @@ import java.io.IOException;
  */
 public class PasswordGenerator
 {
-    public static void writePassword(String username, String password)
+    public static boolean writePassword(String username, String password, String fullName, String email)
     {
         // Define the variables
-        String flUser, flPasswd;
+        String flUser;
         boolean result = true;
         File flPass = new File("G:/DAM/Program/Files/htpasswd.dat");
         
         try
-        {
-            username = InputMethods.readString("Enter the username: ");
-            password = InputMethods.readString("Enter the password: ");
-            
+        {            
             FileInputStream fis = new FileInputStream(flPass);
             DataInputStream dis = new DataInputStream(fis);
                 
@@ -39,7 +36,6 @@ public class PasswordGenerator
                 while(true)
                 {
                     flUser = dis.readUTF();
-                    flPasswd = dis.readUTF();
                     
                     if(username.equals(flUser))
                     {
@@ -60,6 +56,8 @@ public class PasswordGenerator
             {
                 ds.writeUTF(username);
                 ds.writeUTF(password);
+                ds.writeUTF(fullName);
+                ds.writeUTF(email);
                 ds.close();
                 fs.close();
             }
@@ -70,7 +68,50 @@ public class PasswordGenerator
         }
         catch(IOException ex1)
         {
-            System.out.println("Couldn't read.");
+            
         }
+        
+        return result;
+    }
+    
+    public static boolean readPassword(String username, String password)
+    {
+        // Define the variables
+        String flUser, flPasswd, flFullName, flEmailAcc;
+        boolean result = false;
+        File flPass = new File("G:/DAM/Program/Files/htpasswd.dat");
+        
+        try
+        {            
+            FileInputStream fis = new FileInputStream(flPass);
+            DataInputStream dis = new DataInputStream(fis);
+                
+            try
+            {
+                while(true)
+                {
+                    flUser = dis.readUTF();
+                    flPasswd = dis.readUTF();
+                    flFullName = dis.readUTF();
+                    flEmailAcc = dis.readUTF();
+                    
+                    if(username.equals(flUser) && password.equals(flPasswd))
+                    {
+                        result = true;
+                    }
+                }
+            }
+            catch(EOFException eof)
+            {
+                fis.close();
+                dis.close();
+            }
+        }
+        catch(IOException ex1)
+        {
+            
+        }
+        
+        return result;
     }
 }

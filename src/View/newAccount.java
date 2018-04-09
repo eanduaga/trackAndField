@@ -6,7 +6,8 @@
 package View;
 
 import java.awt.Color;
-import java.awt.Frame;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -21,7 +22,10 @@ public class newAccount extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         jButton_send.setBackground(Color.decode("#d25722"));
-        jButton_reset.setBackground(Color.decode("#d25722"));        
+        jButton_reset.setBackground(Color.decode("#d25722"));
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setSize(screenSize.width / 2, screenSize.height / 2);
+        pack();
     }
 
     /**
@@ -159,13 +163,13 @@ public class newAccount extends javax.swing.JFrame {
         jButton_send.setText("SEND");
         jButton_send.setBorder(null);
         jButton_send.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 610, 120, 50));
+        jPanel1.add(jButton_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 610, 120, 50));
 
         jButton_reset.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton_reset.setForeground(new java.awt.Color(255, 255, 255));
         jButton_reset.setText("RESET");
         jButton_reset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 610, 120, 50));
+        jPanel1.add(jButton_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 610, 120, 50));
 
         jPanel_header.setBackground(new java.awt.Color(52, 50, 46));
         jPanel_header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -204,11 +208,6 @@ public class newAccount extends javax.swing.JFrame {
         jLabel_back.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/30x30_backarrow3.png"))); // NOI18N
         jLabel_back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_back.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_backMouseClicked(evt);
-            }
-        });
         jPanel_header.add(jLabel_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
         jPanel1.add(jPanel_header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 50));
@@ -255,12 +254,6 @@ public class newAccount extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField_fullNameFocusLost
 
-    private void jLabel_backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_backMouseClicked
-        String[] args = null;
-        login.main(args);
-        dispose();
-    }//GEN-LAST:event_jLabel_backMouseClicked
-
     private void jLabel_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_exitMouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabel_exitMouseClicked
@@ -273,6 +266,7 @@ public class newAccount extends javax.swing.JFrame {
         if(jTextField_username.getText().equals("Enter your username"))
         {
             jTextField_username.setText("");
+            jTextField_username.setCaretColor(Color.decode("#f2f2f2"));
         }
     }//GEN-LAST:event_jTextField_usernameFocusGained
 
@@ -280,6 +274,7 @@ public class newAccount extends javax.swing.JFrame {
         if(jPasswordField_password.getText().equals("strongPassword"))
         {
             jPasswordField_password.setText("");
+            jPasswordField_password.setCaretColor(Color.decode("#f2f2f2"));
         }
     }//GEN-LAST:event_jPasswordField_passwordFocusGained
 
@@ -287,6 +282,7 @@ public class newAccount extends javax.swing.JFrame {
         if(jTextField_fullName.getText().equals("Enter your full name"))
         {
             jTextField_fullName.setText("");
+            jTextField_fullName.setCaretColor(Color.decode("#f2f2f2"));
         }
     }//GEN-LAST:event_jTextField_fullNameFocusGained
 
@@ -294,6 +290,7 @@ public class newAccount extends javax.swing.JFrame {
         if(jTextField_email.getText().equals("Enter your email account"))
         {
             jTextField_email.setText("");
+            jTextField_email.setCaretColor(Color.decode("#f2f2f2"));
         }
     }//GEN-LAST:event_jTextField_emailFocusGained
 
@@ -350,7 +347,7 @@ public class newAccount extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_reset;
     public javax.swing.JButton jButton_send;
-    private javax.swing.JLabel jLabel_back;
+    public javax.swing.JLabel jLabel_back;
     private javax.swing.JLabel jLabel_email;
     private javax.swing.JLabel jLabel_exit;
     private javax.swing.JLabel jLabel_fullName;

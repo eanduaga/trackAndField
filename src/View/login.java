@@ -156,11 +156,6 @@ public class login extends javax.swing.JFrame {
         jLabel_newAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_newAccount.setText("Create a new account");
         jLabel_newAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_newAccount.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_newAccountMouseClicked(evt);
-            }
-        });
         jPanel_login.add(jLabel_newAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 560, 160, 40));
         jPanel_login.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 590, 160, 10));
 
@@ -237,16 +232,11 @@ public class login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jPasswordField_passwordFocusLost
 
-    private void jLabel_newAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_newAccountMouseClicked
-        String[] args = null;
-        newAccount.main(args);
-        dispose();
-    }//GEN-LAST:event_jLabel_newAccountMouseClicked
-
     private void jTextField_usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_usernameFocusGained
         if(jTextField_username.getText().equals("Enter your username"))
         {
             jTextField_username.setText("");
+            jTextField_username.setCaretColor(Color.decode("#f2f2f2"));
         }
     }//GEN-LAST:event_jTextField_usernameFocusGained
 
@@ -254,6 +244,7 @@ public class login extends javax.swing.JFrame {
         if(jPasswordField_password.getText().equals("strongPassword"))
         {
             jPasswordField_password.setText("");
+            jPasswordField_password.setCaretColor(Color.decode("#f2f2f2"));
         }
     }//GEN-LAST:event_jPasswordField_passwordFocusGained
 
