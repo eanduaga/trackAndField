@@ -8,9 +8,6 @@ package View;
 
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,8 +23,7 @@ public class login extends javax.swing.JFrame {
     public login() {
         initComponents();
         setLocationRelativeTo(null);
-        //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        //setBounds(0,0,screenSize.width, screenSize.height);
+        jIcon_trackAndField.requestFocusInWindow();
     }
 
     /**
@@ -135,7 +131,7 @@ public class login extends javax.swing.JFrame {
         jPanel_login.add(jButton_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 300, 50));
 
         jIcon_trackAndField.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jIcon_trackAndField.setIcon(new javax.swing.ImageIcon("G:\\DAM\\Program\\Irudixak\\Icons\\Resized\\rsz_trackandfieldicon-_-_copia.png")); // NOI18N
+        jIcon_trackAndField.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/rsz_trackandfieldicon-_-_copia.png"))); // NOI18N
         jPanel_login.add(jIcon_trackAndField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 140, 130));
 
         jPanel_app.setBackground(new java.awt.Color(210, 87, 34));
@@ -293,13 +289,6 @@ public class login extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

@@ -23,9 +23,7 @@ public class newAccount extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         jButton_send.setBackground(Color.decode("#d25722"));
         jButton_reset.setBackground(Color.decode("#d25722"));
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        setSize(screenSize.width / 2, screenSize.height / 2);
-        pack();
+        jLabel_username.requestFocusInWindow();
     }
 
     /**
@@ -68,7 +66,7 @@ public class newAccount extends javax.swing.JFrame {
         jLabel_username.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel_username.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_username.setText("USERNAME:");
-        jPanel1.add(jLabel_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+        jPanel1.add(jLabel_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
 
         jTextField_username.setBackground(new java.awt.Color(52, 50, 46));
         jTextField_username.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -83,15 +81,15 @@ public class newAccount extends javax.swing.JFrame {
                 jTextField_usernameFocusLost(evt);
             }
         });
-        jPanel1.add(jTextField_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 300, 30));
+        jPanel1.add(jTextField_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 300, 30));
 
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, 300, 10));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, 300, 10));
 
         jLabel_password.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel_password.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_password.setText("PASSWORD:");
-        jPanel1.add(jLabel_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
+        jPanel1.add(jLabel_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
 
         jPasswordField_password.setBackground(new java.awt.Color(52, 50, 46));
         jPasswordField_password.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -106,15 +104,15 @@ public class newAccount extends javax.swing.JFrame {
                 jPasswordField_passwordFocusLost(evt);
             }
         });
-        jPanel1.add(jPasswordField_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 300, 30));
+        jPanel1.add(jPasswordField_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 300, 30));
 
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 300, 10));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 300, 10));
 
         jLabel_email.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel_email.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_email.setText("EMAIL ACCOUNT:");
-        jPanel1.add(jLabel_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, -1, -1));
+        jPanel1.add(jLabel_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, -1, -1));
 
         jTextField_email.setBackground(new java.awt.Color(52, 50, 46));
         jTextField_email.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -129,15 +127,15 @@ public class newAccount extends javax.swing.JFrame {
                 jTextField_emailFocusLost(evt);
             }
         });
-        jPanel1.add(jTextField_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 300, 30));
+        jPanel1.add(jTextField_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 300, 30));
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 300, 10));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 300, 10));
 
         jLabel_fullName.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel_fullName.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_fullName.setText("FULL NAME:");
-        jPanel1.add(jLabel_fullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, 20));
+        jPanel1.add(jLabel_fullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, 20));
 
         jTextField_fullName.setBackground(new java.awt.Color(52, 50, 46));
         jTextField_fullName.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -152,10 +150,10 @@ public class newAccount extends javax.swing.JFrame {
                 jTextField_fullNameFocusLost(evt);
             }
         });
-        jPanel1.add(jTextField_fullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 300, 30));
+        jPanel1.add(jTextField_fullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 300, 30));
 
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 300, 10));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 300, 10));
 
         jButton_send.setBackground(new java.awt.Color(210, 87, 34));
         jButton_send.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -169,7 +167,7 @@ public class newAccount extends javax.swing.JFrame {
         jButton_reset.setForeground(new java.awt.Color(255, 255, 255));
         jButton_reset.setText("RESET");
         jButton_reset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 610, 120, 50));
+        jPanel1.add(jButton_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 610, 120, 50));
 
         jPanel_header.setBackground(new java.awt.Color(52, 50, 46));
         jPanel_header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -192,7 +190,7 @@ public class newAccount extends javax.swing.JFrame {
                 jLabel_exitMouseClicked(evt);
             }
         });
-        jPanel_header.add(jLabel_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 40, 40));
+        jPanel_header.add(jLabel_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 50, 60));
 
         jLabel_minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/30x30_minimize_1.png"))); // NOI18N
@@ -202,21 +200,21 @@ public class newAccount extends javax.swing.JFrame {
                 jLabel_minimizeMouseClicked(evt);
             }
         });
-        jPanel_header.add(jLabel_minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 40, 40));
+        jPanel_header.add(jLabel_minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 50, 60));
 
         jLabel_back.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel_back.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/30x30_backarrow3.png"))); // NOI18N
         jLabel_back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel_header.add(jLabel_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
+        jPanel_header.add(jLabel_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 50, 60));
 
-        jPanel1.add(jPanel_header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 50));
+        jPanel1.add(jPanel_header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -62,7 +62,7 @@ public class manageAthlete extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_athleteData = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
         setResizable(false);
@@ -85,7 +85,7 @@ public class manageAthlete extends javax.swing.JFrame {
         jPanel_header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel_exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_exit.setIcon(new javax.swing.ImageIcon("G:\\DAM\\Program\\Irudixak\\Icons\\Resized\\30x30\\30x30_exit4.png")); // NOI18N
+        jLabel_exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/30x30_exit4.png"))); // NOI18N
         jLabel_exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -95,7 +95,7 @@ public class manageAthlete extends javax.swing.JFrame {
         jPanel_header.add(jLabel_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, 50, 50));
 
         jLabel_minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_minimize.setIcon(new javax.swing.ImageIcon("G:\\DAM\\Program\\Irudixak\\Icons\\Resized\\30x30\\30x30_minimize_1.png")); // NOI18N
+        jLabel_minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/30x30_minimize_1.png"))); // NOI18N
         jLabel_minimize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_minimize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,6 +131,14 @@ public class manageAthlete extends javax.swing.JFrame {
         jLabel_add.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_add.setText("ADD");
         jLabel_add.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_addMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_addMouseExited(evt);
+            }
+        });
         jPanel_add.add(jLabel_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 290, 60));
 
         leftPanel_add.setBackground(new java.awt.Color(210, 87, 34));
@@ -167,6 +175,14 @@ public class manageAthlete extends javax.swing.JFrame {
         jLabel_delete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_delete.setText("DELETE");
         jLabel_delete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_deleteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_deleteMouseExited(evt);
+            }
+        });
         jPanel_delete.add(jLabel_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 290, 60));
 
         leftPanel_delete.setBackground(new java.awt.Color(210, 87, 34));
@@ -203,6 +219,14 @@ public class manageAthlete extends javax.swing.JFrame {
         jLabel_change.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_change.setText("CHANGE");
         jLabel_change.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_change.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_changeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_changeMouseExited(evt);
+            }
+        });
         jPanel_change.add(jLabel_change, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 290, 60));
 
         leftPanel_change.setBackground(new java.awt.Color(210, 87, 34));
@@ -243,13 +267,14 @@ public class manageAthlete extends javax.swing.JFrame {
         jPanel_leftMenu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 220, 10));
 
         jLabel_searchIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_searchIcon.setIcon(new javax.swing.ImageIcon("G:\\DAM\\Program\\Irudixak\\Icons\\Resized\\30x30\\30x30_searchsinfondowhite.png")); // NOI18N
+        jLabel_searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/30x30_searchsinfondowhite.png"))); // NOI18N
         jPanel_leftMenu.add(jLabel_searchIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, 40));
 
         jLabel_viewAth.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel_viewAth.setForeground(new java.awt.Color(242, 242, 242));
         jLabel_viewAth.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_viewAth.setText("View Athletes");
+        jLabel_viewAth.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel_leftMenu.add(jLabel_viewAth, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 100, 20));
 
         jSeparator2.setBackground(new java.awt.Color(242, 242, 242));
@@ -337,7 +362,7 @@ public class manageAthlete extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel_headerMousePressed
 
     private void jLabel_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_exitMouseClicked
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_jLabel_exitMouseClicked
 
     private void jLabel_minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_minimizeMouseClicked
@@ -384,6 +409,7 @@ public class manageAthlete extends javax.swing.JFrame {
         if(jTextField_search.getText().equals("Search..."))
         {
             jTextField_search.setText("");
+            jTextField_search.setCaretColor(Color.decode("#f2f2f2"));
         }
     }//GEN-LAST:event_jTextField_searchFocusGained
 
@@ -393,6 +419,42 @@ public class manageAthlete extends javax.swing.JFrame {
             jTextField_search.setText("Search...");
         }
     }//GEN-LAST:event_jTextField_searchFocusLost
+
+    private void jLabel_addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_addMouseEntered
+        jPanel_add.setBackground(new Color(163, 67, 26));
+        leftPanel_add.setBackground(new Color(242, 242, 242));
+        jLabel_add.setForeground(new Color(242, 242, 242));
+    }//GEN-LAST:event_jLabel_addMouseEntered
+
+    private void jLabel_addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_addMouseExited
+        jPanel_add.setBackground(new Color(210, 87, 34));
+        leftPanel_add.setBackground(new Color(210, 87, 34));
+        jLabel_add.setForeground(new Color(52, 50, 46));
+    }//GEN-LAST:event_jLabel_addMouseExited
+
+    private void jLabel_deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_deleteMouseEntered
+        jPanel_delete.setBackground(new Color(163, 67, 26));
+        leftPanel_delete.setBackground(new Color(242, 242, 242));
+        jLabel_delete.setForeground(new Color(242, 242, 242));
+    }//GEN-LAST:event_jLabel_deleteMouseEntered
+
+    private void jLabel_deleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_deleteMouseExited
+        jPanel_delete.setBackground(new Color(210, 87, 34));
+        leftPanel_delete.setBackground(new Color(210, 87, 34));
+        jLabel_delete.setForeground(new Color(52, 50, 46));
+    }//GEN-LAST:event_jLabel_deleteMouseExited
+
+    private void jLabel_changeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_changeMouseEntered
+        jPanel_change.setBackground(new Color(163, 67, 26));
+        leftPanel_change.setBackground(new Color(242, 242, 242));
+        jLabel_change.setForeground(new Color(242, 242, 242));
+    }//GEN-LAST:event_jLabel_changeMouseEntered
+
+    private void jLabel_changeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_changeMouseExited
+        jPanel_change.setBackground(new Color(210, 87, 34));
+        leftPanel_change.setBackground(new Color(210, 87, 34));
+        jLabel_change.setForeground(new Color(52, 50, 46));
+    }//GEN-LAST:event_jLabel_changeMouseExited
     
     /**
      * @param args the command line arguments

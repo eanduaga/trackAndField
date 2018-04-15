@@ -33,7 +33,7 @@ public class DisciplineDataAccess
     public static void writeDiscipline(Discipline dis) throws IOException
     {
         // Define the variables
-        File disFl = new File("F:/DAM/Program/TrackAndFieldProyect/Files/discipline.ser");
+        File disFl = new File("G:/DAM/Program/Files/discipline.ser");
         
         try
         {

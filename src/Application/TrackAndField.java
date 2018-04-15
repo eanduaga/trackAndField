@@ -39,15 +39,20 @@ public class TrackAndField
     private newAccount newAccView;
     private mainPage mainPage;
     private mainPageGuest mpGuest;
+    private addAthlete addAthView;
+    private addCoach addChView;
     private addCompetition addCompView;
     private addDiscipline addDisView;
     private addRegistration addRegView;
+    private addResult addRsView;
     private addSchedule addSchView;
     private addTeam addTmView;
     private manageAthlete mgAthView;
+    private manageCoach mgChView;
     private manageCompetition mgCompView;
     private manageDiscipline mgDisView;
     private manageRegistration mgRegView;
+    private manageResult mgRsView;
     private manageSchedule mgSchView;
     private manageTeam mgTmView;
     
@@ -86,20 +91,27 @@ public class TrackAndField
         newAccView = new newAccount();
         mainPage = new mainPage();
         mpGuest = new mainPageGuest();
+        addAthView = new addAthlete();
+        addChView = new addCoach();
         addCompView = new addCompetition();
         addDisView = new addDiscipline();
         addRegView = new addRegistration();
+        addRsView = new addResult();
         addSchView = new addSchedule();
         addTmView = new addTeam();
         mgAthView = new manageAthlete();
+        mgChView = new manageCoach();
         mgCompView = new manageCompetition();
         mgDisView = new manageDiscipline();
         mgRegView = new manageRegistration();
+        mgRsView = new manageResult();
         mgSchView = new manageSchedule();
         mgTmView = new manageTeam();
         
-        ctrl = new TrackAndFieldController(compModel, compMeth, passwdGen, loginMenu, newAccView, mainPage, mpGuest, addCompView, addDisView, addRegView,
-        addSchView, addTmView, mgAthView, mgCompView, mgDisView, mgRegView, mgSchView, mgTmView);
+        ctrl = new TrackAndFieldController(athModel, chModel, compModel, disModel, regModel, rsModel, schModel, tmModel, 
+        athMeth, chMeth, compMeth, disMeth, regMeth, rsMeth, schMeth, tmMeth, passwdGen, loginMenu, newAccView, mainPage, mpGuest, 
+        addAthView, addChView, addCompView, addDisView, addRegView, addRsView, addSchView, addTmView, mgAthView, mgChView, mgCompView, 
+        mgDisView, mgRegView, mgRsView, mgSchView, mgTmView);
         loginMenu.setVisible(true);
     }
 }

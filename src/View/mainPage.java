@@ -109,7 +109,7 @@ public class mainPage extends javax.swing.JFrame {
         jLabel_username.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel_username.setForeground(new java.awt.Color(242, 242, 242));
         jLabel_username.setText("Admin");
-        jLabel_username.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel_username.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_username.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel_usernameMouseClicked(evt);
@@ -152,7 +152,7 @@ public class mainPage extends javax.swing.JFrame {
         jLabel_leftMenuAth.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel_leftMenuAth.setForeground(new java.awt.Color(242, 242, 242));
         jLabel_leftMenuAth.setText("ATHLETES");
-        jLabel_leftMenuAth.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel_leftMenuAth.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_leftMenuAth.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel_leftMenuAthMouseEntered(evt);
@@ -198,7 +198,7 @@ public class mainPage extends javax.swing.JFrame {
         jLabel_leftMenuCoach.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel_leftMenuCoach.setForeground(new java.awt.Color(242, 242, 242));
         jLabel_leftMenuCoach.setText("COACHES");
-        jLabel_leftMenuCoach.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel_leftMenuCoach.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_leftMenuCoach.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel_leftMenuCoachMouseEntered(evt);
@@ -244,7 +244,7 @@ public class mainPage extends javax.swing.JFrame {
         jLabel_leftMenuComp.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel_leftMenuComp.setForeground(new java.awt.Color(242, 242, 242));
         jLabel_leftMenuComp.setText("COMPETITIONS");
-        jLabel_leftMenuComp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel_leftMenuComp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_leftMenuComp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel_leftMenuCompMouseEntered(evt);
@@ -290,7 +290,15 @@ public class mainPage extends javax.swing.JFrame {
         jLabel_leftMenuDis.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel_leftMenuDis.setForeground(new java.awt.Color(242, 242, 242));
         jLabel_leftMenuDis.setText("DISCIPLINES");
-        jLabel_leftMenuDis.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel_leftMenuDis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_leftMenuDis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_leftMenuDisMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_leftMenuDisMouseExited(evt);
+            }
+        });
         jPanel_discipline.add(jLabel_leftMenuDis, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 240, 60));
 
         jLabel_disciplineIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -328,7 +336,15 @@ public class mainPage extends javax.swing.JFrame {
         jLabel_leftMenuRs.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel_leftMenuRs.setForeground(new java.awt.Color(242, 242, 242));
         jLabel_leftMenuRs.setText("RESULTS");
-        jLabel_leftMenuRs.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel_leftMenuRs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_leftMenuRs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_leftMenuRsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_leftMenuRsMouseExited(evt);
+            }
+        });
         jPanel_result.add(jLabel_leftMenuRs, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 240, 60));
 
         jLabel_resultIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -366,7 +382,15 @@ public class mainPage extends javax.swing.JFrame {
         jLabel_leftMenuSch.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel_leftMenuSch.setForeground(new java.awt.Color(242, 242, 242));
         jLabel_leftMenuSch.setText("SCHEDULE");
-        jLabel_leftMenuSch.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel_leftMenuSch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_leftMenuSch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_leftMenuSchMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_leftMenuSchMouseExited(evt);
+            }
+        });
         jPanel_schedule.add(jLabel_leftMenuSch, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 240, 60));
 
         jLabel_scheduleIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -404,7 +428,15 @@ public class mainPage extends javax.swing.JFrame {
         jLabel_leftMenuTm.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel_leftMenuTm.setForeground(new java.awt.Color(242, 242, 242));
         jLabel_leftMenuTm.setText("TEAMS");
-        jLabel_leftMenuTm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel_leftMenuTm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_leftMenuTm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_leftMenuTmMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_leftMenuTmMouseExited(evt);
+            }
+        });
         jPanel_team.add(jLabel_leftMenuTm, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 240, 60));
 
         jLabel_teamIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -442,7 +474,15 @@ public class mainPage extends javax.swing.JFrame {
         jLabel_leftMenuReg.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel_leftMenuReg.setForeground(new java.awt.Color(242, 242, 242));
         jLabel_leftMenuReg.setText("REGISTRATION");
-        jLabel_leftMenuReg.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel_leftMenuReg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_leftMenuReg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_leftMenuRegMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_leftMenuRegMouseExited(evt);
+            }
+        });
         jPanel_registration.add(jLabel_leftMenuReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 240, 60));
 
         jLabel_registrationIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -730,6 +770,56 @@ public class mainPage extends javax.swing.JFrame {
         jPanel_competitionsLeft.setBackground(new Color(52, 50, 46));
     }//GEN-LAST:event_jLabel_leftMenuCompMouseExited
 
+    private void jLabel_leftMenuDisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_leftMenuDisMouseEntered
+        jPanel_discipline.setBackground(new Color(163, 67, 26));
+        jPanel_disciplinesLeft.setBackground(new Color(242, 242, 242));
+    }//GEN-LAST:event_jLabel_leftMenuDisMouseEntered
+
+    private void jLabel_leftMenuDisMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_leftMenuDisMouseExited
+        jPanel_discipline.setBackground(new Color(52, 50, 46));
+        jPanel_disciplinesLeft.setBackground(new Color(52, 50, 46));
+    }//GEN-LAST:event_jLabel_leftMenuDisMouseExited
+
+    private void jLabel_leftMenuRsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_leftMenuRsMouseEntered
+        jPanel_result.setBackground(new Color(163, 67, 26));
+        jPanel_resultsLeft.setBackground(new Color(242, 242, 242));
+    }//GEN-LAST:event_jLabel_leftMenuRsMouseEntered
+
+    private void jLabel_leftMenuRsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_leftMenuRsMouseExited
+        jPanel_result.setBackground(new Color(52, 50, 46));
+        jPanel_resultsLeft.setBackground(new Color(52, 50, 46));
+    }//GEN-LAST:event_jLabel_leftMenuRsMouseExited
+
+    private void jLabel_leftMenuSchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_leftMenuSchMouseEntered
+        jPanel_schedule.setBackground(new Color(163, 67, 26));
+        jPanel_scheduleLeft.setBackground(new Color(242, 242, 242));
+    }//GEN-LAST:event_jLabel_leftMenuSchMouseEntered
+
+    private void jLabel_leftMenuSchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_leftMenuSchMouseExited
+        jPanel_schedule.setBackground(new Color(52, 50, 46));
+        jPanel_scheduleLeft.setBackground(new Color(52, 50, 46));
+    }//GEN-LAST:event_jLabel_leftMenuSchMouseExited
+
+    private void jLabel_leftMenuTmMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_leftMenuTmMouseEntered
+        jPanel_team.setBackground(new Color(163, 67, 26));
+        jPanel_teamsLeft.setBackground(new Color(242, 242, 242));
+    }//GEN-LAST:event_jLabel_leftMenuTmMouseEntered
+
+    private void jLabel_leftMenuTmMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_leftMenuTmMouseExited
+        jPanel_team.setBackground(new Color(52, 50, 46));
+        jPanel_teamsLeft.setBackground(new Color(52, 50, 46));
+    }//GEN-LAST:event_jLabel_leftMenuTmMouseExited
+
+    private void jLabel_leftMenuRegMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_leftMenuRegMouseEntered
+        jPanel_registration.setBackground(new Color(163, 67, 26));
+        jPanel_registrationLeft.setBackground(new Color(242, 242, 242));
+    }//GEN-LAST:event_jLabel_leftMenuRegMouseEntered
+
+    private void jLabel_leftMenuRegMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_leftMenuRegMouseExited
+        jPanel_registration.setBackground(new Color(52, 50, 46));
+        jPanel_registrationLeft.setBackground(new Color(52, 50, 46));
+    }//GEN-LAST:event_jLabel_leftMenuRegMouseExited
+
 
     // Timer methods
     public void SetImageSize(int i)
@@ -840,7 +930,7 @@ public class mainPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_coachIcon;
     private javax.swing.JLabel jLabel_competitionIcon;
     private javax.swing.JLabel jLabel_disciplineIcon;
-    private javax.swing.JLabel jLabel_exit;
+    public javax.swing.JLabel jLabel_exit;
     private javax.swing.JLabel jLabel_image;
     public javax.swing.JLabel jLabel_leftMenuAth;
     public javax.swing.JLabel jLabel_leftMenuCoach;

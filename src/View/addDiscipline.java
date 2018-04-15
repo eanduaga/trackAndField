@@ -47,7 +47,7 @@ public class addDiscipline extends javax.swing.JFrame {
         jButton_save = new javax.swing.JButton();
         jButton_reset = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -272,7 +272,7 @@ public class addDiscipline extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField_nameFocusLost
 
     private void jLabel_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_exitMouseClicked
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_jLabel_exitMouseClicked
 
     private void jPanel_headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_headerMouseDragged

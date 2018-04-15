@@ -27,30 +27,30 @@ public class Person
     public static final String ANSI_RESET = "\u001B[0m";
     
     // Define the members
+    private String ID;
     private String name;
     private String surname;
-    private String code;
     private String country;
-    private String phoneNum;
-    private String email;
-    private Date birthDate;
-    private String nationality;
-    private String address;
     private String homeTown;
+    private String address;
+    private String nationality;
+    private Date birthDate;
+    private String email;
+    private String phoneNum;
     
     // Define the constructor
     public Person()
     {
+        setID();
         setName();
         setSurname();
-        setCode();
         setCountry();
-        setPhoneNum();
-        setEmail();
-        setBirthDate();
-        setNationality();
-        setAddress();
         setHomeTown();
+        setAddress();
+        setNationality();
+        setBirthDate();
+        setEmail();
+        setPhoneNum();
     }
     public Person(boolean bl)
     {
@@ -60,19 +60,61 @@ public class Person
     // Define a method to print the information
     public void printInfo()
     {
+        getID(ID);
         getName(name);
         getSurname(surname);
-        getCode(code);
         getCountry(country);
-        getPhoneNum(phoneNum);
-        getEmail(email);
-        getBirthDate(birthDate);
-        getNationality(nationality);
-        getAddress(address);
         getHomeTown(homeTown);
+        getAddress(address);
+        getNationality(nationality);
+        getBirthDate(birthDate);
+        getEmail(email);
+        getPhoneNum(phoneNum);
     }
     
     // Define the setters
+    public void setID(String PersonID)
+    {
+        ID = PersonID;
+    }
+    public void setID()
+    {
+        // Define the variables
+        int i;
+        
+        // Ask for the ID
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter your ID: ");
+        ID = in.nextLine();
+        
+        // Check if the ID is correct
+        if(ID.length() == 9)
+        {
+            for(i = 0; i <= ID.length() - 1; ++i)
+            {
+                char c = ID.charAt(i);
+                if(!Character.isDigit(c))
+                {
+                    System.out.println("Incorrect format.");
+                    setID();
+                }
+            }
+            
+            int ln = ID.length();
+            char cr = ID.charAt(ln);
+            if(!Character.isLetter(cr))
+            {
+                System.out.println("Incorrect format.");
+                setID();
+            }
+        }
+        else
+        {
+            System.out.println("Please enter an ID with 9 characters.");
+            setID();
+        }
+    }
+    
     public void setName(String PersonName)
     {
         name = PersonName;
@@ -95,38 +137,6 @@ public class Person
         surname = in.nextLine();
     }
     
-    public void setCode(String PersonCode)
-    {
-        code = PersonCode;
-    }
-    public void setCode()
-    {
-        // Define the variables
-        int i, digit;
-        char letter;
-        
-        Random rnd = new Random();
-        StringBuffer randomID = new StringBuffer();
-        
-        // Generate the random ID
-        // First get the letters
-        for(i = 0; i <= 1; ++i)
-        {
-            letter = (char) (rnd.nextInt(26) + 'A');
-            randomID.append(letter);
-        }
-        
-        // Then get the digits
-        for(i = 2; i <= 3; ++i)
-        {
-            digit = rnd.nextInt(9) + 0;
-            randomID.append(digit);
-        }
-        
-        // Store the generated code in the member ID
-        code = randomID.toString();
-    }
-    
     public void setCountry(String PersonCountry)
     {
         country = PersonCountry;
@@ -138,26 +148,37 @@ public class Person
         country = in.nextLine();
     }
     
-    public void setPhoneNum(String PersonPhoneNum)
+    public void setHomeTown(String PersonHomeTown)
     {
-        phoneNum = PersonPhoneNum;
+        homeTown = PersonHomeTown;
     }
-    public void setPhoneNum()
+    public void setHomeTown()
     {
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter your phone number: ");
-        phoneNum = in.nextLine();
+        System.out.print("Enter your home town: ");
+        homeTown = in.nextLine();
     }
     
-    public void setEmail(String PersonEmail)
+    public void setAddress(String PersonAddress)
     {
-        email = PersonEmail;
+        address = PersonAddress;
     }
-    public void setEmail()
+    public void setAddress()
     {
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter your email: ");
-        email = in.nextLine();
+        System.out.print("Enter your address: ");
+        address = in.nextLine();
+    }
+    
+    public void setNationality(String PersonNationality)
+    {
+        nationality = PersonNationality;
+    }
+    public void setNationality()
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter your nationality: ");
+        nationality = in.nextLine();
     }
     
     public void setBirthDate(Date PersonBirthDate)
@@ -188,41 +209,39 @@ public class Person
         }
     }
     
-    public void setNationality(String PersonNationality)
+    public void setEmail(String PersonEmail)
     {
-        nationality = PersonNationality;
+        email = PersonEmail;
     }
-    public void setNationality()
+    public void setEmail()
     {
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter your nationality: ");
-        nationality = in.nextLine();
+        System.out.print("Enter your email: ");
+        email = in.nextLine();
     }
     
-    public void setAddress(String PersonAddress)
+    public void setPhoneNum(String PersonPhoneNum)
     {
-        address = PersonAddress;
+        phoneNum = PersonPhoneNum;
     }
-    public void setAddress()
+    public void setPhoneNum()
     {
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter your address: ");
-        address = in.nextLine();
-    }
-    
-    public void setHomeTown(String PersonHomeTown)
-    {
-        homeTown = PersonHomeTown;
-    }
-    public void setHomeTown()
-    {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Enter your home town: ");
-        homeTown = in.nextLine();
+        System.out.print("Enter your phone number: ");
+        phoneNum = in.nextLine();
     }
     
     
     // Define the getters
+    public String getID()
+    {
+        return ID;
+    }
+    public void getID(String PersonID)
+    {
+        System.out.println("ID: " + PersonID);
+    }
+    
     public String getName()
     {
         return name;
@@ -241,15 +260,6 @@ public class Person
         System.out.println("Surname: " + PersonSurname);
     }
     
-    public String getCode()
-    {
-        return code;
-    }
-    public void getCode(String PersonCode)
-    {
-        System.out.println("Code: " + PersonCode);
-    }
-    
     public String getCountry()
     {
         return country;
@@ -259,40 +269,13 @@ public class Person
         System.out.println("Country: " + PersonCountry);
     }
     
-    public String getPhoneNum()
+    public String getHomeTown()
     {
-        return phoneNum;
+        return homeTown;
     }
-    public void getPhoneNum(String PersonPhoneNum)
+    public void getHomeTown(String PersonHomeTown)
     {
-        System.out.println("Phone number: " + PersonPhoneNum);
-    }
-    
-    public String getEmail()
-    {
-        return email;
-    }
-    public void getEmail(String PersonEmail)
-    {
-        System.out.println("Email: " + PersonEmail);
-    }
-    
-    public Date getBirthDate()
-    {
-        return birthDate;
-    }
-    public void getBirthDate(Date PersonBirthDate)
-    {
-        System.out.println("Birth Date: " + PersonBirthDate);
-    }
-    
-    public String getNationality()
-    {
-        return nationality;
-    }
-    public void getNationality(String PersonNationality)
-    {
-        System.out.println("Nationality: " + PersonNationality);
+        System.out.println("Home town: " + PersonHomeTown);
     }
     
     public String getAddress()
@@ -304,12 +287,39 @@ public class Person
         System.out.println("Address: " + PersonAddress);
     }
     
-    public String getHomeTown()
+    public String getNationality()
     {
-        return homeTown;
+        return nationality;
     }
-    public void getHomeTown(String PersonHomeTown)
+    public void getNationality(String PersonNationality)
     {
-        System.out.println("Home town: " + PersonHomeTown);
+        System.out.println("Nationality: " + PersonNationality);
+    }
+    
+    public Date getBirthDate()
+    {
+        return birthDate;
+    }
+    public void getBirthDate(Date PersonBirthDate)
+    {
+        System.out.println("Birth Date: " + PersonBirthDate);
+    }
+    
+    public String getEmail()
+    {
+        return email;
+    }
+    public void getEmail(String PersonEmail)
+    {
+        System.out.println("Email: " + PersonEmail);
+    }
+    
+    public String getPhoneNum()
+    {
+        return phoneNum;
+    }
+    public void getPhoneNum(String PersonPhoneNum)
+    {
+        System.out.println("Phone number: " + PersonPhoneNum);
     }
 }

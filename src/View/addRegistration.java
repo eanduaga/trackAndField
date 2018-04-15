@@ -39,7 +39,7 @@ public class addRegistration extends javax.swing.JFrame {
         jComboBox_athlete = new javax.swing.JComboBox<>();
         jComboBox_competition = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -136,7 +136,7 @@ public class addRegistration extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_exitMouseClicked
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_jLabel_exitMouseClicked
 
     private void jPanel_headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_headerMouseDragged

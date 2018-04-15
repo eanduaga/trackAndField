@@ -31,7 +31,7 @@ public class AthleteDataAccess
     public static void writeAthlete(Athlete ath) throws IOException
     {
         // Define the variables
-        File athFl = new File("F:/DAM/Program/TrackAndFieldProyect/Files/athlete.ser");
+        File athFl = new File("G:/DAM/Program/Files/athlete.ser");
         
         try
         {
@@ -146,7 +146,7 @@ public class AthleteDataAccess
                     
                     if(name.equals(uName))
                     {
-                        System.out.println(ath.getCode() + " - " + ath.getName() + " " + ath.getSurname());
+                        System.out.println(ath.getID() + " - " + ath.getName() + " " + ath.getSurname());
                         result = true;
                     }
                 }
@@ -174,7 +174,7 @@ public class AthleteDataAccess
                     while(true)
                     {
                         Athlete ath = (Athlete) os2.readObject();
-                        code = ath.getCode().toLowerCase();
+                        code = ath.getID().toLowerCase();
 
                         if(code.equals(uCode))
                         {
@@ -254,7 +254,7 @@ public class AthleteDataAccess
                     // Check if there is a discipline with the name the user has entered and show the result
                     if(name.contains(uName))
                     {
-                        System.out.println(ath.getCode() + " - " + ath.getName() + " " + ath.getSurname());
+                        System.out.println(ath.getID() + " - " + ath.getName() + " " + ath.getSurname());
                         result = true;
                     }
                 }
@@ -345,7 +345,7 @@ public class AthleteDataAccess
                 while(true)
                 {
                     Athlete ath = (Athlete) os.readObject();
-                    code = ath.getCode().toLowerCase();
+                    code = ath.getID().toLowerCase();
 
                     // Check if there is a discipline with the name the user has entered and show the result
                     if(!code.equals(uCode))
@@ -450,7 +450,7 @@ public class AthleteDataAccess
                 while(true)
                 {
                     Athlete ath = (Athlete) os.readObject();
-                    code = ath.getCode().toLowerCase();
+                    code = ath.getID().toLowerCase();
                     
                     // Check if there is a discipline with the name the user has entered and show the result
                     if(code.equals(uCode))

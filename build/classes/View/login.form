@@ -216,7 +216,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="G:\DAM\Program\Irudixak\Icons\Resized\rsz_trackandfieldicon-_-_copia.png"/>
+              <Image iconType="3" name="/View/Images/rsz_trackandfieldicon-_-_copia.png"/>
             </Property>
           </Properties>
           <Constraints>
