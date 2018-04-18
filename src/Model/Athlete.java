@@ -32,7 +32,7 @@ public class Athlete extends Person implements Serializable
     private String team;
     
     // Define the constructor
-    public Athlete()
+    /*public Athlete()
     {
         super();
         setFavouriteDiscipline();
@@ -40,7 +40,7 @@ public class Athlete extends Person implements Serializable
         setSeasonBest();
         setNumMedals();
         setTeam();
-    }
+    }*/
     public Athlete(boolean bl)
     {
         super(false);

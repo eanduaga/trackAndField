@@ -20,6 +20,7 @@ public class TrackAndField
     Coach chModel;
     Competition compModel;
     Discipline disModel;
+    // Person perModel;
     Registration regModel;
     Result rsModel;
     Schedule schModel;
@@ -72,6 +73,7 @@ public class TrackAndField
         chModel = new Coach(false);
         compModel = new Competition(false);
         disModel = new Discipline(false);
+        // perModel = new Person(false);
         regModel = new Registration(false);
         rsModel = new Result(false);
         schModel = new Schedule(false);
@@ -108,7 +110,7 @@ public class TrackAndField
         mgSchView = new manageSchedule();
         mgTmView = new manageTeam();
         
-        ctrl = new TrackAndFieldController(athModel, chModel, compModel, disModel, regModel, rsModel, schModel, tmModel, 
+        ctrl = new TrackAndFieldController(athModel, chModel, compModel, disModel, /*perModel,*/ regModel, rsModel, schModel, tmModel, 
         athMeth, chMeth, compMeth, disMeth, regMeth, rsMeth, schMeth, tmMeth, passwdGen, loginMenu, newAccView, mainPage, mpGuest, 
         addAthView, addChView, addCompView, addDisView, addRegView, addRsView, addSchView, addTmView, mgAthView, mgChView, mgCompView, 
         mgDisView, mgRegView, mgRsView, mgSchView, mgTmView);

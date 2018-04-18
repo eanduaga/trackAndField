@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 /**
  *
@@ -23,7 +24,7 @@ public class CompetitionDataAccess
     public static void writeCompetition(Competition cmp) throws IOException
     {
         // Define the variables
-        File cmpFl = new File("G:/DAM/Program/Files/competition.ser");
+        File cmpFl = new File("files/competition.ser");
         
         try
         {
@@ -55,6 +56,40 @@ public class CompetitionDataAccess
         {
             System.out.println("File not found.");
         }
+    }
+    
+    public static ArrayList <Competition> writeCompetitionArrayList() throws IOException
+    {
+        // Define the variables
+        File compFl = new File("files/competition.ser");
+        ArrayList <Competition> alComp = new ArrayList();
+        
+        try
+        {
+            FileInputStream fs = new FileInputStream(compFl);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            
+            try
+            {
+                while(true)
+                {
+                    Competition comp = new Competition(false);
+                    comp = (Competition) os.readObject();
+                    alComp.add(comp);                    
+                }
+            }
+            catch(EOFException ex1)
+            {
+                fs.close();
+                os.close();
+            }
+        }
+        catch(IOException | ClassNotFoundException ex1)
+        {
+            
+        }
+        
+        return alComp;
     }
     
     public static Competition readAll() throws IOException

@@ -20,7 +20,7 @@ public class CoachDataAccess
     public static void writeCoach(Coach ch) throws IOException
     {
         // Define the variables
-        File chFl = new File("G:/DAM/Program/Files/coach.ser");
+        File chFl = new File("files/coach.ser");
         
         try
         {

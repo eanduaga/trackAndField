@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 /**
  *
@@ -31,7 +32,7 @@ public class AthleteDataAccess
     public static void writeAthlete(Athlete ath) throws IOException
     {
         // Define the variables
-        File athFl = new File("G:/DAM/Program/Files/athlete.ser");
+        File athFl = new File("files/athlete.ser");
         
         try
         {
@@ -63,6 +64,40 @@ public class AthleteDataAccess
         {
             System.out.println("File not found.");
         }
+    }
+    
+    public static ArrayList <Athlete> writeAthleteArrayList() throws IOException
+    {
+        // Define the variables
+        File athFl = new File("files/athlete.ser");
+        ArrayList <Athlete> alAth = new ArrayList();
+        
+        try
+        {
+            FileInputStream fs = new FileInputStream(athFl);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            
+            try
+            {
+                while(true)
+                {
+                    Athlete ath = new Athlete(false);
+                    ath = (Athlete) os.readObject();
+                    alAth.add(ath);                    
+                }
+            }
+            catch(EOFException ex1)
+            {
+                fs.close();
+                os.close();
+            }
+        }
+        catch(IOException | ClassNotFoundException ex1)
+        {
+            
+        }
+        
+        return alAth;
     }
     
     public static void readAll() throws IOException

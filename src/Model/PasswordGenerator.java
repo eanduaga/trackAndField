@@ -24,7 +24,7 @@ public class PasswordGenerator
         // Define the variables
         String flUser;
         boolean result = true;
-        File flPass = new File("G:/DAM/Program/Files/htpasswd.dat");
+        File flPass = new File("files/htpasswd.dat");
         
         try
         {            
@@ -79,7 +79,7 @@ public class PasswordGenerator
         // Define the variables
         String flUser, flPasswd, flFullName, flEmailAcc;
         boolean result = false;
-        File flPass = new File("G:/DAM/Program/Files/htpasswd.dat");
+        File flPass = new File("files/htpasswd.dat");
         
         try
         {            

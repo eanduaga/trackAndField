@@ -21,7 +21,12 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class TrackAndFieldController implements ActionListener, MouseListener, MouseMotionListener, KeyListener
 {
@@ -30,6 +35,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, M
     Coach chModel;
     Competition compModel;
     Discipline disModel;
+    // Person perModel;
     Registration regModel;
     Result rsModel;
     Schedule schModel;
@@ -67,7 +73,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, M
     private manageTeam mgTmView;
     
     // Define the constructor
-    public TrackAndFieldController(Athlete ath, Coach ch, Competition comp, Discipline dis, Registration reg, Result rs,
+    public TrackAndFieldController(Athlete ath, Coach ch, Competition comp, Discipline dis, /*Person per,*/ Registration reg, Result rs,
     Schedule sch, Team tm, AthleteDataAccess ada, CoachDataAccess chda, CompetitionDataAccess cda, DisciplineDataAccess dda, 
     RegistrationDataAccess rda, ResultDataAccess rsda, ScheduleDataAccess sda, TeamDataAccess tda, PasswordGenerator pg, login lgm, 
     newAccount nav, mainPage mp, mainPageGuest mpg, addAthlete aAth, addCoach aCh, addCompetition aComp, addDiscipline aDis, addRegistration aReg, 
@@ -79,6 +85,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, M
         chModel = ch;
         compModel = comp;
         disModel = dis;
+        // perModel = per;
         regModel = reg;
         rsModel = rs;
         schModel = sch;
@@ -319,17 +326,96 @@ public class TrackAndFieldController implements ActionListener, MouseListener, M
         
         else if(ae.getSource() == addDisView.jButton_save)
         {
+            // Create an empty object
+            Discipline dis = new Discipline(false);
             
+            // Give values to the object using the information the user has entered in the textfields
+            dis.setCode();
+            dis.setName(addDisView.jTextField_name.getText());
+            dis.setDescription(addDisView.jTextField_description.getText());
+            dis.setWorldRecord(Float.parseFloat(addDisView.jTextField_maleWR.getText()));
+            
+            // Write the object in a file using the method WriteCompetition
+            try
+            {
+                disMeth.writeDiscipline(dis);
+            }
+            catch(Exception ex)
+            {
+                System.out.println("Error.");
+            }
+            
+            // Erase the values of the textfields
+            addDisView.jTextField_name.setText(null);
+            addDisView.jTextField_description.setText(null);
+            addDisView.jTextField_maleWR.setText(null);
+            addDisView.jTextField_femaleWR.setText(null);
         }
         
         else if(ae.getSource() == addRegView.jButton_save)
         {
+            // Create an empty object
+            Registration reg = new Registration(false);
             
+            // Give values to the object using the information the user has entered in the textfields
+            reg.setCode();
+            reg.setAthlete(addRegView.jComboBox_athlete.getSelectedItem().toString());
+            reg.setCompetition(addRegView.jComboBox_competition.getSelectedItem().toString());
+            
+            // Write the object in a file using the method WriteCompetition
+            try
+            {
+                regMeth.writeRegistration(reg);
+            }
+            catch(Exception ex)
+            {
+                System.out.println("Error.");
+            }
+            
+            // Erase the values of the textfields
+            addRegView.jComboBox_athlete.setSelectedIndex(0);
+            addRegView.jComboBox_competition.setSelectedIndex(0);
+
         }
         
         else if(ae.getSource() == addRsView.jButton_save)
         {
+            // Create an empty object
+            Result rs = new Result(false);
             
+            // Give values to the object using the information the user has entered in the textfields
+            rs.setCode();
+            rs.setCompetition(addRsView.jComboBox_competition.getSelectedItem().toString());
+            rs.setDiscipline(addRsView.jComboBox_discipline.getSelectedItem().toString());
+            rs.setGender(addRsView.jComboBox_gender.getSelectedItem().toString());
+            rs.setAthlete(addRsView.jComboBox_athlete.getSelectedItem().toString());
+            rs.setRound(addRsView.jComboBox_round.getSelectedItem().toString());
+            rs.setPosition(Integer.parseInt(addRsView.jTextField_position.getText()));
+            rs.setTime(Float.parseFloat(addRsView.jTextField_time.getText()));
+            rs.setDate(addRsView.jXDatePicker_rsDate.getDate());
+            
+            
+            // Write the object in a file using the method WriteCompetition
+            try
+            {
+                rsMeth.writeResult(rs);
+            }
+            catch(Exception ex)
+            {
+                System.out.println("Error.");
+            }
+            
+            // Erase the values of the textfields
+            
+            addRsView.jComboBox_competition.setSelectedIndex(0);
+            addRsView.jComboBox_discipline.setSelectedIndex(0);
+            addRsView.jComboBox_gender.setSelectedIndex(0);
+            addRsView.jComboBox_athlete.setSelectedIndex(0);
+            addRsView.jComboBox_round.setSelectedIndex(0);
+            addRsView.jTextField_position.setText(null);
+            addRsView.jTextField_time.setText(null);
+            addRsView.jXDatePicker_rsDate.setDate(null);
+                    
         }
         
         else if(ae.getSource() == addSchView.jButton_save)
@@ -365,7 +451,35 @@ public class TrackAndFieldController implements ActionListener, MouseListener, M
         
         else if(me.getSource() == mainPage.jLabel_leftMenuAth)
         {
+            // Open Athlete Management view
             mgAthView.setVisible(true);
+            
+            // Show athlete info on the table of the management view
+            ArrayList <Athlete> alAth = new ArrayList();
+            int i;
+            
+            try
+            {
+                alAth = athMeth.writeAthleteArrayList();
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel athTb = (DefaultTableModel) mgAthView.jTable_athleteData.getModel();
+            
+            /*
+            for(i = 0; i < alAth.size(); ++i)
+            {
+                Athlete ath = alAth.get(i);
+                athTb.setValueAt(ath.getAddress(), i, 0);
+                athTb.setValueAt(ath.getName(), i, 1);
+                athTb.setValueAt(ath.getSurname(), i, 2);
+                athTb.setValueAt(ath.getEmail(), i, 3);
+                athTb.setValueAt(ath.getPhoneNum(), i, 4);
+            }
+*/
         }
         
         else if(me.getSource() == mainPage.jLabel_leftMenuCoach)
@@ -375,7 +489,34 @@ public class TrackAndFieldController implements ActionListener, MouseListener, M
         
         else if(me.getSource() == mainPage.jLabel_leftMenuComp)
         {
+            // Open the Competition Management view
             mgCompView.setVisible(true);
+            
+            // Show competition info on the table of the management view
+            ArrayList <Competition> alComp = new ArrayList();
+            int i;
+            
+            try
+            {
+                alComp = compMeth.writeCompetitionArrayList();
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel compTb = (DefaultTableModel) mgCompView.jTable_competitionData.getModel();
+            
+            for(i = 0; i < alComp.size(); ++i)
+            {
+                Competition comp = alComp.get(i);
+                compTb.setValueAt(comp.getCode(), i, 0);
+                compTb.setValueAt(comp.getName(), i, 1);
+                compTb.setValueAt(comp.getDescription(), i, 2);
+                compTb.setValueAt(comp.getLocation(), i, 3);
+                compTb.setValueAt(comp.getStartDate(), i, 4);
+                compTb.setValueAt(comp.getEndDate(), i, 5);
+            }
         }
         
         else if(me.getSource() == mainPage.jLabel_leftMenuDis)

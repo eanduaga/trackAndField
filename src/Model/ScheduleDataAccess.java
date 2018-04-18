@@ -20,7 +20,7 @@ public class ScheduleDataAccess
     public static void writeSchedule(Schedule sch) throws IOException
     {
         // Define the variables
-        File schFl = new File("G:/DAM/Program/Files/schedule.ser");
+        File schFl = new File("files/schedule.ser");
         
         try
         {

@@ -41,7 +41,7 @@ public class Person
     // Define the constructor
     public Person()
     {
-        setID();
+        /*setID();
         setName();
         setSurname();
         setCountry();
@@ -50,7 +50,7 @@ public class Person
         setNationality();
         setBirthDate();
         setEmail();
-        setPhoneNum();
+        setPhoneNum();*/
     }
     public Person(boolean bl)
     {

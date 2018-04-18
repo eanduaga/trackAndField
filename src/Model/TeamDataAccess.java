@@ -20,7 +20,7 @@ public class TeamDataAccess
     public static void writeTeam(Team tm) throws IOException
     {
         // Define the variables
-        File tmFl = new File("G:/DAM/Program/Files/team.ser");
+        File tmFl = new File("files/team.ser");
         
         try
         {

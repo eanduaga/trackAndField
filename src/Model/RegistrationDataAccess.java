@@ -20,7 +20,7 @@ public class RegistrationDataAccess
     public static void writeRegistration(Registration reg) throws IOException
     {
         // Define the variables
-        File regFl = new File("G:/DAM/Program/Files/registration.ser");
+        File regFl = new File("files/registration.ser");
         
         try
         {

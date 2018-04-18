@@ -20,7 +20,7 @@ public class ResultDataAccess
     public static void writeResult(Result rs) throws IOException
     {
         // Define the variables
-        File rsFl = new File("G:/DAM/Program/Files/result.ser");
+        File rsFl = new File("files/result.ser");
         
         try
         {
