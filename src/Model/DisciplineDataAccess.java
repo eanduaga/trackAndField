@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 public class DisciplineDataAccess
 {
@@ -65,6 +66,40 @@ public class DisciplineDataAccess
         {
             System.out.println("File not found.");
         }
+    }
+    
+    public static ArrayList <Discipline> writeDisciplineArrayList() throws IOException
+    {
+        // Define the variables
+        File disFl = new File("files/discipline.ser");
+        ArrayList <Discipline> alDis = new ArrayList();
+        
+        try
+        {
+            FileInputStream fs = new FileInputStream(disFl);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            
+            try
+            {
+                while(true)
+                {
+                    Discipline dis = new Discipline(false);
+                    dis = (Discipline) os.readObject();
+                    alDis.add(dis);                    
+                }
+            }
+            catch(EOFException ex1)
+            {
+                fs.close();
+                os.close();
+            }
+        }
+        catch(IOException | ClassNotFoundException ex1)
+        {
+            
+        }
+        
+        return alDis;
     }
     
     public static void readAll() throws IOException

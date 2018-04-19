@@ -19,6 +19,7 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.time.Year;
 
 public class Coach extends Person implements Serializable
 {
@@ -29,7 +30,7 @@ public class Coach extends Person implements Serializable
     public static final String ANSI_RESET = "\u001B[0m";
     
     // Define the members
-    private Date startYear;
+    private Year startYear;
     
     // Define the constructor
     public Coach()
@@ -51,7 +52,7 @@ public class Coach extends Person implements Serializable
     }
     
     // Define the setters
-    public void setStartYear(Date CoachStartYear)
+    public void setStartYear(Year CoachStartYear)
     {
         startYear = CoachStartYear;
     }
@@ -75,23 +76,15 @@ public class Coach extends Person implements Serializable
         }
         
         // Parse the information to date format
-        try
-        {
-            startYear = df.parse(line);
-        }
-        catch (ParseException ex2)
-        {
-            System.out.println(ANSI_RED + "Incorrect date format. Please, introduce the information again." + ANSI_RESET);
-            setStartYear();
-        }
+        startYear = Year.parse(line);
     }
     
     // Define the getters
-    public Date getStartYear()
+    public Year getStartYear()
     {
         return startYear;
     }
-    public void getStartYear(Date CoachStartYear)
+    public void getStartYear(Year CoachStartYear)
     {
         System.out.println("Start Year: " + CoachStartYear);
     }

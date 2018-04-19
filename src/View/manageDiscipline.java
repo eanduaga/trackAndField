@@ -287,10 +287,7 @@ public class manageDiscipline extends javax.swing.JFrame {
         jTable_disciplineData.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTable_disciplineData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "CODE", "NAME", "DESCRIPTION", "MALE WR", "FEMALE WR"
@@ -311,6 +308,8 @@ public class manageDiscipline extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable_disciplineData.setSelectionBackground(new java.awt.Color(210, 87, 34));
+        jTable_disciplineData.setSelectionForeground(new java.awt.Color(242, 242, 242));
         jTable_disciplineData.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable_disciplineData);
         if (jTable_disciplineData.getColumnModel().getColumnCount() > 0) {

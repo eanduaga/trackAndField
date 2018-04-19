@@ -287,10 +287,7 @@ public class manageCompetition extends javax.swing.JFrame {
         jTable_competitionData.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTable_competitionData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "CODE", "NAME", "DESCRIPTION", "LOCATION", "START DATE", "END DATE"
@@ -311,6 +308,8 @@ public class manageCompetition extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable_competitionData.setSelectionBackground(new java.awt.Color(210, 87, 34));
+        jTable_competitionData.setSelectionForeground(new java.awt.Color(242, 242, 242));
         jTable_competitionData.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable_competitionData);
         if (jTable_competitionData.getColumnModel().getColumnCount() > 0) {

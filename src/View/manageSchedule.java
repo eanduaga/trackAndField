@@ -289,20 +289,17 @@ public class manageSchedule extends javax.swing.JFrame {
         jTable_scheduleData.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTable_scheduleData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "CODE", "COMPETITION", "DISCIPLINE", "DATE"
+                "CODE", "COMPETITION", "DISCIPLINE", "DATE", "ROUND", "GENDER"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -313,6 +310,8 @@ public class manageSchedule extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable_scheduleData.setSelectionBackground(new java.awt.Color(210, 87, 34));
+        jTable_scheduleData.setSelectionForeground(new java.awt.Color(242, 242, 242));
         jTable_scheduleData.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable_scheduleData);
         if (jTable_scheduleData.getColumnModel().getColumnCount() > 0) {

@@ -46,7 +46,7 @@ public class addSchedule extends javax.swing.JFrame {
         jComboBox_discipline = new javax.swing.JComboBox<>();
         jComboBox_gender = new javax.swing.JComboBox<>();
         jComboBox_round = new javax.swing.JComboBox<>();
-        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        jXDatePicker_schDate = new org.jdesktop.swingx.JXDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -155,11 +155,11 @@ public class addSchedule extends javax.swing.JFrame {
         jComboBox_round.setToolTipText("");
         jPanel1.add(jComboBox_round, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 300, 30));
 
-        jXDatePicker1.setForeground(new java.awt.Color(52, 50, 46));
-        jXDatePicker1.setToolTipText("Schedule Date");
-        jXDatePicker1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jXDatePicker1.setName(""); // NOI18N
-        jPanel1.add(jXDatePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 300, 30));
+        jXDatePicker_schDate.setForeground(new java.awt.Color(52, 50, 46));
+        jXDatePicker_schDate.setToolTipText("Schedule Date");
+        jXDatePicker_schDate.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jXDatePicker_schDate.setName(""); // NOI18N
+        jPanel1.add(jXDatePicker_schDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 300, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,6 +249,6 @@ public class addSchedule extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_viewTitle;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel_header;
-    public org.jdesktop.swingx.JXDatePicker jXDatePicker1;
+    public org.jdesktop.swingx.JXDatePicker jXDatePicker_schDate;
     // End of variables declaration//GEN-END:variables
 }

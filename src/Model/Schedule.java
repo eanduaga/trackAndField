@@ -34,7 +34,10 @@ public class Schedule implements Serializable
     private String competition;
     private String discipline;
     private Date sDate;
+    private String round;
+    private String gender;
     
+    /*
     // Define the constructor
     public Schedule()
     {
@@ -43,6 +46,7 @@ public class Schedule implements Serializable
         setDiscipline();
         setDate();
     }
+    */
     public Schedule(boolean bl)
     {
         
@@ -55,6 +59,8 @@ public class Schedule implements Serializable
         getCompetition(competition);
         getDiscipline(discipline);
         getDate(sDate);
+        getRound(round);
+        getGender(gender);
     }
     
     // Define the setters
@@ -165,6 +171,44 @@ public class Schedule implements Serializable
         }
     }
     
+    public void setRound(String ScheduleRound)
+    {
+        round = ScheduleRound;
+    }
+    public void setRound()
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        try
+        {
+            System.out.print("Enter the round: ");
+            round = reader.readLine();
+        }
+        catch(IOException er1)
+        {
+            System.out.println("Couldn't read.");
+        }
+    }
+    
+    public void setGender(String ScheduleGender)
+    {
+        gender = ScheduleGender;
+    }
+    public void setGender()
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        try
+        {
+            System.out.print("Enter the gender: ");
+            gender = reader.readLine();
+        }
+        catch(IOException er1)
+        {
+            System.out.println("Couldn't read.");
+        }
+    }
+    
     // Define the getters
     public String getCode()
     {
@@ -201,4 +245,22 @@ public class Schedule implements Serializable
    {
        System.out.println("Date: " + ScheduleDate);
    }
+   
+   public String getRound()
+    {
+        return round;
+    }
+    public void getRound(String ScheduleRound)
+    {
+        System.out.println("Round: " + ScheduleRound);
+    }
+    
+    public String getGender()
+    {
+        return gender;
+    }
+    public void getGender(String ScheduleGender)
+    {
+        System.out.println("Gender: " + ScheduleGender);
+    }
 }

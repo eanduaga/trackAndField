@@ -289,10 +289,7 @@ public class manageAthlete extends javax.swing.JFrame {
         jTable_athleteData.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTable_athleteData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "NAME", "SURNAME", "EMAIL", "PHONE NUMBER"
@@ -313,6 +310,8 @@ public class manageAthlete extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable_athleteData.setSelectionBackground(new java.awt.Color(210, 87, 34));
+        jTable_athleteData.setSelectionForeground(new java.awt.Color(242, 242, 242));
         jTable_athleteData.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable_athleteData);
         if (jTable_athleteData.getColumnModel().getColumnCount() > 0) {

@@ -288,20 +288,17 @@ public class manageResult extends javax.swing.JFrame {
         jTable_resultData.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTable_resultData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "CODE", "NAME", "DESCRIPTION", "LOCATION", "START DATE", "END DATE"
+                "CODE", "COMPETITION", "DISCIPLINE", "GENDER", "ATHLETE", "ROUND", "TIME", "POSITION", "DATE"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -312,6 +309,8 @@ public class manageResult extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable_resultData.setSelectionBackground(new java.awt.Color(210, 87, 34));
+        jTable_resultData.setSelectionForeground(new java.awt.Color(242, 242, 242));
         jTable_resultData.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable_resultData);
         if (jTable_resultData.getColumnModel().getColumnCount() > 0) {

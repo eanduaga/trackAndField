@@ -12,13 +12,14 @@ package Model;
  */ 
 
 // Import the libraries
+import java.io.Serializable;
 import java.text.ParseException;
 import java.util.Scanner;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Random;
 
-public class Person
+public class Person implements Serializable
 {
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";

@@ -288,10 +288,7 @@ public class manageRegistration extends javax.swing.JFrame {
         jTable_registrationData.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTable_registrationData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "CODE", "ATHLETE", "COMPETITION", "REGISTRATION DATE"
@@ -312,6 +309,8 @@ public class manageRegistration extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable_registrationData.setSelectionBackground(new java.awt.Color(210, 87, 34));
+        jTable_registrationData.setSelectionForeground(new java.awt.Color(242, 242, 242));
         jTable_registrationData.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable_registrationData);
         if (jTable_registrationData.getColumnModel().getColumnCount() > 0) {
