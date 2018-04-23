@@ -34,13 +34,34 @@ public class Competition implements Serializable
     private String name;
     private String description;
     private String location;
-    private String startDate;
-    private String endDate;
+    private Date startDate;
+    private Date endDate;
     
     // Define the constructor
+    // Define the constructor
+    public Competition()
+    {
+        setCode();
+        setName();
+        setDescription();
+        setLocation();
+        setStartDate();
+        setEndDate();
+    }
     public Competition(boolean bl)
     {
         
+    }
+    
+    // Define a method to print the information
+    public void printInfo()
+    {
+        getCode(code);
+        getName(name);
+        getDescription(description);
+        getLocation(location);
+        getStartDate(startDate);
+        getEndDate(endDate);
     }
     
     // Define the setters
@@ -134,7 +155,7 @@ public class Competition implements Serializable
         }
     }
     
-    public void setStartDate(String CompetitionStartDate)
+    public void setStartDate(Date CompetitionStartDate)
     {
         startDate = CompetitionStartDate;
     }
@@ -151,15 +172,13 @@ public class Competition implements Serializable
         System.out.print("Enter the start date (dd/mm/yyyy): ");
         try
         {
-            startDate = reader.readLine();
-            //line = reader.readLine();
+            line = reader.readLine();
         }
         catch (IOException ex1)
         {
             
         }
-        
-        /*
+
         // Parse the information to date format
         try
         {
@@ -170,10 +189,9 @@ public class Competition implements Serializable
             System.out.println(ANSI_RED + "Incorrect date format. Please, enter the information again." + ANSI_RESET);
             setStartDate();
         }
-*/
     }
     
-    public void setEndDate(String CompetitionEndDate)
+    public void setEndDate(Date CompetitionEndDate)
     {
         endDate = CompetitionEndDate;
     }
@@ -191,15 +209,13 @@ public class Competition implements Serializable
         
         try
         {
-            endDate = reader.readLine();
-            //line = reader.readLine();
+            line = reader.readLine();
         }
         catch(IOException ex1)
         {
             
         }
-        
-        /*
+
         try
         {
             endDate = df.parse(line);
@@ -209,7 +225,6 @@ public class Competition implements Serializable
             System.out.println(ANSI_RED + "Incorrect date format. Please, enter the information again." + ANSI_RESET);
             setEndDate();
         }
-*/
     }
     
     // Define the getters
@@ -217,29 +232,53 @@ public class Competition implements Serializable
     {
         return code;
     }
+    public void getCode(String CompetitionCode)
+    {
+        System.out.println("Code: " + CompetitionCode);
+    }
 
     public String getName()
     {
         return name;
+    }
+    public void getName(String CompetitionName)
+    {
+        System.out.println("Name: " + CompetitionName);
     }
     
     public String getDescription()
     {
         return description;
     }
+    public void getDescription(String CompetitionDescription)
+    {
+        System.out.println("Description: " + CompetitionDescription);
+    }
     
     public String getLocation()
     {
         return location;
     }
+    public void getLocation(String CompetitionLocation)
+    {
+        System.out.println("Location: " + CompetitionLocation);
+    }
     
-    public String getStartDate()
+    public Date getStartDate()
     {
         return startDate;
     }
+    public void getStartDate(Date CompetitionStartDate)
+    {
+        System.out.println("Start date: " + CompetitionStartDate);
+    }
     
-    public String getEndDate()
+    public Date getEndDate()
     {
         return endDate;
+    }
+    public void getEndDate(Date CompetitionEndDate)
+    {
+        System.out.println("End date: " + CompetitionEndDate);
     }
 }

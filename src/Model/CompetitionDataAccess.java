@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  *
@@ -90,6 +91,71 @@ public class CompetitionDataAccess
         }
         
         return alComp;
+    }
+    
+    public static void writeCompFileFromArrayList(ArrayList <Competition> alComp) throws IOException
+    {
+        // Define the variables
+        int i;
+        File cmpFl = new File("files/competition.ser");
+        
+        try
+        {
+            FileOutputStream fs = new FileOutputStream(cmpFl);
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+
+            // Write the objects of the ArrayList and close the file
+            for(i = 0; i < alComp.size(); ++i)
+            {
+                Competition comp = alComp.get(i);
+                os.writeObject(comp);
+            }
+            
+            os.close();
+            fs.close();
+        }
+        catch(FileNotFoundException ex)
+        {
+            System.out.println("File not found.");
+        }
+    }
+    
+    public static ArrayList <Competition> searchCompetitionArrayList(String search) throws IOException
+    {
+        // Define the variables
+        File compFl = new File("files/competition.ser");
+        ArrayList <Competition> alCompSearch = new ArrayList();
+        
+        try
+        {
+            FileInputStream fs = new FileInputStream(compFl);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            
+            try
+            {
+                while(true)
+                {
+                    Competition comp = new Competition(false);
+                    comp = (Competition) os.readObject();
+                    
+                    if(comp.getName().contains(search))
+                    {
+                        alCompSearch.add(comp); 
+                    }                
+                }
+            }
+            catch(EOFException ex1)
+            {
+                fs.close();
+                os.close();
+            }
+        }
+        catch(IOException | ClassNotFoundException ex1)
+        {
+            
+        }
+        
+        return alCompSearch;
     }
     
     public static Competition readAll() throws IOException

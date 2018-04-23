@@ -40,14 +40,14 @@ public class TrackAndField
     private newAccount newAccView;
     private mainPage mainPage;
     private mainPageGuest mpGuest;
-    private addAthlete addAthView;
-    private addCoach addChView;
-    private addCompetition addCompView;
-    private addDiscipline addDisView;
-    private addRegistration addRegView;
-    private addResult addRsView;
-    private addSchedule addSchView;
-    private addTeam addTmView;
+    private addChangeAthlete addAthView;
+    private addChangeCoach addChView;
+    private addChangeCompetition addCompView;
+    private addChangeDiscipline addDisView;
+    private addChangeRegistration addRegView;
+    private addChangeResult addRsView;
+    private addChangeSchedule addSchView;
+    private addChangeTeam addTmView;
     private manageAthlete mgAthView;
     private manageCoach mgChView;
     private manageCompetition mgCompView;
@@ -56,6 +56,7 @@ public class TrackAndField
     private manageResult mgRsView;
     private manageSchedule mgSchView;
     private manageTeam mgTmView;
+    private showOneAth shOneAth;
     
     // Define the controller
     TrackAndFieldController ctrl;
@@ -93,14 +94,14 @@ public class TrackAndField
         newAccView = new newAccount();
         mainPage = new mainPage();
         mpGuest = new mainPageGuest();
-        addAthView = new addAthlete();
-        addChView = new addCoach();
-        addCompView = new addCompetition();
-        addDisView = new addDiscipline();
-        addRegView = new addRegistration();
-        addRsView = new addResult();
-        addSchView = new addSchedule();
-        addTmView = new addTeam();
+        addAthView = new addChangeAthlete();
+        addChView = new addChangeCoach();
+        addCompView = new addChangeCompetition();
+        addDisView = new addChangeDiscipline();
+        addRegView = new addChangeRegistration();
+        addRsView = new addChangeResult();
+        addSchView = new addChangeSchedule();
+        addTmView = new addChangeTeam();
         mgAthView = new manageAthlete();
         mgChView = new manageCoach();
         mgCompView = new manageCompetition();
@@ -109,11 +110,12 @@ public class TrackAndField
         mgRsView = new manageResult();
         mgSchView = new manageSchedule();
         mgTmView = new manageTeam();
+        shOneAth = new showOneAth();
         
         ctrl = new TrackAndFieldController(athModel, chModel, compModel, disModel, /*perModel,*/ regModel, rsModel, schModel, tmModel, 
         athMeth, chMeth, compMeth, disMeth, regMeth, rsMeth, schMeth, tmMeth, passwdGen, loginMenu, newAccView, mainPage, mpGuest, 
         addAthView, addChView, addCompView, addDisView, addRegView, addRsView, addSchView, addTmView, mgAthView, mgChView, mgCompView, 
-        mgDisView, mgRegView, mgRsView, mgSchView, mgTmView);
+        mgDisView, mgRegView, mgRsView, mgSchView, mgTmView, shOneAth);
         loginMenu.setVisible(true);
     }
 }

@@ -511,7 +511,7 @@ public class manageDiscipline extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     public javax.swing.JTable jTable_disciplineData;
-    private javax.swing.JTextField jTextField_search;
+    public javax.swing.JTextField jTextField_search;
     private javax.swing.JPanel leftPanel_add;
     private javax.swing.JPanel leftPanel_change;
     private javax.swing.JPanel leftPanel_delete;

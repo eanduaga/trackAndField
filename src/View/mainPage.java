@@ -93,8 +93,18 @@ public class mainPage extends javax.swing.JFrame {
         jLabel_image = new javax.swing.JLabel();
         jPanel_resultRight = new javax.swing.JPanel();
         jLabel_rightPanelResults = new javax.swing.JLabel();
+        jPanel_result1 = new javax.swing.JPanel();
+        jLabel_result1DisciplineGender = new javax.swing.JLabel();
+        jLabel_result1Athlete = new javax.swing.JLabel();
+        jLabel_result1Time = new javax.swing.JLabel();
+        jPanel_result2 = new javax.swing.JPanel();
+        jPanel_result3 = new javax.swing.JPanel();
         jPanel_scheduleRight = new javax.swing.JPanel();
         jLabel_rightPanelSchedule = new javax.swing.JLabel();
+        jPanel_schedule4 = new javax.swing.JPanel();
+        jPanel_schedule3 = new javax.swing.JPanel();
+        jPanel_schedule1 = new javax.swing.JPanel();
+        jPanel_schedule2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -581,13 +591,41 @@ public class mainPage extends javax.swing.JFrame {
 
         jPanel_mainPage.add(jPanel_imageSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, 680, 450));
 
-        jPanel_resultRight.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel_resultRight.setBackground(new java.awt.Color(242, 242, 242));
         jPanel_resultRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel_rightPanelResults.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel_rightPanelResults.setForeground(new java.awt.Color(52, 50, 46));
-        jLabel_rightPanelResults.setText("RESULTS");
-        jPanel_resultRight.add(jLabel_rightPanelResults, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 180, 40));
+        jLabel_rightPanelResults.setText("LATEST RESULTS");
+        jPanel_resultRight.add(jLabel_rightPanelResults, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 180, 30));
+
+        jPanel_result1.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel_result1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 50, 46)));
+        jPanel_result1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_result1DisciplineGender.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_result1DisciplineGender.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_result1.add(jLabel_result1DisciplineGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 290, 30));
+
+        jLabel_result1Athlete.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_result1Athlete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_result1.add(jLabel_result1Athlete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 290, 30));
+
+        jLabel_result1Time.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_result1Time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_result1.add(jLabel_result1Time, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 80, 60));
+
+        jPanel_resultRight.add(jPanel_result1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 420, 100));
+
+        jPanel_result2.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel_result2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 50, 46)));
+        jPanel_result2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel_resultRight.add(jPanel_result2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 420, 100));
+
+        jPanel_result3.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel_result3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 50, 46)));
+        jPanel_result3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel_resultRight.add(jPanel_result3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 420, 100));
 
         jPanel_mainPage.add(jPanel_resultRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 80, 510, 450));
 
@@ -598,6 +636,22 @@ public class mainPage extends javax.swing.JFrame {
         jLabel_rightPanelSchedule.setForeground(new java.awt.Color(52, 50, 46));
         jLabel_rightPanelSchedule.setText("SCHEDULE");
         jPanel_scheduleRight.add(jLabel_rightPanelSchedule, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 180, 40));
+
+        jPanel_schedule4.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel_schedule4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel_scheduleRight.add(jPanel_schedule4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 540, 70));
+
+        jPanel_schedule3.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel_schedule3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel_scheduleRight.add(jPanel_schedule3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 540, 70));
+
+        jPanel_schedule1.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel_schedule1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel_scheduleRight.add(jPanel_schedule1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 540, 70));
+
+        jPanel_schedule2.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel_schedule2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel_scheduleRight.add(jPanel_schedule2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 540, 70));
 
         jPanel_mainPage.add(jPanel_scheduleRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, 1210, 280));
 
@@ -945,6 +999,9 @@ public class mainPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_maximize;
     private javax.swing.JLabel jLabel_minimize;
     private javax.swing.JLabel jLabel_registrationIcon;
+    public javax.swing.JLabel jLabel_result1Athlete;
+    public javax.swing.JLabel jLabel_result1DisciplineGender;
+    public javax.swing.JLabel jLabel_result1Time;
     private javax.swing.JLabel jLabel_resultIcon;
     private javax.swing.JLabel jLabel_rightArrow;
     private javax.swing.JLabel jLabel_rightPanelResults;
@@ -971,9 +1028,16 @@ public class mainPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_registration;
     private javax.swing.JPanel jPanel_registrationLeft;
     private javax.swing.JPanel jPanel_result;
+    private javax.swing.JPanel jPanel_result1;
+    private javax.swing.JPanel jPanel_result2;
+    private javax.swing.JPanel jPanel_result3;
     private javax.swing.JPanel jPanel_resultRight;
     private javax.swing.JPanel jPanel_resultsLeft;
     private javax.swing.JPanel jPanel_schedule;
+    private javax.swing.JPanel jPanel_schedule1;
+    private javax.swing.JPanel jPanel_schedule2;
+    private javax.swing.JPanel jPanel_schedule3;
+    private javax.swing.JPanel jPanel_schedule4;
     private javax.swing.JPanel jPanel_scheduleLeft;
     private javax.swing.JPanel jPanel_scheduleRight;
     private javax.swing.JPanel jPanel_team;

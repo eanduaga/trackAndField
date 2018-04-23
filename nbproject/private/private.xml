@@ -14,9 +14,12 @@
         <group>
             <file>file:/G:/DAM/Program/Java/TrackAndFieldGUI/src/Controller/TrackAndFieldController.java</file>
             <file>file:/G:/DAM/Program/Java/TrackAndFieldGUI/src/View/mainPage.java</file>
+            <file>file:/G:/DAM/Program/Java/TrackAndFieldGUI/src/Model/CompetitionDataAccess.java</file>
             <file>file:/G:/DAM/Program/Java/TrackAndFieldGUI/src/Model/DisciplineDataAccess.java</file>
+            <file>file:/G:/DAM/Program/Java/TrackAndFieldGUI/src/View/addChangeCompetition.java</file>
             <file>file:/G:/DAM/Program/Java/TrackAndFieldGUI/src/Model/Competition.java</file>
             <file>file:/G:/DAM/Program/Java/TrackAndFieldGUI/src/Model/Coach.java</file>
+            <file>file:/G:/DAM/Program/Java/TrackAndFieldGUI/src/View/addChangeTeam.java</file>
             <file>file:/G:/DAM/Program/Java/TrackAndFieldGUI/src/Model/AthleteDataAccess.java</file>
         </group>
     </open-files>

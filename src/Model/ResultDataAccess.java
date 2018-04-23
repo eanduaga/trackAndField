@@ -5,11 +5,15 @@
  */
 package Model;
 
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 /**
  *
@@ -54,6 +58,37 @@ public class ResultDataAccess
         }
     }
     
-    
-    
+    public static ArrayList <Result> writeResultArrayList() throws IOException
+    {
+        // Define the variables
+        File rsFl = new File("files/result.ser");
+        ArrayList <Result> alRs = new ArrayList();
+        
+        try
+        {
+            FileInputStream fs = new FileInputStream(rsFl);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            
+            try
+            {
+                while(true)
+                {
+                    Result rs = new Result(false);
+                    rs = (Result) os.readObject();
+                    alRs.add(rs);                    
+                }
+            }
+            catch(EOFException ex1)
+            {
+                fs.close();
+                os.close();
+            }
+        }
+        catch(IOException | ClassNotFoundException ex1)
+        {
+            
+        }
+        
+        return alRs;
+    }
 }

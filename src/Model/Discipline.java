@@ -29,7 +29,7 @@ public class Discipline implements Serializable
     private String code;
     private String name;
     private String description;
-    private float worldRecord;
+    private float[] worldRecord;
     
     // Define the constructor
     public Discipline()
@@ -110,18 +110,29 @@ public class Discipline implements Serializable
         description = in.nextLine();
     }
     
-    public void setWorldRecord(float DisciplineWorldRecord)
+    public void setWorldRecord(float[] DisciplineWorldRecord)
     {
         worldRecord = DisciplineWorldRecord;
     }
     public void setWorldRecord()
     {
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter the World Record (WR): ");
-
+        
+        System.out.print("Enter the male World Record (WR): ");
         try
         {
-            worldRecord = in.nextFloat();
+            worldRecord[0] = in.nextFloat();
+        }
+        catch(InputMismatchException ex1)
+        {
+            System.out.println(ANSI_RED + "Please, enter a float number using the comma." + ANSI_RESET);
+            setWorldRecord();
+        }
+        
+        System.out.print("Enter the female World Record (WR): ");
+        try
+        {
+            worldRecord[1] = in.nextFloat();
         }
         catch(InputMismatchException ex1)
         {
@@ -158,11 +169,11 @@ public class Discipline implements Serializable
         System.out.println("Description: " + DisciplineDescription);
     }
     
-    public float getWorldRecord()
+    public float[] getWorldRecord()
     {
         return worldRecord;
     }
-    public void getWorldRecord(float DisciplineWorldRecord)
+    public void getWorldRecord(float[] DisciplineWorldRecord)
     {
         System.out.println("World Record: " + DisciplineWorldRecord);
     }
