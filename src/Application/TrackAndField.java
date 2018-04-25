@@ -34,10 +34,12 @@ public class TrackAndField
     private ScheduleDataAccess schMeth;
     private TeamDataAccess tmMeth;
     private PasswordGenerator passwdGen;
+    private SendMailMethods sendMailMeth;
     
     // Define the view members
     private login loginMenu;
     private newAccount newAccView;
+    private accountRecovery accRecovery;
     private mainPage mainPage;
     private mainPageGuest mpGuest;
     private addChangeAthlete addAthView;
@@ -88,10 +90,12 @@ public class TrackAndField
         schMeth = new ScheduleDataAccess();
         tmMeth = new TeamDataAccess();
         passwdGen = new PasswordGenerator();
+        sendMailMeth = new SendMailMethods();
         
         // Initialize the view members
         loginMenu = new login();
         newAccView = new newAccount();
+        accRecovery = new accountRecovery();
         mainPage = new mainPage();
         mpGuest = new mainPageGuest();
         addAthView = new addChangeAthlete();
@@ -113,8 +117,8 @@ public class TrackAndField
         shOneAth = new showOneAth();
         
         ctrl = new TrackAndFieldController(athModel, chModel, compModel, disModel, /*perModel,*/ regModel, rsModel, schModel, tmModel, 
-        athMeth, chMeth, compMeth, disMeth, regMeth, rsMeth, schMeth, tmMeth, passwdGen, loginMenu, newAccView, mainPage, mpGuest, 
-        addAthView, addChView, addCompView, addDisView, addRegView, addRsView, addSchView, addTmView, mgAthView, mgChView, mgCompView, 
+        athMeth, chMeth, compMeth, disMeth, regMeth, rsMeth, schMeth, tmMeth, passwdGen, sendMailMeth, loginMenu, newAccView, accRecovery, mainPage, 
+        mpGuest, addAthView, addChView, addCompView, addDisView, addRegView, addRsView, addSchView, addTmView, mgAthView, mgChView, mgCompView, 
         mgDisView, mgRegView, mgRsView, mgSchView, mgTmView, shOneAth);
         
         loginMenu.setVisible(true);

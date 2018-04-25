@@ -114,4 +114,47 @@ public class PasswordGenerator
         
         return result;
     }
+    
+    public static String[] passwordRecovery(String emailAcc)
+    {
+        // Define the variables
+        String flUser, flPasswd, flFullName, flEmailAcc;
+        String[] result = new String[3];
+        File flPass = new File("files/htpasswd.dat");
+        
+        try
+        {            
+            FileInputStream fis = new FileInputStream(flPass);
+            DataInputStream dis = new DataInputStream(fis);
+                
+            try
+            {
+                while(true)
+                {
+                    flUser = dis.readUTF();
+                    flPasswd = dis.readUTF();
+                    flFullName = dis.readUTF();
+                    flEmailAcc = dis.readUTF();
+                    
+                    if(emailAcc.equals(flEmailAcc))
+                    {
+                        result[0] = flPasswd;
+                        result[1] = flFullName;
+                        result[2] = flEmailAcc;
+                    }
+                }
+            }
+            catch(EOFException eof)
+            {
+                fis.close();
+                dis.close();
+            }
+        }
+        catch(IOException ex1)
+        {
+            
+        }
+        
+        return result;
+    }
 }

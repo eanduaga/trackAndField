@@ -51,10 +51,12 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
     private ScheduleDataAccess schMeth;
     private TeamDataAccess tmMeth;
     private PasswordGenerator passwdGen;
+    private SendMailMethods sendMailMeth;
     
     // Define the view members
     private login loginMenu;
     private newAccount newAccView;
+    private accountRecovery accRecovery;
     private mainPage mainPage;
     private mainPageGuest mpGuest;
     private addChangeAthlete addChgAthView;
@@ -78,10 +80,11 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
     // Define the constructor
     public TrackAndFieldController(Athlete ath, Coach ch, Competition comp, Discipline dis, /*Person per,*/ Registration reg, Result rs,
     Schedule sch, Team tm, AthleteDataAccess ada, CoachDataAccess chda, CompetitionDataAccess cda, DisciplineDataAccess dda, 
-    RegistrationDataAccess rda, ResultDataAccess rsda, ScheduleDataAccess sda, TeamDataAccess tda, PasswordGenerator pg, login lgm, 
-    newAccount nav, mainPage mp, mainPageGuest mpg, addChangeAthlete aAth, addChangeCoach aCh, addChangeCompetition aComp, addChangeDiscipline aDis, addChangeRegistration aReg, 
-    addChangeResult aRs, addChangeSchedule aSch, addChangeTeam aTm, manageAthlete mgAth, manageCoach mgCh, manageCompetition mgComp, manageDiscipline mgDis, 
-    manageRegistration mgReg, manageResult mgRs, manageSchedule mgSch, manageTeam mgTm, showOneAth shAth)
+    RegistrationDataAccess rda, ResultDataAccess rsda, ScheduleDataAccess sda, TeamDataAccess tda, PasswordGenerator pg, SendMailMethods smm, 
+    login lgm, newAccount nav, accountRecovery ar, mainPage mp, mainPageGuest mpg, addChangeAthlete aAth, addChangeCoach aCh, 
+    addChangeCompetition aComp, addChangeDiscipline aDis, addChangeRegistration aReg, addChangeResult aRs, addChangeSchedule aSch, addChangeTeam aTm, 
+    manageAthlete mgAth, manageCoach mgCh, manageCompetition mgComp, manageDiscipline mgDis, manageRegistration mgReg, manageResult mgRs, 
+    manageSchedule mgSch, manageTeam mgTm, showOneAth shAth)
     {
         // Giving values to the model members
         athModel = ath;
@@ -103,10 +106,12 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         schMeth = sda;
         tmMeth = tda;
         passwdGen = pg;
+        sendMailMeth = smm;
         
         // Giving values to the view members
         loginMenu = lgm;
         newAccView = nav;
+        accRecovery = ar;
         mainPage = mp;
         mpGuest = mpg;
         addChgAthView = aAth;
@@ -130,10 +135,13 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         // ActionListeners and MouseListeners
         /* Login, New Account, MainPage */
         loginMenu.jButton_login.addActionListener(this);
+        loginMenu.jLabel_forgotPasswd.addMouseListener(this);
         loginMenu.jLabel_newAccount.addMouseListener(this);
         loginMenu.jLabel_continueToApp.addMouseListener(this);
         newAccView.jButton_send.addActionListener(this);
         newAccView.jLabel_back.addMouseListener(this);
+        accRecovery.jButton_send.addActionListener(this);
+        accRecovery.jLabel_back.addMouseListener(this);
         mainPage.jLabel_leftMenuAth.addMouseListener(this);
         mainPage.jLabel_leftMenuCoach.addMouseListener(this);
         mainPage.jLabel_leftMenuComp.addMouseListener(this);
@@ -207,6 +215,10 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         loginMenu.jPasswordField_password.addKeyListener(this);
         loginMenu.jTextField_username.addKeyListener(this);
         loginMenu.jButton_login.addKeyListener(this);
+        newAccView.jTextField_email.addKeyListener(this);
+        newAccView.jButton_send.addKeyListener(this);
+        accRecovery.jTextField_email.addKeyListener(this);
+        accRecovery.jButton_send.addKeyListener(this);
         addChgAthView.jButton_save.addKeyListener(this);
         addChgAthView.jComboBox_team.addKeyListener(this);
         mgAthView.jTextField_search.addKeyListener(this);
@@ -255,6 +267,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
                 mainPage.setVisible(true);
                 loginMenu.setVisible(false);
                 
+                // The following code shows the first 3 results in the main page
                 try
                 {
                     alRs = rsMeth.writeResultArrayList();
@@ -286,10 +299,32 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             // Call the method writePassword with the information above
             boolean result = passwdGen.writePassword(username, passwd, fullName, emailAcc);
             
+            // Send an email with the information (to the admin of the app)
+            sendMailMeth.SendMailNewAccount(username, fullName, emailAcc);
+            
             // Show a message if the username already exists
             if(result == false)
             {
                 JOptionPane.showMessageDialog(newAccView, "That username already exists.", "Incorrect", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        
+        else if(ae.getSource() == accRecovery.jButton_send)
+        {
+            // Get the value of the email textfield
+            String recEmailAcc = accRecovery.jTextField_email.getText();
+            
+            // If the 
+            String[] flInfo = passwdGen.passwordRecovery(recEmailAcc);
+            
+            if(flInfo[2] != null)
+            {
+                sendMailMeth.SendMailAccountRecovery(flInfo);
+            }
+            
+            else
+            {
+                JOptionPane.showMessageDialog(newAccView, "We can't recognise the email account you have entered.", "Incorrect", JOptionPane.ERROR_MESSAGE);
             }
         }
         
@@ -580,6 +615,12 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             loginMenu.setVisible(false);
         }
         
+        else if(me.getSource() == loginMenu.jLabel_forgotPasswd)
+        {
+            accRecovery.setVisible(true);
+            loginMenu.setVisible(false);
+        }
+        
         else if(me.getSource() == loginMenu.jLabel_continueToApp)
         {
             mpGuest.setVisible(true);
@@ -588,6 +629,12 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         else if(me.getSource() == newAccView.jLabel_back)
         {
             newAccView.setVisible(false);
+            loginMenu.setVisible(true);
+        }
+        
+        else if(me.getSource() == accRecovery.jLabel_back)
+        {
+            accRecovery.setVisible(false);
             loginMenu.setVisible(true);
         }
         
@@ -952,6 +999,27 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         else if(me.getSource() == mgAthView.jLabel_add)
         {
             addChgAthView.setVisible(true);
+            
+            /** Set values to the ComboBoxes **/
+            // Define the variables
+            ArrayList <Team> alAthTm = new ArrayList();
+            int i;
+            
+            // Get the information from the file and store it in the ArrayList
+            try
+            {
+                alAthTm = tmMeth.writeTeamArrayList();
+            }
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            for(i = 0; i < alAthTm.size(); ++i)
+            {
+                Team tm = alAthTm.get(i);
+                addChgAthView.jComboBox_team.addItem(tm.getName());
+            }
         }
         
         else if(me.getSource() == mgAthView.jLabel_change)
@@ -1109,6 +1177,36 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         else if(me.getSource() == mgRegView.jLabel_add)
         {
             addChgRegView.setVisible(true);
+            
+            /** Set values to the ComboBoxes **/
+            // Define the variables
+            ArrayList <Athlete> alRegAth = new ArrayList();
+            ArrayList <Competition> alRegComp = new ArrayList();
+            int i;
+            
+            // Get the information from the file and store it in the ArrayList
+            try
+            {
+                alRegAth = athMeth.writeAthleteArrayList();
+                alRegComp = compMeth.writeCompetitionArrayList();
+                
+            }
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            for(i = 0; i < alRegAth.size(); ++i)
+            {
+                Athlete ath = alRegAth.get(i);
+                addChgRegView.jComboBox_athlete.addItem(ath.getName());
+            }
+            
+            for(i = 0; i < alRegComp.size(); ++i)
+            {
+                Competition comp = alRegComp.get(i);
+                addChgRegView.jComboBox_competition.addItem(comp.getName());
+            }
         }
         
         else if(me.getSource() == mgRegView.jLabel_change)
@@ -1187,6 +1285,35 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         else if(me.getSource() == mgSchView.jLabel_add)
         {
             addChgSchView.setVisible(true);
+            
+            /** Set values to the ComboBoxes **/
+            // Define the variables
+            ArrayList <Competition> alRegComp = new ArrayList();
+            ArrayList <Discipline> alRegDis = new ArrayList();
+            int i;
+            
+            // Get the information from the file and store it in the ArrayList
+            try
+            {
+                alRegComp = compMeth.writeCompetitionArrayList();
+                alRegDis = disMeth.writeDisciplineArrayList();
+            }
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            for(i = 0; i < alRegComp.size(); ++i)
+            {
+                Competition comp = alRegComp.get(i);
+                addChgSchView.jComboBox_competition.addItem(comp.getName());
+            }
+            
+            for(i = 0; i < alRegDis.size(); ++i)
+            {
+                Discipline dis = alRegDis.get(i);
+                addChgSchView.jComboBox_discipline.addItem(dis.getName());
+            }
         }
         
         else if(me.getSource() == mgSchView.jLabel_change)
@@ -1533,6 +1660,84 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
                 rsTb.setValueAt(rs.getDate(), i, 8);
             }
         }
+        
+        else if(ke.getSource() == mgSchView.jTextField_search)
+        {
+            // Define the variables
+            ArrayList <Schedule> alSchSearch = new ArrayList();
+            int i;
+            
+            // Get the value of the textfield
+            String search = mgSchView.jTextField_search.getText();
+            
+            try
+            {
+                alSchSearch = schMeth.searchScheduleArrayList(search);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel schTb = (DefaultTableModel) mgSchView.jTable_scheduleData.getModel();
+            int rowCount = schTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                schTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alSchSearch.size(); ++i)
+            {
+                Schedule sch = alSchSearch.get(i);
+                Vector os = null;
+                schTb.addRow(os);
+                schTb.setValueAt(sch.getCode(), i, 0);
+                schTb.setValueAt(sch.getCompetition(), i, 1);
+                schTb.setValueAt(sch.getDiscipline(), i, 2);
+                schTb.setValueAt(sch.getDate(), i, 3);
+                schTb.setValueAt(sch.getRound(), i, 4);
+                schTb.setValueAt(sch.getGender(), i, 5);
+            }
+        }
+        
+        else if(ke.getSource() == mgTmView.jTextField_search)
+        {
+            // Define the variables
+            ArrayList <Team> alTmSearch = new ArrayList();
+            int i;
+            
+            // Get the value of the textfield
+            String search = mgTmView.jTextField_search.getText();
+            
+            try
+            {
+                alTmSearch = tmMeth.searchTeamArrayList(search);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel tmTb = (DefaultTableModel) mgTmView.jTable_teamData.getModel();
+            int rowCount = tmTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                tmTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alTmSearch.size(); ++i)
+            {
+                Team tm = alTmSearch.get(i);
+                Vector os = null;
+                tmTb.addRow(os);
+                tmTb.setValueAt(tm.getCode(), i, 0);
+                tmTb.setValueAt(tm.getName(), i, 1);
+                tmTb.setValueAt(tm.getCountry(), i, 2);
+                tmTb.setValueAt(tm.getTown(), i, 3);
+            }
+        }
     }
 
     @Override
@@ -1543,6 +1748,22 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             if(ke.getKeyChar() == KeyEvent.VK_ENTER)
             {
                 loginMenu.jButton_login.doClick();
+            }
+        }
+        
+        else if(ke.getSource() == newAccView.jButton_send || ke.getSource() == newAccView.jTextField_email)
+        {
+            if(ke.getKeyChar() == KeyEvent.VK_ENTER)
+            {
+                newAccView.jButton_send.doClick();
+            }
+        }
+        
+        else if(ke.getSource() == accRecovery.jButton_send || ke.getSource() == accRecovery.jTextField_email)
+        {
+            if(ke.getKeyChar() == KeyEvent.VK_ENTER)
+            {
+                accRecovery.jButton_send.doClick();
             }
         }
         
