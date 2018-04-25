@@ -168,36 +168,42 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         mgAthView.jLabel_change.addMouseListener(this);
         mgAthView.jLabel_delete.addMouseListener(this);
         mgAthView.jLabel_viewAth.addMouseListener(this);
+        mgAthView.jTable_athleteData.addMouseListener(this);
         mgChView.jLabel_add.addMouseListener(this);
         mgChView.jLabel_change.addMouseListener(this);
         mgChView.jLabel_delete.addMouseListener(this);
         mgChView.jLabel_viewCoach.addMouseListener(this);
+        mgChView.jTable_coachData.addMouseListener(this);
         mgCompView.jLabel_add.addMouseListener(this);
         mgCompView.jLabel_change.addMouseListener(this);
         mgCompView.jLabel_delete.addMouseListener(this);
         mgCompView.jLabel_viewComp.addMouseListener(this);
+        mgCompView.jTable_competitionData.addMouseListener(this);
         mgDisView.jLabel_add.addMouseListener(this);
         mgDisView.jLabel_change.addMouseListener(this);
         mgDisView.jLabel_delete.addMouseListener(this);
         mgDisView.jLabel_viewDis.addMouseListener(this);
+        mgDisView.jTable_disciplineData.addMouseListener(this);
         mgRegView.jLabel_add.addMouseListener(this);
         mgRegView.jLabel_change.addMouseListener(this);
         mgRegView.jLabel_delete.addMouseListener(this);
         mgRegView.jLabel_viewReg.addMouseListener(this);
+        mgRegView.jTable_registrationData.addMouseListener(this);
         mgRsView.jLabel_add.addMouseListener(this);
         mgRsView.jLabel_change.addMouseListener(this);
         mgRsView.jLabel_delete.addMouseListener(this);
         mgRsView.jLabel_viewRs.addMouseListener(this);
+        mgRsView.jTable_resultData.addMouseListener(this);
         mgSchView.jLabel_add.addMouseListener(this);
         mgSchView.jLabel_change.addMouseListener(this);
         mgSchView.jLabel_delete.addMouseListener(this);
         mgSchView.jLabel_viewSch.addMouseListener(this);
+        mgSchView.jTable_scheduleData.addMouseListener(this);
         mgTmView.jLabel_add.addMouseListener(this);
         mgTmView.jLabel_change.addMouseListener(this);
         mgTmView.jLabel_delete.addMouseListener(this);
         mgTmView.jLabel_viewTeams.addMouseListener(this);
-        
-        mgAthView.jTable_athleteData.addMouseListener(this);
+        mgTmView.jTable_teamData.addMouseListener(this);
         
         // KeyListeners
         loginMenu.jPasswordField_password.addKeyListener(this);

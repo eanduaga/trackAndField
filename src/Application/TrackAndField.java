@@ -116,6 +116,7 @@ public class TrackAndField
         athMeth, chMeth, compMeth, disMeth, regMeth, rsMeth, schMeth, tmMeth, passwdGen, loginMenu, newAccView, mainPage, mpGuest, 
         addAthView, addChView, addCompView, addDisView, addRegView, addRsView, addSchView, addTmView, mgAthView, mgChView, mgCompView, 
         mgDisView, mgRegView, mgRsView, mgSchView, mgTmView, shOneAth);
+        
         loginMenu.setVisible(true);
     }
 }
