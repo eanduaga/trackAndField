@@ -91,4 +91,42 @@ public class ResultDataAccess
         
         return alRs;
     }
+    
+    public static ArrayList <Result> searchResultArrayList(String search) throws IOException
+    {
+        // Define the variables
+        File rsFl = new File("files/result.ser");
+        ArrayList <Result> alRsSearch = new ArrayList();
+        
+        try
+        {
+            FileInputStream fs = new FileInputStream(rsFl);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            
+            try
+            {
+                while(true)
+                {
+                    Result rs = new Result(false);
+                    rs = (Result) os.readObject();
+                    
+                    if(rs.getAthlete().contains(search))
+                    {
+                        alRsSearch.add(rs); 
+                    }                
+                }
+            }
+            catch(EOFException ex1)
+            {
+                fs.close();
+                os.close();
+            }
+        }
+        catch(IOException | ClassNotFoundException ex1)
+        {
+            
+        }
+        
+        return alRsSearch;
+    }
 }

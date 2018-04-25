@@ -91,4 +91,42 @@ public class CoachDataAccess
         
         return alCh;
     }
+    
+    public static ArrayList <Coach> searchCoachArrayList(String search) throws IOException
+    {
+        // Define the variables
+        File chFl = new File("files/coach.ser");
+        ArrayList <Coach> alChSearch = new ArrayList();
+        
+        try
+        {
+            FileInputStream fs = new FileInputStream(chFl);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            
+            try
+            {
+                while(true)
+                {
+                    Coach ch = new Coach(false);
+                    ch = (Coach) os.readObject();
+                    
+                    if(ch.getName().contains(search))
+                    {
+                        alChSearch.add(ch); 
+                    }                
+                }
+            }
+            catch(EOFException ex1)
+            {
+                fs.close();
+                os.close();
+            }
+        }
+        catch(IOException | ClassNotFoundException ex1)
+        {
+            
+        }
+        
+        return alChSearch;
+    }
 }

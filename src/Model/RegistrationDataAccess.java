@@ -91,4 +91,42 @@ public class RegistrationDataAccess
         
         return alReg;
     }
+    
+    public static ArrayList <Registration> searchRegistrationArrayList(String search) throws IOException
+    {
+        // Define the variables
+        File regFl = new File("files/registration.ser");
+        ArrayList <Registration> alRegSearch = new ArrayList();
+        
+        try
+        {
+            FileInputStream fs = new FileInputStream(regFl);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            
+            try
+            {
+                while(true)
+                {
+                    Registration reg = new Registration(false);
+                    reg = (Registration) os.readObject();
+                    
+                    if(reg.getAthlete().contains(search))
+                    {
+                        alRegSearch.add(reg); 
+                    }                
+                }
+            }
+            catch(EOFException ex1)
+            {
+                fs.close();
+                os.close();
+            }
+        }
+        catch(IOException | ClassNotFoundException ex1)
+        {
+            
+        }
+        
+        return alRegSearch;
+    }
 }

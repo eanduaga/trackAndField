@@ -102,6 +102,44 @@ public class DisciplineDataAccess
         return alDis;
     }
     
+    public static ArrayList <Discipline> searchDisciplineArrayList(String search) throws IOException
+    {
+        // Define the variables
+        File disFl = new File("files/discipline.ser");
+        ArrayList <Discipline> alDisSearch = new ArrayList();
+        
+        try
+        {
+            FileInputStream fs = new FileInputStream(disFl);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            
+            try
+            {
+                while(true)
+                {
+                    Discipline dis = new Discipline(false);
+                    dis = (Discipline) os.readObject();
+                    
+                    if(dis.getName().contains(search))
+                    {
+                        alDisSearch.add(dis); 
+                    }                
+                }
+            }
+            catch(EOFException ex1)
+            {
+                fs.close();
+                os.close();
+            }
+        }
+        catch(IOException | ClassNotFoundException ex1)
+        {
+            
+        }
+        
+        return alDisSearch;
+    }
+    
     public static void readAll() throws IOException
     {
         // Define the variables

@@ -91,4 +91,42 @@ public class ScheduleDataAccess
         
         return alSch;
     }
+    
+    public static ArrayList <Schedule> searchScheduleArrayList(String search) throws IOException
+    {
+        // Define the variables
+        File schFl = new File("files/schedule.ser");
+        ArrayList <Schedule> alSchSearch = new ArrayList();
+        
+        try
+        {
+            FileInputStream fs = new FileInputStream(schFl);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            
+            try
+            {
+                while(true)
+                {
+                    Schedule sch = new Schedule(false);
+                    sch = (Schedule) os.readObject();
+                    
+                    if(sch.getDiscipline().contains(search))
+                    {
+                        alSchSearch.add(sch); 
+                    }                
+                }
+            }
+            catch(EOFException ex1)
+            {
+                fs.close();
+                os.close();
+            }
+        }
+        catch(IOException | ClassNotFoundException ex1)
+        {
+            
+        }
+        
+        return alSchSearch;
+    }
 }
