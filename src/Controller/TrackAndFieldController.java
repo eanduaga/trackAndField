@@ -13,14 +13,12 @@ package Controller;
 // Import the libraries
 import Model.*;
 import View.*;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -828,7 +826,8 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
                 rsTb.setValueAt(rs.getAthlete(), i, 4);
                 rsTb.setValueAt(rs.getRound(), i, 5);
                 rsTb.setValueAt(rs.getTime(), i, 6);
-                rsTb.setValueAt(rs.getDate(), i, 7);
+                rsTb.setValueAt(rs.getPosition(), i, 7);
+                rsTb.setValueAt(rs.getDate(), i, 8);
             }
         }
         
@@ -1295,7 +1294,85 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
     @Override
     public void keyTyped(KeyEvent ke)
     {
-        if(ke.getSource() == mgCompView.jTextField_search)
+        if(ke.getSource() == mgAthView.jTextField_search)
+        {
+            // Define the variables
+            ArrayList <Athlete> alAthSearch = new ArrayList();
+            int i;
+            
+            // Get the value of the textfield
+            String search = mgAthView.jTextField_search.getText();
+            
+            try
+            {
+                alAthSearch = athMeth.searchAthleteArrayList(search);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel athTb = (DefaultTableModel) mgAthView.jTable_athleteData.getModel();
+            int rowCount = athTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                athTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alAthSearch.size(); ++i)
+            {
+                Athlete ath = alAthSearch.get(i);
+                Vector os = null;
+                athTb.addRow(os);
+                athTb.setValueAt(ath.getID(), i, 0);
+                athTb.setValueAt(ath.getName(), i, 1);
+                athTb.setValueAt(ath.getSurname(), i, 2);
+                athTb.setValueAt(ath.getEmail(), i, 3);
+                athTb.setValueAt(ath.getPhoneNum(), i, 4);
+            }
+        }
+        
+        else if(ke.getSource() == mgChView.jTextField_search)
+        {
+            // Define the variables
+            ArrayList <Coach> alChSearch = new ArrayList();
+            int i;
+            
+            // Get the value of the textfield
+            String search = mgChView.jTextField_search.getText();
+            
+            try
+            {
+                alChSearch = chMeth.searchCoachArrayList(search);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel chTb = (DefaultTableModel) mgChView.jTable_coachData.getModel();
+            int rowCount = chTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                chTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alChSearch.size(); ++i)
+            {
+                Coach ch = alChSearch.get(i);
+                Vector os = null;
+                chTb.addRow(os);
+                chTb.setValueAt(ch.getID(), i, 0);
+                chTb.setValueAt(ch.getName(), i, 1);
+                chTb.setValueAt(ch.getSurname(), i, 2);
+                chTb.setValueAt(ch.getEmail(), i, 3);
+                chTb.setValueAt(ch.getPhoneNum(), i, 4);
+            }
+        }
+        
+        else if(ke.getSource() == mgCompView.jTextField_search)
         {
             // Define the variables
             ArrayList <Competition> alCompSearch = new ArrayList();
@@ -1332,6 +1409,128 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
                 compTb.setValueAt(comp.getLocation(), i, 3);
                 compTb.setValueAt(comp.getStartDate(), i, 4);
                 compTb.setValueAt(comp.getEndDate(), i, 5);
+            }
+        }
+        
+        else if(ke.getSource() == mgDisView.jTextField_search)
+        {
+            // Define the variables
+            ArrayList <Discipline> alDisSearch = new ArrayList();
+            int i;
+            float[] wr;
+            
+            // Get the value of the textfield
+            String search = mgDisView.jTextField_search.getText();
+            
+            try
+            {
+                alDisSearch = disMeth.searchDisciplineArrayList(search);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel disTb = (DefaultTableModel) mgDisView.jTable_disciplineData.getModel();
+            int rowCount = disTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                disTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alDisSearch.size(); ++i)
+            {
+                Discipline dis = alDisSearch.get(i);
+                wr = dis.getWorldRecord();
+                Vector os = null;
+                disTb.addRow(os);
+                disTb.setValueAt(dis.getCode(), i, 0);
+                disTb.setValueAt(dis.getName(), i, 1);
+                disTb.setValueAt(dis.getDescription(), i, 2);
+                disTb.setValueAt(wr[0], i, 3);
+                disTb.setValueAt(wr[1], i, 4);
+            }
+        }
+        
+        else if(ke.getSource() == mgRegView.jTextField_search)
+        {
+            // Define the variables
+            ArrayList <Registration> alRegSearch = new ArrayList();
+            int i;
+            
+            // Get the value of the textfield
+            String search = mgRegView.jTextField_search.getText();
+            
+            try
+            {
+                alRegSearch = regMeth.searchRegistrationArrayList(search);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel regTb = (DefaultTableModel) mgRegView.jTable_registrationData.getModel();
+            int rowCount = regTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                regTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alRegSearch.size(); ++i)
+            {
+                Registration reg = alRegSearch.get(i);
+                Vector os = null;
+                regTb.addRow(os);
+                regTb.setValueAt(reg.getCode(), i, 0);
+                regTb.setValueAt(reg.getAthlete(), i, 1);
+                regTb.setValueAt(reg.getCompetition(), i, 2);
+                regTb.setValueAt(reg.getRegDate(), i, 3);
+            }
+        }
+        
+        else if(ke.getSource() == mgRsView.jTextField_search)
+        {
+            // Define the variables
+            ArrayList <Result> alRsSearch = new ArrayList();
+            int i;
+            
+            // Get the value of the textfield
+            String search = mgRsView.jTextField_search.getText();
+            
+            try
+            {
+                alRsSearch = rsMeth.searchResultArrayList(search);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel rsTb = (DefaultTableModel) mgRsView.jTable_resultData.getModel();
+            int rowCount = rsTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                rsTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alRsSearch.size(); ++i)
+            {
+                Result rs = alRsSearch.get(i);
+                Vector os = null;
+                rsTb.addRow(os);
+                rsTb.setValueAt(rs.getCode(), i, 0);
+                rsTb.setValueAt(rs.getCompetition(), i, 1);
+                rsTb.setValueAt(rs.getDiscipline(), i, 2);
+                rsTb.setValueAt(rs.getGender(), i, 3);
+                rsTb.setValueAt(rs.getAthlete(), i, 4);
+                rsTb.setValueAt(rs.getRound(), i, 5);
+                rsTb.setValueAt(rs.getTime(), i, 6);
+                rsTb.setValueAt(rs.getPosition(), i, 7);
+                rsTb.setValueAt(rs.getDate(), i, 8);
             }
         }
     }

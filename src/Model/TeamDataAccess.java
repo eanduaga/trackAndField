@@ -91,4 +91,42 @@ public class TeamDataAccess
         
         return alTm;
     }
+    
+    public static ArrayList <Team> searchTeamArrayList(String search) throws IOException
+    {
+        // Define the variables
+        File tmFl = new File("files/team.ser");
+        ArrayList <Team> alTmSearch = new ArrayList();
+        
+        try
+        {
+            FileInputStream fs = new FileInputStream(tmFl);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            
+            try
+            {
+                while(true)
+                {
+                    Team tm = new Team(false);
+                    tm = (Team) os.readObject();
+                    
+                    if(tm.getName().contains(search))
+                    {
+                        alTmSearch.add(tm); 
+                    }                
+                }
+            }
+            catch(EOFException ex1)
+            {
+                fs.close();
+                os.close();
+            }
+        }
+        catch(IOException | ClassNotFoundException ex1)
+        {
+            
+        }
+        
+        return alTmSearch;
+    }
 }

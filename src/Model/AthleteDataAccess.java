@@ -100,6 +100,44 @@ public class AthleteDataAccess
         return alAth;
     }
     
+    public static ArrayList <Athlete> searchAthleteArrayList(String search) throws IOException
+    {
+        // Define the variables
+        File athFl = new File("files/athlete.ser");
+        ArrayList <Athlete> alAthSearch = new ArrayList();
+        
+        try
+        {
+            FileInputStream fs = new FileInputStream(athFl);
+            ObjectInputStream os = new ObjectInputStream(fs);
+            
+            try
+            {
+                while(true)
+                {
+                    Athlete ath = new Athlete(false);
+                    ath = (Athlete) os.readObject();
+                    
+                    if(ath.getName().contains(search))
+                    {
+                        alAthSearch.add(ath); 
+                    }                
+                }
+            }
+            catch(EOFException ex1)
+            {
+                fs.close();
+                os.close();
+            }
+        }
+        catch(IOException | ClassNotFoundException ex1)
+        {
+            
+        }
+        
+        return alAthSearch;
+    }
+    
     public static void readAll() throws IOException
     {
         // Define the variables
