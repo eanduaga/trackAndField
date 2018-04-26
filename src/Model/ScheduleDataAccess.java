@@ -92,6 +92,33 @@ public class ScheduleDataAccess
         return alSch;
     }
     
+    public static void writeSchFileFromArrayList(ArrayList <Schedule> alSch) throws IOException
+    {
+        // Define the variables
+        int i;
+        File schFl = new File("files/schedule.ser");
+        
+        try
+        {
+            FileOutputStream fs = new FileOutputStream(schFl);
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+
+            // Write the objects of the ArrayList and close the file
+            for(i = 0; i < alSch.size(); ++i)
+            {
+                Schedule sch = alSch.get(i);
+                os.writeObject(sch);
+            }
+            
+            os.close();
+            fs.close();
+        }
+        catch(FileNotFoundException ex)
+        {
+            System.out.println("File not found.");
+        }
+    }
+    
     public static ArrayList <Schedule> searchScheduleArrayList(String search) throws IOException
     {
         // Define the variables

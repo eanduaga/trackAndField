@@ -1029,7 +1029,54 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         
         else if(me.getSource() == mgAthView.jLabel_delete)
         {
+            // Define the variables
+            ArrayList <Athlete> alAth = new ArrayList();
+            int i;
             
+            // Get the information from the file and store it in the ArrayList
+            try
+            {
+                alAth = athMeth.writeAthleteArrayList();
+            }
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel athTb = (DefaultTableModel) mgAthView.jTable_athleteData.getModel();
+            
+            int rowNum = mgAthView.jTable_athleteData.getSelectedRow();
+            athTb.removeRow(rowNum);
+            Athlete ath = alAth.get(rowNum);
+            alAth.remove(ath);
+            
+            try
+            {
+                athMeth.writeAthFileFromArrayList(alAth);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            int rowCount = athTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                athTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alAth.size(); ++i)
+            {
+                ath = alAth.get(i);
+                Vector os = null;
+                athTb.addRow(os);
+                athTb.setValueAt(ath.getID(), i, 0);
+                athTb.setValueAt(ath.getName(), i, 1);
+                athTb.setValueAt(ath.getSurname(), i, 2);
+                athTb.setValueAt(ath.getEmail(), i, 3);
+                athTb.setValueAt(ath.getPhoneNum(), i, 4);
+            }
         }
         
         else if(me.getSource() == mgAthView.jLabel_viewAth)
@@ -1049,7 +1096,54 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         
         else if(me.getSource() == mgChView.jLabel_delete)
         {
+            // Define the variables
+            ArrayList <Coach> alCh = new ArrayList();
+            int i;
             
+            // Get the information from the file and store it in the ArrayList
+            try
+            {
+                alCh = chMeth.writeCoachArrayList();
+            }
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel chTb = (DefaultTableModel) mgChView.jTable_coachData.getModel();
+            
+            int rowNum = mgChView.jTable_coachData.getSelectedRow();
+            chTb.removeRow(rowNum);
+            Coach ch = alCh.get(rowNum);
+            alCh.remove(ch);
+            
+            try
+            {
+                chMeth.writeChFileFromArrayList(alCh);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            int rowCount = chTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                chTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alCh.size(); ++i)
+            {
+                ch = alCh.get(i);
+                Vector os = null;
+                chTb.addRow(os);
+                chTb.setValueAt(ch.getID(), i, 0);
+                chTb.setValueAt(ch.getName(), i, 1);
+                chTb.setValueAt(ch.getSurname(), i, 2);
+                chTb.setValueAt(ch.getEmail(), i, 3);
+                chTb.setValueAt(ch.getPhoneNum(), i, 4);
+            }
         }
         
         else if(me.getSource() == mgChView.jLabel_viewCoach)
@@ -1166,7 +1260,55 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         
         else if(me.getSource() == mgDisView.jLabel_delete)
         {
+            // Define the variables
+            float[] wr = new float[2];
+            ArrayList <Discipline> alDis = new ArrayList();
+            int i;
             
+            // Get the information from the file and store it in the ArrayList
+            try
+            {
+                alDis = disMeth.writeDisciplineArrayList();
+            }
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel disTb = (DefaultTableModel) mgDisView.jTable_disciplineData.getModel();
+            
+            int rowNum = mgDisView.jTable_disciplineData.getSelectedRow();
+            disTb.removeRow(rowNum);
+            Discipline dis = alDis.get(rowNum);
+            alDis.remove(dis);
+            
+            try
+            {
+                disMeth.writeDisFileFromArrayList(alDis);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            int rowCount = disTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                disTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alDis.size(); ++i)
+            {
+                dis = alDis.get(i);
+                Vector os = null;
+                disTb.addRow(os);
+                disTb.setValueAt(dis.getCode(), i, 0);
+                disTb.setValueAt(dis.getName(), i, 1);
+                disTb.setValueAt(dis.getDescription(), i, 2);
+                disTb.setValueAt(wr[0], i, 3);
+                disTb.setValueAt(wr[1], i, 4);
+            }
         }
         
         else if(me.getSource() == mgDisView.jLabel_viewDis)
@@ -1216,7 +1358,53 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         
         else if(me.getSource() == mgRegView.jLabel_delete)
         {
+            // Define the variables
+            ArrayList <Registration> alReg = new ArrayList();
+            int i;
             
+            // Get the information from the file and store it in the ArrayList
+            try
+            {
+                alReg = regMeth.writeRegistrationArrayList();
+            }
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel regTb = (DefaultTableModel) mgRegView.jTable_registrationData.getModel();
+            
+            int rowNum = mgRegView.jTable_registrationData.getSelectedRow();
+            regTb.removeRow(rowNum);
+            Registration reg = alReg.get(rowNum);
+            alReg.remove(reg);
+            
+            try
+            {
+                regMeth.writeRegFileFromArrayList(alReg);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            int rowCount = regTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                regTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alReg.size(); ++i)
+            {
+                reg = alReg.get(i);
+                Vector os = null;
+                regTb.addRow(os);
+                regTb.setValueAt(reg.getCode(), i, 0);
+                regTb.setValueAt(reg.getAthlete(), i, 1);
+                regTb.setValueAt(reg.getCompetition(), i, 2);
+                regTb.setValueAt(reg.getRegDate(), i, 3);
+            }
         }
         
         else if(me.getSource() == mgRegView.jLabel_viewReg)
@@ -1274,7 +1462,58 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         
         else if(me.getSource() == mgRsView.jLabel_delete)
         {
+            // Define the variables
+            ArrayList <Result> alRs = new ArrayList();
+            int i;
             
+            // Get the information from the file and store it in the ArrayList
+            try
+            {
+                alRs = rsMeth.writeResultArrayList();
+            }
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel rsTb = (DefaultTableModel) mgRsView.jTable_resultData.getModel();
+            
+            int rowNum = mgRsView.jTable_resultData.getSelectedRow();
+            rsTb.removeRow(rowNum);
+            Result rs = alRs.get(rowNum);
+            alRs.remove(rs);
+            
+            try
+            {
+                rsMeth.writeRsFileFromArrayList(alRs);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            int rowCount = rsTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                rsTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alRs.size(); ++i)
+            {
+                rs = alRs.get(i);
+                Vector os = null;
+                rsTb.addRow(os);
+                rsTb.setValueAt(rs.getCode(), i, 0);
+                rsTb.setValueAt(rs.getCompetition(), i, 1);
+                rsTb.setValueAt(rs.getDiscipline(), i, 2);
+                rsTb.setValueAt(rs.getGender(), i, 3);
+                rsTb.setValueAt(rs.getAthlete(), i, 4);
+                rsTb.setValueAt(rs.getRound(), i, 5);
+                rsTb.setValueAt(rs.getTime(), i, 6);
+                rsTb.setValueAt(rs.getPosition(), i, 7);
+                rsTb.setValueAt(rs.getDate(), i, 8);
+            }
         }
         
         else if(me.getSource() == mgRsView.jLabel_viewRs)
@@ -1323,7 +1562,55 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         
         else if(me.getSource() == mgSchView.jLabel_delete)
         {
+            // Define the variables
+            ArrayList <Schedule> alSch = new ArrayList();
+            int i;
             
+            // Get the information from the file and store it in the ArrayList
+            try
+            {
+                alSch = schMeth.writeScheduleArrayList();
+            }
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel schTb = (DefaultTableModel) mgSchView.jTable_scheduleData.getModel();
+            
+            int rowNum = mgSchView.jTable_scheduleData.getSelectedRow();
+            schTb.removeRow(rowNum);
+            Schedule sch = alSch.get(rowNum);
+            alSch.remove(sch);
+            
+            try
+            {
+                schMeth.writeSchFileFromArrayList(alSch);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            int rowCount = schTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                schTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alSch.size(); ++i)
+            {
+                sch = alSch.get(i);
+                Vector os = null;
+                schTb.addRow(os);
+                schTb.setValueAt(sch.getCode(), i, 0);
+                schTb.setValueAt(sch.getCompetition(), i, 1);
+                schTb.setValueAt(sch.getDiscipline(), i, 2);
+                schTb.setValueAt(sch.getDate(), i, 3);
+                schTb.setValueAt(sch.getRound(), i, 4);
+                schTb.setValueAt(sch.getGender(), i, 5);
+            }
         }
         
         else if(me.getSource() == mgSchView.jLabel_viewSch)
@@ -1343,7 +1630,53 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         
         else if(me.getSource() == mgTmView.jLabel_delete)
         {
+            // Define the variables
+            ArrayList <Team> alTm = new ArrayList();
+            int i;
             
+            // Get the information from the file and store it in the ArrayList
+            try
+            {
+                alTm = tmMeth.writeTeamArrayList();
+            }
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            DefaultTableModel tmTb = (DefaultTableModel) mgTmView.jTable_teamData.getModel();
+            
+            int rowNum = mgTmView.jTable_teamData.getSelectedRow();
+            tmTb.removeRow(rowNum);
+            Team tm = alTm.get(rowNum);
+            alTm.remove(tm);
+            
+            try
+            {
+                tmMeth.writeTmFileFromArrayList(alTm);
+            } 
+            catch(IOException ex)
+            {
+                Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            int rowCount = tmTb.getRowCount();
+            
+            for(i = rowCount - 1; i >= 0; --i)
+            {
+                tmTb.removeRow(i);
+            }
+            
+            for(i = 0; i < alTm.size(); ++i)
+            {
+                tm = alTm.get(i);
+                Vector os = null;
+                tmTb.addRow(os);
+                tmTb.setValueAt(tm.getCode(), i, 0);
+                tmTb.setValueAt(tm.getName(), i, 1);
+                tmTb.setValueAt(tm.getCountry(), i, 2);
+                tmTb.setValueAt(tm.getTown(), i, 3);
+            }
         }
         
         else if(me.getSource() == mgTmView.jLabel_viewTeams)

@@ -100,6 +100,33 @@ public class AthleteDataAccess
         return alAth;
     }
     
+    public static void writeAthFileFromArrayList(ArrayList <Athlete> alAth) throws IOException
+    {
+        // Define the variables
+        int i;
+        File athFl = new File("files/athlete.ser");
+        
+        try
+        {
+            FileOutputStream fs = new FileOutputStream(athFl);
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+
+            // Write the objects of the ArrayList and close the file
+            for(i = 0; i < alAth.size(); ++i)
+            {
+                Athlete ath = alAth.get(i);
+                os.writeObject(ath);
+            }
+            
+            os.close();
+            fs.close();
+        }
+        catch(FileNotFoundException ex)
+        {
+            System.out.println("File not found.");
+        }
+    }
+    
     public static ArrayList <Athlete> searchAthleteArrayList(String search) throws IOException
     {
         // Define the variables

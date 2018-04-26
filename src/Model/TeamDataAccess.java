@@ -92,6 +92,33 @@ public class TeamDataAccess
         return alTm;
     }
     
+    public static void writeTmFileFromArrayList(ArrayList <Team> alTm) throws IOException
+    {
+        // Define the variables
+        int i;
+        File tmFl = new File("files/team.ser");
+        
+        try
+        {
+            FileOutputStream fs = new FileOutputStream(tmFl);
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+
+            // Write the objects of the ArrayList and close the file
+            for(i = 0; i < alTm.size(); ++i)
+            {
+                Team tm = alTm.get(i);
+                os.writeObject(tm);
+            }
+            
+            os.close();
+            fs.close();
+        }
+        catch(FileNotFoundException ex)
+        {
+            System.out.println("File not found.");
+        }
+    }
+    
     public static ArrayList <Team> searchTeamArrayList(String search) throws IOException
     {
         // Define the variables

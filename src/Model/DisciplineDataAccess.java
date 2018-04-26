@@ -102,6 +102,33 @@ public class DisciplineDataAccess
         return alDis;
     }
     
+    public static void writeDisFileFromArrayList(ArrayList <Discipline> alDis) throws IOException
+    {
+        // Define the variables
+        int i;
+        File disFl = new File("files/discipline.ser");
+        
+        try
+        {
+            FileOutputStream fs = new FileOutputStream(disFl);
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+
+            // Write the objects of the ArrayList and close the file
+            for(i = 0; i < alDis.size(); ++i)
+            {
+                Discipline dis = alDis.get(i);
+                os.writeObject(dis);
+            }
+            
+            os.close();
+            fs.close();
+        }
+        catch(FileNotFoundException ex)
+        {
+            System.out.println("File not found.");
+        }
+    }
+    
     public static ArrayList <Discipline> searchDisciplineArrayList(String search) throws IOException
     {
         // Define the variables

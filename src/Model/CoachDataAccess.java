@@ -92,6 +92,33 @@ public class CoachDataAccess
         return alCh;
     }
     
+    public static void writeChFileFromArrayList(ArrayList <Coach> alCh) throws IOException
+    {
+        // Define the variables
+        int i;
+        File chFl = new File("files/coach.ser");
+        
+        try
+        {
+            FileOutputStream fs = new FileOutputStream(chFl);
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+
+            // Write the objects of the ArrayList and close the file
+            for(i = 0; i < alCh.size(); ++i)
+            {
+                Coach ch = alCh.get(i);
+                os.writeObject(ch);
+            }
+            
+            os.close();
+            fs.close();
+        }
+        catch(FileNotFoundException ex)
+        {
+            System.out.println("File not found.");
+        }
+    }
+    
     public static ArrayList <Coach> searchCoachArrayList(String search) throws IOException
     {
         // Define the variables

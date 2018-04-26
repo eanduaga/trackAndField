@@ -92,6 +92,33 @@ public class ResultDataAccess
         return alRs;
     }
     
+    public static void writeRsFileFromArrayList(ArrayList <Result> alRs) throws IOException
+    {
+        // Define the variables
+        int i;
+        File rsFl = new File("files/result.ser");
+        
+        try
+        {
+            FileOutputStream fs = new FileOutputStream(rsFl);
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+
+            // Write the objects of the ArrayList and close the file
+            for(i = 0; i < alRs.size(); ++i)
+            {
+                Result rs = alRs.get(i);
+                os.writeObject(rs);
+            }
+            
+            os.close();
+            fs.close();
+        }
+        catch(FileNotFoundException ex)
+        {
+            System.out.println("File not found.");
+        }
+    }
+    
     public static ArrayList <Result> searchResultArrayList(String search) throws IOException
     {
         // Define the variables

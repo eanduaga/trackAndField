@@ -92,6 +92,33 @@ public class RegistrationDataAccess
         return alReg;
     }
     
+    public static void writeRegFileFromArrayList(ArrayList <Registration> alReg) throws IOException
+    {
+        // Define the variables
+        int i;
+        File regFl = new File("files/registration.ser");
+        
+        try
+        {
+            FileOutputStream fs = new FileOutputStream(regFl);
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+
+            // Write the objects of the ArrayList and close the file
+            for(i = 0; i < alReg.size(); ++i)
+            {
+                Registration reg = alReg.get(i);
+                os.writeObject(reg);
+            }
+            
+            os.close();
+            fs.close();
+        }
+        catch(FileNotFoundException ex)
+        {
+            System.out.println("File not found.");
+        }
+    }
+    
     public static ArrayList <Registration> searchRegistrationArrayList(String search) throws IOException
     {
         // Define the variables

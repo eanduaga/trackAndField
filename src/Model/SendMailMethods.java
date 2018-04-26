@@ -46,7 +46,6 @@ public class SendMailMethods
             message.setFrom(new InternetAddress("trackandfieldcompetitions@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse("trackandfieldcompetitions@gmail.com"));
-            message.setHeader(username, username);
             message.setSubject("New Account: " + accUsername);
             message.setText("Information of the new account:"
                     + "\n\nUsername: " + accUsername
@@ -57,7 +56,7 @@ public class SendMailMethods
         }
         catch (MessagingException e)
         {
-                throw new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
     
@@ -85,7 +84,6 @@ public class SendMailMethods
             message.setFrom(new InternetAddress("trackandfieldcompetitions@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(accRecInfo[2]));
-            message.setHeader(username, username);
             message.setSubject("Password Recovery - Track And Field Competitions");
             message.setText("Hello " + accRecInfo[1] + ","
                     + "\n\nThis is the password of your account: " + accRecInfo[0]
