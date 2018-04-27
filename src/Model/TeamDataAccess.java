@@ -137,7 +137,7 @@ public class TeamDataAccess
                     Team tm = new Team(false);
                     tm = (Team) os.readObject();
                     
-                    if(tm.getName().contains(search))
+                    if(tm.getName().toLowerCase().contains(search))
                     {
                         alTmSearch.add(tm); 
                     }                

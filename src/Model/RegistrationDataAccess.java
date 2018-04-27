@@ -137,7 +137,7 @@ public class RegistrationDataAccess
                     Registration reg = new Registration(false);
                     reg = (Registration) os.readObject();
                     
-                    if(reg.getAthlete().contains(search))
+                    if(reg.getAthlete().toLowerCase().contains(search))
                     {
                         alRegSearch.add(reg); 
                     }                

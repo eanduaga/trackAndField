@@ -137,7 +137,7 @@ public class ResultDataAccess
                     Result rs = new Result(false);
                     rs = (Result) os.readObject();
                     
-                    if(rs.getAthlete().contains(search))
+                    if(rs.getAthlete().toLowerCase().contains(search))
                     {
                         alRsSearch.add(rs); 
                     }                

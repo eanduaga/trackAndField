@@ -147,7 +147,7 @@ public class DisciplineDataAccess
                     Discipline dis = new Discipline(false);
                     dis = (Discipline) os.readObject();
                     
-                    if(dis.getName().contains(search))
+                    if(dis.getName().toLowerCase().contains(search))
                     {
                         alDisSearch.add(dis); 
                     }                

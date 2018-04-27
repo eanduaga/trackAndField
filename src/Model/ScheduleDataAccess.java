@@ -137,7 +137,7 @@ public class ScheduleDataAccess
                     Schedule sch = new Schedule(false);
                     sch = (Schedule) os.readObject();
                     
-                    if(sch.getDiscipline().contains(search))
+                    if(sch.getDiscipline().toLowerCase().contains(search))
                     {
                         alSchSearch.add(sch); 
                     }                

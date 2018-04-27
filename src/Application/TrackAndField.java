@@ -59,6 +59,13 @@ public class TrackAndField
     private manageSchedule mgSchView;
     private manageTeam mgTmView;
     private showOneAth shOneAth;
+    private showOneCh shOneCh;
+    private showOneComp shOneComp;
+    private showOneDis shOneDis;
+    private showOneReg shOneReg;
+    private showOneRs shOneRs;
+    private showOneSch shOneSch;
+    private showOneTm shOneTm;
     
     // Define the controller
     TrackAndFieldController ctrl;
@@ -115,11 +122,18 @@ public class TrackAndField
         mgSchView = new manageSchedule();
         mgTmView = new manageTeam();
         shOneAth = new showOneAth();
+        shOneCh = new showOneCh();
+        shOneComp = new showOneComp();
+        shOneDis = new showOneDis();
+        shOneReg = new showOneReg();
+        shOneRs = new showOneRs();
+        shOneSch = new showOneSch();
+        shOneTm = new showOneTm();
         
         ctrl = new TrackAndFieldController(athModel, chModel, compModel, disModel, /*perModel,*/ regModel, rsModel, schModel, tmModel, 
         athMeth, chMeth, compMeth, disMeth, regMeth, rsMeth, schMeth, tmMeth, passwdGen, sendMailMeth, loginMenu, newAccView, accRecovery, mainPage, 
         mpGuest, addAthView, addChView, addCompView, addDisView, addRegView, addRsView, addSchView, addTmView, mgAthView, mgChView, mgCompView, 
-        mgDisView, mgRegView, mgRsView, mgSchView, mgTmView, shOneAth);
+        mgDisView, mgRegView, mgRsView, mgSchView, mgTmView, shOneAth, shOneCh, shOneComp, shOneDis, shOneReg, shOneRs, shOneSch, shOneTm);
         
         loginMenu.setVisible(true);
     }

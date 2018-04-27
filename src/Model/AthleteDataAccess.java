@@ -83,7 +83,7 @@ public class AthleteDataAccess
                 {
                     Athlete ath = new Athlete(false);
                     ath = (Athlete) os.readObject();
-                    alAth.add(ath);                    
+                    alAth.add(ath);       
                 }
             }
             catch(EOFException ex1)
@@ -145,7 +145,7 @@ public class AthleteDataAccess
                     Athlete ath = new Athlete(false);
                     ath = (Athlete) os.readObject();
                     
-                    if(ath.getName().contains(search))
+                    if(ath.getName().toLowerCase().contains(search) || ath.getSurname().toLowerCase().contains(search))
                     {
                         alAthSearch.add(ath); 
                     }                

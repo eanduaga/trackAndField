@@ -87,7 +87,7 @@ public class SendMailMethods
             message.setSubject("Password Recovery - Track And Field Competitions");
             message.setText("Hello " + accRecInfo[1] + ","
                     + "\n\nThis is the password of your account: " + accRecInfo[0]
-                    + "\n\nIf you don't want to change your password or didn't request this, just ignore and delete this message. "
+                    + "\n\nIf you didn't want to recover your password or didn't request this, just ignore and delete this message. "
                     + "To keep your account secure, please don't forward this email to anyone."
                     + "\n\nBest regards,"
                     + "\nTrack And Field Competitions Team.");

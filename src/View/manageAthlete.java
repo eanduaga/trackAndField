@@ -292,7 +292,7 @@ public class manageAthlete extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "NAME", "SURNAME", "EMAIL", "PHONE NUMBER"
+                "ID", "NAME", "SURNAME", "EMAIL ACCOUNT", "PHONE NUMBER"
             }
         ) {
             Class[] types = new Class [] {

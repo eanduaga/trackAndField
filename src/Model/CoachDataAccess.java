@@ -137,7 +137,7 @@ public class CoachDataAccess
                     Coach ch = new Coach(false);
                     ch = (Coach) os.readObject();
                     
-                    if(ch.getName().contains(search))
+                    if(ch.getName().toLowerCase().contains(search) || ch.getSurname().toLowerCase().contains(search))
                     {
                         alChSearch.add(ch); 
                     }                

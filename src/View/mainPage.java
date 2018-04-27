@@ -98,13 +98,31 @@ public class mainPage extends javax.swing.JFrame {
         jLabel_result1Athlete = new javax.swing.JLabel();
         jLabel_result1Time = new javax.swing.JLabel();
         jPanel_result2 = new javax.swing.JPanel();
+        jLabel_result2DisciplineGender = new javax.swing.JLabel();
+        jLabel_result2Athlete = new javax.swing.JLabel();
+        jLabel_result2Time = new javax.swing.JLabel();
         jPanel_result3 = new javax.swing.JPanel();
+        jLabel_result3DisciplineGender = new javax.swing.JLabel();
+        jLabel_result3Athlete = new javax.swing.JLabel();
+        jLabel_result3Time = new javax.swing.JLabel();
         jPanel_scheduleRight = new javax.swing.JPanel();
         jLabel_rightPanelSchedule = new javax.swing.JLabel();
         jPanel_schedule4 = new javax.swing.JPanel();
+        jLabel_schedule4CompetitionDiscipline = new javax.swing.JLabel();
+        jLabel_schedule4GnederRound = new javax.swing.JLabel();
+        jLabel_schedule4Date = new javax.swing.JLabel();
         jPanel_schedule3 = new javax.swing.JPanel();
+        jLabel_schedule3CompetitionDiscipline = new javax.swing.JLabel();
+        jLabel_schedule3GnederRound = new javax.swing.JLabel();
+        jLabel_schedule3Date = new javax.swing.JLabel();
         jPanel_schedule1 = new javax.swing.JPanel();
+        jLabel_schedule1GnederRound = new javax.swing.JLabel();
+        jLabel_schedule1CompetitionDiscipline = new javax.swing.JLabel();
+        jLabel_schedule1Date = new javax.swing.JLabel();
         jPanel_schedule2 = new javax.swing.JPanel();
+        jLabel_schedule2CompetitionDiscipline = new javax.swing.JLabel();
+        jLabel_schedule2GnederRound = new javax.swing.JLabel();
+        jLabel_schedule2Date = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -620,16 +638,48 @@ public class mainPage extends javax.swing.JFrame {
         jPanel_result2.setBackground(new java.awt.Color(242, 242, 242));
         jPanel_result2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 50, 46)));
         jPanel_result2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_result2DisciplineGender.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_result2DisciplineGender.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_result2DisciplineGender.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_result2.add(jLabel_result2DisciplineGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 290, 30));
+
+        jLabel_result2Athlete.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_result2Athlete.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_result2Athlete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_result2.add(jLabel_result2Athlete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 290, 30));
+
+        jLabel_result2Time.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_result2Time.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_result2Time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_result2.add(jLabel_result2Time, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 80, 60));
+
         jPanel_resultRight.add(jPanel_result2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 420, 100));
 
         jPanel_result3.setBackground(new java.awt.Color(242, 242, 242));
         jPanel_result3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 50, 46)));
         jPanel_result3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_result3DisciplineGender.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_result3DisciplineGender.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_result3DisciplineGender.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_result3.add(jLabel_result3DisciplineGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 290, 30));
+
+        jLabel_result3Athlete.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_result3Athlete.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_result3Athlete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_result3.add(jLabel_result3Athlete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 290, 30));
+
+        jLabel_result3Time.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_result3Time.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_result3Time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_result3.add(jLabel_result3Time, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 80, 60));
+
         jPanel_resultRight.add(jPanel_result3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 420, 100));
 
         jPanel_mainPage.add(jPanel_resultRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 80, 510, 450));
 
-        jPanel_scheduleRight.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel_scheduleRight.setBackground(new java.awt.Color(242, 242, 242));
         jPanel_scheduleRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel_rightPanelSchedule.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -638,20 +688,88 @@ public class mainPage extends javax.swing.JFrame {
         jPanel_scheduleRight.add(jLabel_rightPanelSchedule, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 180, 40));
 
         jPanel_schedule4.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel_schedule4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 50, 46)));
         jPanel_schedule4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel_scheduleRight.add(jPanel_schedule4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 540, 70));
+
+        jLabel_schedule4CompetitionDiscipline.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_schedule4CompetitionDiscipline.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_schedule4CompetitionDiscipline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_schedule4.add(jLabel_schedule4CompetitionDiscipline, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 330, 20));
+
+        jLabel_schedule4GnederRound.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_schedule4GnederRound.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_schedule4GnederRound.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_schedule4.add(jLabel_schedule4GnederRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 44, 330, 20));
+
+        jLabel_schedule4Date.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_schedule4Date.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_schedule4Date.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_schedule4.add(jLabel_schedule4Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 140, 40));
+
+        jPanel_scheduleRight.add(jPanel_schedule4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 540, 80));
 
         jPanel_schedule3.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel_schedule3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 50, 46)));
         jPanel_schedule3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel_scheduleRight.add(jPanel_schedule3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 540, 70));
+
+        jLabel_schedule3CompetitionDiscipline.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_schedule3CompetitionDiscipline.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_schedule3CompetitionDiscipline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_schedule3.add(jLabel_schedule3CompetitionDiscipline, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 330, 20));
+
+        jLabel_schedule3GnederRound.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_schedule3GnederRound.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_schedule3GnederRound.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_schedule3.add(jLabel_schedule3GnederRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 44, 330, 20));
+
+        jLabel_schedule3Date.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_schedule3Date.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_schedule3Date.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_schedule3.add(jLabel_schedule3Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 140, 40));
+
+        jPanel_scheduleRight.add(jPanel_schedule3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 540, 80));
 
         jPanel_schedule1.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel_schedule1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 50, 46)));
         jPanel_schedule1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel_scheduleRight.add(jPanel_schedule1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 540, 70));
+
+        jLabel_schedule1GnederRound.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_schedule1GnederRound.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_schedule1GnederRound.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_schedule1.add(jLabel_schedule1GnederRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 44, 330, 20));
+
+        jLabel_schedule1CompetitionDiscipline.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_schedule1CompetitionDiscipline.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_schedule1CompetitionDiscipline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_schedule1.add(jLabel_schedule1CompetitionDiscipline, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 330, 20));
+
+        jLabel_schedule1Date.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_schedule1Date.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_schedule1Date.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_schedule1.add(jLabel_schedule1Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 140, 40));
+
+        jPanel_scheduleRight.add(jPanel_schedule1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 540, 80));
 
         jPanel_schedule2.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel_schedule2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 50, 46)));
         jPanel_schedule2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel_scheduleRight.add(jPanel_schedule2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 540, 70));
+
+        jLabel_schedule2CompetitionDiscipline.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_schedule2CompetitionDiscipline.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_schedule2CompetitionDiscipline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_schedule2.add(jLabel_schedule2CompetitionDiscipline, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 330, 20));
+
+        jLabel_schedule2GnederRound.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_schedule2GnederRound.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_schedule2GnederRound.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_schedule2.add(jLabel_schedule2GnederRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 44, 330, 20));
+
+        jLabel_schedule2Date.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel_schedule2Date.setForeground(new java.awt.Color(52, 50, 46));
+        jLabel_schedule2Date.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_schedule2.add(jLabel_schedule2Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 140, 40));
+
+        jPanel_scheduleRight.add(jPanel_schedule2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 540, 80));
 
         jPanel_mainPage.add(jPanel_scheduleRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, 1210, 280));
 
@@ -1002,10 +1120,28 @@ public class mainPage extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel_result1Athlete;
     public javax.swing.JLabel jLabel_result1DisciplineGender;
     public javax.swing.JLabel jLabel_result1Time;
+    public javax.swing.JLabel jLabel_result2Athlete;
+    public javax.swing.JLabel jLabel_result2DisciplineGender;
+    public javax.swing.JLabel jLabel_result2Time;
+    public javax.swing.JLabel jLabel_result3Athlete;
+    public javax.swing.JLabel jLabel_result3DisciplineGender;
+    public javax.swing.JLabel jLabel_result3Time;
     private javax.swing.JLabel jLabel_resultIcon;
     private javax.swing.JLabel jLabel_rightArrow;
     private javax.swing.JLabel jLabel_rightPanelResults;
     private javax.swing.JLabel jLabel_rightPanelSchedule;
+    public javax.swing.JLabel jLabel_schedule1CompetitionDiscipline;
+    public javax.swing.JLabel jLabel_schedule1Date;
+    public javax.swing.JLabel jLabel_schedule1GnederRound;
+    public javax.swing.JLabel jLabel_schedule2CompetitionDiscipline;
+    public javax.swing.JLabel jLabel_schedule2Date;
+    public javax.swing.JLabel jLabel_schedule2GnederRound;
+    public javax.swing.JLabel jLabel_schedule3CompetitionDiscipline;
+    public javax.swing.JLabel jLabel_schedule3Date;
+    public javax.swing.JLabel jLabel_schedule3GnederRound;
+    public javax.swing.JLabel jLabel_schedule4CompetitionDiscipline;
+    public javax.swing.JLabel jLabel_schedule4Date;
+    public javax.swing.JLabel jLabel_schedule4GnederRound;
     private javax.swing.JLabel jLabel_scheduleIcon;
     private javax.swing.JLabel jLabel_teamIcon;
     private javax.swing.JLabel jLabel_titleDown;

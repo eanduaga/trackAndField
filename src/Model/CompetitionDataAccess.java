@@ -138,7 +138,7 @@ public class CompetitionDataAccess
                     Competition comp = new Competition(false);
                     comp = (Competition) os.readObject();
                     
-                    if(comp.getName().contains(search))
+                    if(comp.getName().toLowerCase().contains(search))
                     {
                         alCompSearch.add(comp); 
                     }                
@@ -156,41 +156,5 @@ public class CompetitionDataAccess
         }
         
         return alCompSearch;
-    }
-    
-    public static Competition readAll() throws IOException
-    {
-        // Define the variables
-        File compFl = new File("G:/DAM/Program/Files/competition.ser");
-        Competition cmp = null;
-        
-        try
-        {
-            FileInputStream fs = new FileInputStream(compFl);
-            ObjectInputStream os = new ObjectInputStream(fs);
-
-            try
-            {
-                while(true)
-                {
-                    cmp = (Competition) os.readObject();
-                    System.out.println();
-                }
-            }
-            catch(EOFException eof)
-            {
-                fs.close();
-                os.close();
-            }
-        }
-        catch(ClassNotFoundException ex1)
-        {
-            System.out.println("Class not found.");
-        }
-        catch(FileNotFoundException ex)
-        {
-            System.out.println("File not found.");
-        }
-        return cmp;
     }
 }

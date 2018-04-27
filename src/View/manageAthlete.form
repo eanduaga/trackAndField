@@ -536,7 +536,7 @@
                         <Column editable="false" title="ID" type="java.lang.String"/>
                         <Column editable="false" title="NAME" type="java.lang.String"/>
                         <Column editable="false" title="SURNAME" type="java.lang.String"/>
-                        <Column editable="false" title="EMAIL" type="java.lang.String"/>
+                        <Column editable="false" title="EMAIL ACCOUNT" type="java.lang.String"/>
                         <Column editable="false" title="PHONE NUMBER" type="java.lang.String"/>
                       </Table>
                     </Property>

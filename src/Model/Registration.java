@@ -18,6 +18,7 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -33,7 +34,7 @@ public class Registration implements Serializable
     private String code;
     private String athlete;
     private String competition;
-    private Date regDate;
+    private LocalDate regDate;
     
     // Define the constructor
     public Registration()
@@ -133,32 +134,14 @@ public class Registration implements Serializable
     
     // Funtziño hau aldatu, erabiltzailiak fetxia sartu biharrian, egun horretako
     // fetxia hartzeko eta bariablian gordeteko.
-    public void setRegDate(Date RegistrationDate)
+    public void setRegDate(LocalDate RegistrationDate)
     {
         regDate = RegistrationDate;
     }
     public void setRegDate()
     {
-        // Define the variables
-        String line;
-        
-        Scanner in = new Scanner(System.in);
-        SimpleDateFormat df = new SimpleDateFormat("DD/MM/YYYY");
-        
-        // Ask for the date and store the answer
-        System.out.print("Enter the registration date (dd/mm/yyyy): ");
-        line = in.nextLine();
-        
-        // Parse the information to date format
-        try
-        {
-            regDate = df.parse(line);
-        }
-        catch (ParseException ex)
-        {
-            System.out.println(ANSI_RED + "Incorrect date format. Please, enter the information again." + ANSI_RESET);
-            setRegDate();
-        }
+        // Save the current date
+        regDate = LocalDate.now();
     }
     
     // Define the getters
@@ -189,11 +172,11 @@ public class Registration implements Serializable
         System.out.println("Competition: " + RegistrationCompetition);
     }
     
-    public Date getRegDate()
+    public LocalDate getRegDate()
     {
         return regDate;
     }
-    public void getRegDate(Date RegistrationDate)
+    public void getRegDate(LocalDate RegistrationDate)
     {
         System.out.println("Date: " + RegistrationDate);
     }

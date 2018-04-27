@@ -76,6 +76,13 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
     private manageSchedule mgSchView;
     private manageTeam mgTmView;
     private showOneAth shOneAth;
+    private showOneCh shOneCh;
+    private showOneComp shOneComp;
+    private showOneDis shOneDis;
+    private showOneReg shOneReg;
+    private showOneRs shOneRs;
+    private showOneSch shOneSch;
+    private showOneTm shOneTm;
     
     // Define the constructor
     public TrackAndFieldController(Athlete ath, Coach ch, Competition comp, Discipline dis, /*Person per,*/ Registration reg, Result rs,
@@ -84,7 +91,8 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
     login lgm, newAccount nav, accountRecovery ar, mainPage mp, mainPageGuest mpg, addChangeAthlete aAth, addChangeCoach aCh, 
     addChangeCompetition aComp, addChangeDiscipline aDis, addChangeRegistration aReg, addChangeResult aRs, addChangeSchedule aSch, addChangeTeam aTm, 
     manageAthlete mgAth, manageCoach mgCh, manageCompetition mgComp, manageDiscipline mgDis, manageRegistration mgReg, manageResult mgRs, 
-    manageSchedule mgSch, manageTeam mgTm, showOneAth shAth)
+    manageSchedule mgSch, manageTeam mgTm, showOneAth shAth, showOneCh shCh, showOneComp shComp, showOneDis shDis, showOneReg shReg, showOneRs shRs,
+    showOneSch shSch, showOneTm shTm)
     {
         // Giving values to the model members
         athModel = ath;
@@ -131,6 +139,13 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         mgSchView = mgSch;
         mgTmView = mgTm;
         shOneAth = shAth;
+        shOneCh = shCh;
+        shOneComp = shComp;
+        shOneDis = shDis;
+        shOneReg = shReg;
+        shOneRs = shRs;
+        shOneSch = shSch;
+        shOneTm = shTm;
         
         // ActionListeners and MouseListeners
         /* Login, New Account, MainPage */
@@ -252,7 +267,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         {
             // Define the variables
             ArrayList <Result> alRs = new ArrayList();
-            Result rs = new Result(false);
+            ArrayList <Schedule> alSch = new ArrayList();
             
             // Get the values from the textfields
             String username = loginMenu.jTextField_username.getText();
@@ -271,16 +286,54 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
                 try
                 {
                     alRs = rsMeth.writeResultArrayList();
+                    alSch = schMeth.writeScheduleArrayList();
                 } 
                 catch(IOException ex)
                 {
                     Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-                rs = alRs.get(0);
+                // Get the first object from the Result ArrayList and show the information in the labels of the main page
+                Result rs = alRs.get(0);
                 mainPage.jLabel_result1DisciplineGender.setText(rs.getDiscipline() + "  -  " + rs.getGender());
                 mainPage.jLabel_result1Athlete.setText(rs.getAthlete());
                 mainPage.jLabel_result1Time.setText(Float.toString(rs.getTime()));
+                
+                // Get the second object from the Result ArrayList and show the information in the labels of the main page
+                rs = alRs.get(1);
+                mainPage.jLabel_result2DisciplineGender.setText(rs.getDiscipline() + "  -  " + rs.getGender());
+                mainPage.jLabel_result2Athlete.setText(rs.getAthlete());
+                mainPage.jLabel_result2Time.setText(Float.toString(rs.getTime()));
+                
+                // Get the third object from the Result ArrayList and show the information in the labels of the main page
+                rs = alRs.get(2);
+                mainPage.jLabel_result3DisciplineGender.setText(rs.getDiscipline() + "  -  " + rs.getGender());
+                mainPage.jLabel_result3Athlete.setText(rs.getAthlete());
+                mainPage.jLabel_result3Time.setText(Float.toString(rs.getTime()));
+                
+                // Get the first object from the Schedule ArrayList and show the information in the labels of the main page
+                Schedule sch = alSch.get(0);
+                mainPage.jLabel_schedule1CompetitionDiscipline.setText(sch.getCompetition()+ "  -  " + sch.getDiscipline());
+                mainPage.jLabel_schedule1GnederRound.setText(sch.getGender()+ "  -  " + sch.getRound());
+                mainPage.jLabel_schedule1Date.setText(String.valueOf(sch.getDate()));
+                
+                // Get the second object from the Schedule ArrayList and show the information in the labels of the main page
+                sch = alSch.get(1);
+                mainPage.jLabel_schedule2CompetitionDiscipline.setText(sch.getCompetition()+ "  -  " + sch.getDiscipline());
+                mainPage.jLabel_schedule2GnederRound.setText(sch.getGender()+ "  -  " + sch.getRound());
+                mainPage.jLabel_schedule2Date.setText(String.valueOf(sch.getDate()));
+                
+                // Get the third object from the Schedule ArrayList and show the information in the labels of the main page
+                sch = alSch.get(2);
+                mainPage.jLabel_schedule3CompetitionDiscipline.setText(sch.getCompetition()+ "  -  " + sch.getDiscipline());
+                mainPage.jLabel_schedule3GnederRound.setText(sch.getGender()+ "  -  " + sch.getRound());
+                mainPage.jLabel_schedule3Date.setText(String.valueOf(sch.getDate()));
+                
+                // Get the fourth object from the Schedule ArrayList and show the information in the labels of the main page
+                sch = alSch.get(3);
+                mainPage.jLabel_schedule4CompetitionDiscipline.setText(sch.getCompetition()+ "  -  " + sch.getDiscipline());
+                mainPage.jLabel_schedule4GnederRound.setText(sch.getGender()+ "  -  " + sch.getRound());
+                mainPage.jLabel_schedule4Date.setText(String.valueOf(sch.getDate()));
             }
             else
             {
@@ -490,6 +543,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             reg.setCode();
             reg.setAthlete(addChgRegView.jComboBox_athlete.getSelectedItem().toString());
             reg.setCompetition(addChgRegView.jComboBox_competition.getSelectedItem().toString());
+            reg.setRegDate();
             
             // Write the object in a file using the method WriteCompetition
             try
@@ -1725,6 +1779,241 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
                 shOneAth.jLabel_teamAth.setText(ath.getTeam());
             }
         }
+        
+        else if(me.getSource() == mgChView.jTable_coachData)
+        {
+            if(me.getClickCount() == 2)
+            {
+                // Open the Show One Athlete view
+                shOneCh.setVisible(true);
+
+                // Get the information about the selected athlete and show it in the view
+                ArrayList <Coach> alCh = new ArrayList();
+
+                // Get the information from the file and store it in the ArrayList
+                try
+                {
+                    alCh = chMeth.writeCoachArrayList();
+                }
+                catch(IOException ex)
+                {
+                    Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                int rowNum = mgChView.jTable_coachData.getSelectedRow();
+                Coach ch = alCh.get(rowNum);
+                
+                // Give values to the labels
+                shOneCh.jLabel_nameSurname.setText(ch.getName().toUpperCase() + " " + ch.getSurname().toUpperCase());
+                shOneCh.jLabel_idCh.setText(ch.getID());
+                shOneCh.jLabel_countryCh.setText(ch.getCountry());
+                shOneCh.jLabel_homeTownCh.setText(ch.getHomeTown());
+                shOneCh.jLabel_addressCh.setText(ch.getAddress());
+                shOneCh.jLabel_nationalityCh.setText(ch.getNationality());
+                shOneCh.jLabel_birthDateCh.setText(String.valueOf(ch.getBirthDate()));
+                shOneCh.jLabel_emailCh.setText(ch.getEmail());
+                shOneCh.jLabel_phoneNumCh.setText(ch.getPhoneNum());
+                shOneCh.jLabel_startYearCh.setText(String.valueOf(ch.getStartYear()));
+            }
+        }
+        
+        else if(me.getSource() == mgCompView.jTable_competitionData)
+        {
+            if(me.getClickCount() == 2)
+            {
+                // Open the Show One Athlete view
+                shOneComp.setVisible(true);
+
+                // Get the information about the selected athlete and show it in the view
+                ArrayList <Competition> alComp = new ArrayList();
+
+                // Get the information from the file and store it in the ArrayList
+                try
+                {
+                    alComp = compMeth.writeCompetitionArrayList();
+                }
+                catch(IOException ex)
+                {
+                    Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                int rowNum = mgCompView.jTable_competitionData.getSelectedRow();
+                Competition comp = alComp.get(rowNum);
+                
+                // Give values to the labels
+                shOneComp.jLabel_name.setText(comp.getName().toUpperCase());
+                shOneComp.jLabel_codeComp.setText(comp.getCode());
+                shOneComp.jLabel_descriptionComp.setText(comp.getDescription());
+                shOneComp.jLabel_locationComp.setText(comp.getLocation());
+                shOneComp.jLabel_startDateComp.setText(String.valueOf(comp.getStartDate()));
+                shOneComp.jLabel_endDateComp.setText(String.valueOf(comp.getEndDate()));
+            }
+        }
+        
+        else if(me.getSource() == mgDisView.jTable_disciplineData)
+        {
+            if(me.getClickCount() == 2)
+            {
+                // Open the Show One Athlete view
+                shOneDis.setVisible(true);
+
+                // Get the information about the selected athlete and show it in the view
+                ArrayList <Discipline> alDis = new ArrayList();
+                float[] wr = new float[2];
+
+                // Get the information from the file and store it in the ArrayList
+                try
+                {
+                    alDis = disMeth.writeDisciplineArrayList();
+                }
+                catch(IOException ex)
+                {
+                    Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                int rowNum = mgDisView.jTable_disciplineData.getSelectedRow();
+                Discipline dis = alDis.get(rowNum);
+                wr = dis.getWorldRecord();
+                
+                // Give values to the labels
+                shOneDis.jLabel_name.setText(dis.getName().toUpperCase());
+                shOneDis.jLabel_codeDis.setText(dis.getCode());
+                shOneDis.jLabel_descriptionDis.setText(dis.getDescription());
+                shOneDis.jLabel_maleWRDis.setText(String.valueOf(wr[0]));
+                shOneDis.jLabel_femaleWRDis.setText(String.valueOf(wr[1]));
+            }
+        }
+        
+        else if(me.getSource() == mgRegView.jTable_registrationData)
+        {
+            if(me.getClickCount() == 2)
+            {
+                // Open the Show One Athlete view
+                shOneReg.setVisible(true);
+
+                // Get the information about the selected athlete and show it in the view
+                ArrayList <Registration> alReg = new ArrayList();
+
+                // Get the information from the file and store it in the ArrayList
+                try
+                {
+                    alReg = regMeth.writeRegistrationArrayList();
+                }
+                catch(IOException ex)
+                {
+                    Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                int rowNum = mgRegView.jTable_registrationData.getSelectedRow();
+                Registration reg = alReg.get(rowNum);
+                
+                // Give values to the labels
+                shOneReg.jLabel_codeReg.setText(reg.getCode());
+                shOneReg.jLabel_athleteReg.setText(reg.getAthlete());
+                shOneReg.jLabel_competitionReg.setText(reg.getCompetition());
+                shOneReg.jLabel_regDateReg.setText(String.valueOf(reg.getRegDate()));
+            }
+        }
+        
+        else if(me.getSource() == mgRsView.jTable_resultData)
+        {
+            if(me.getClickCount() == 2)
+            {
+                // Open the Show One Athlete view
+                shOneRs.setVisible(true);
+
+                // Get the information about the selected athlete and show it in the view
+                ArrayList <Result> alRs = new ArrayList();
+
+                // Get the information from the file and store it in the ArrayList
+                try
+                {
+                    alRs = rsMeth.writeResultArrayList();
+                }
+                catch(IOException ex)
+                {
+                    Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                int rowNum = mgRsView.jTable_resultData.getSelectedRow();
+                Result rs = alRs.get(rowNum);
+                
+                // Give values to the labels
+                shOneRs.jLabel_codeRs.setText(rs.getCode());
+                shOneRs.jLabel_competitionRs.setText(rs.getCompetition());
+                shOneRs.jLabel_disciplineRs.setText(rs.getDiscipline());
+                shOneRs.jLabel_genderRs.setText(rs.getGender());
+                shOneRs.jLabel_athleteRs.setText(rs.getAthlete());
+                shOneRs.jLabel_roundRs.setText(rs.getRound());
+                shOneRs.jLabel_timeRs.setText(String.valueOf(rs.getTime()));
+                shOneRs.jLabel_positionRs.setText(String.valueOf(rs.getPosition()));
+                shOneRs.jLabel_dateRs.setText(String.valueOf(rs.getDate()));
+            }
+        }
+        
+        else if(me.getSource() == mgSchView.jTable_scheduleData)
+        {
+            if(me.getClickCount() == 2)
+            {
+                // Open the Show One Athlete view
+                shOneSch.setVisible(true);
+
+                // Get the information about the selected athlete and show it in the view
+                ArrayList <Schedule> alSch = new ArrayList();
+
+                // Get the information from the file and store it in the ArrayList
+                try
+                {
+                    alSch = schMeth.writeScheduleArrayList();
+                }
+                catch(IOException ex)
+                {
+                    Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                int rowNum = mgSchView.jTable_scheduleData.getSelectedRow();
+                Schedule sch = alSch.get(rowNum);
+                
+                // Give values to the labels
+                shOneSch.jLabel_codeSch.setText(sch.getCode());
+                shOneSch.jLabel_competitionSch.setText(sch.getCompetition());
+                shOneSch.jLabel_disciplineSch.setText(sch.getDiscipline());
+                shOneSch.jLabel_roundSch.setText(sch.getRound());
+                shOneSch.jLabel_genderSch.setText(sch.getGender());
+                shOneSch.jLabel_dateSch.setText(String.valueOf(sch.getDate()));
+            }
+        }
+        
+        else if(me.getSource() == mgTmView.jTable_teamData)
+        {
+            if(me.getClickCount() == 2)
+            {
+                // Open the Show One Athlete view
+                shOneTm.setVisible(true);
+
+                // Get the information about the selected athlete and show it in the view
+                ArrayList <Team> alTm = new ArrayList();
+
+                // Get the information from the file and store it in the ArrayList
+                try
+                {
+                    alTm = tmMeth.writeTeamArrayList();
+                }
+                catch(IOException ex)
+                {
+                    Logger.getLogger(TrackAndFieldController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                int rowNum = mgTmView.jTable_teamData.getSelectedRow();
+                Team tm = alTm.get(rowNum);
+                
+                // Give values to the labels
+                shOneTm.jLabel_codeTm.setText(tm.getCode());
+                shOneTm.jLabel_name.setText(tm.getName());
+                shOneTm.jLabel_countryTm.setText(tm.getCountry());
+                shOneTm.jLabel_townTm.setText(tm.getTown());
+            }
+        }
     }
 
     @Override
@@ -1761,7 +2050,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             int i;
             
             // Get the value of the textfield
-            String search = mgAthView.jTextField_search.getText();
+            String search = mgAthView.jTextField_search.getText().toLowerCase();
             
             try
             {
@@ -1800,7 +2089,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             int i;
             
             // Get the value of the textfield
-            String search = mgChView.jTextField_search.getText();
+            String search = mgChView.jTextField_search.getText().toLowerCase();
             
             try
             {
@@ -1839,7 +2128,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             int i;
             
             // Get the value of the textfield
-            String search = mgCompView.jTextField_search.getText();
+            String search = mgCompView.jTextField_search.getText().toLowerCase();
             
             try
             {
@@ -1880,7 +2169,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             float[] wr;
             
             // Get the value of the textfield
-            String search = mgDisView.jTextField_search.getText();
+            String search = mgDisView.jTextField_search.getText().toLowerCase();
             
             try
             {
@@ -1920,7 +2209,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             int i;
             
             // Get the value of the textfield
-            String search = mgRegView.jTextField_search.getText();
+            String search = mgRegView.jTextField_search.getText().toLowerCase();
             
             try
             {
@@ -1958,7 +2247,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             int i;
             
             // Get the value of the textfield
-            String search = mgRsView.jTextField_search.getText();
+            String search = mgRsView.jTextField_search.getText().toLowerCase();
             
             try
             {
@@ -2001,7 +2290,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             int i;
             
             // Get the value of the textfield
-            String search = mgSchView.jTextField_search.getText();
+            String search = mgSchView.jTextField_search.getText().toLowerCase();
             
             try
             {
@@ -2041,7 +2330,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             int i;
             
             // Get the value of the textfield
-            String search = mgTmView.jTextField_search.getText();
+            String search = mgTmView.jTextField_search.getText().toLowerCase();
             
             try
             {
