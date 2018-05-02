@@ -19,25 +19,25 @@ import java.util.ArrayList;
  *
  * @author Eider
  */
-public class CoachDataAccess
+public class ScheduleMethods
 {
-    public static void writeCoach(Coach ch) throws IOException
+    public static void writeSchedule(Schedule sch) throws IOException
     {
         // Define the variables
-        File chFl = new File("files/coach.ser");
+        File schFl = new File("files/schedule.ser");
         
         try
         {
             // If the file doesn't exist, create a new ObjectOutputStream to write the header
-            if(!chFl.exists())
+            if(!schFl.exists())
             {
-                FileOutputStream fs1 = new FileOutputStream(chFl);
+                FileOutputStream fs1 = new FileOutputStream(schFl);
                 ObjectOutputStream os1 = new ObjectOutputStream(fs1);
                 os1.close();
             }
 
             // Create another ObjectOutputStream without the header to be able to write objects without overwriting
-            FileOutputStream fs = new FileOutputStream(chFl, true);
+            FileOutputStream fs = new FileOutputStream(schFl, true);
             ObjectOutputStream os = new ObjectOutputStream(fs)
             {
                 @Override
@@ -48,7 +48,7 @@ public class CoachDataAccess
             };
             
             // Write the object and close the file
-            os.writeObject(ch);
+            os.writeObject(sch);
             os.close();
             fs.close();
         }
@@ -58,24 +58,24 @@ public class CoachDataAccess
         }
     }
     
-    public static ArrayList <Coach> writeCoachArrayList() throws IOException
+    public static ArrayList <Schedule> writeScheduleArrayList() throws IOException
     {
         // Define the variables
-        File chFl = new File("files/coach.ser");
-        ArrayList <Coach> alCh = new ArrayList();
+        File schFl = new File("files/schedule.ser");
+        ArrayList <Schedule> alSch = new ArrayList();
         
         try
         {
-            FileInputStream fs = new FileInputStream(chFl);
+            FileInputStream fs = new FileInputStream(schFl);
             ObjectInputStream os = new ObjectInputStream(fs);
             
             try
             {
                 while(true)
                 {
-                    Coach ch = new Coach(false);
-                    ch = (Coach) os.readObject();
-                    alCh.add(ch);                    
+                    Schedule sch = new Schedule(false);
+                    sch = (Schedule) os.readObject();
+                    alSch.add(sch);                    
                 }
             }
             catch(EOFException ex1)
@@ -89,25 +89,25 @@ public class CoachDataAccess
             
         }
         
-        return alCh;
+        return alSch;
     }
     
-    public static void writeChFileFromArrayList(ArrayList <Coach> alCh) throws IOException
+    public static void writeSchFileFromArrayList(ArrayList <Schedule> alSch) throws IOException
     {
         // Define the variables
         int i;
-        File chFl = new File("files/coach.ser");
+        File schFl = new File("files/schedule.ser");
         
         try
         {
-            FileOutputStream fs = new FileOutputStream(chFl);
+            FileOutputStream fs = new FileOutputStream(schFl);
             ObjectOutputStream os = new ObjectOutputStream(fs);
 
             // Write the objects of the ArrayList and close the file
-            for(i = 0; i < alCh.size(); ++i)
+            for(i = 0; i < alSch.size(); ++i)
             {
-                Coach ch = alCh.get(i);
-                os.writeObject(ch);
+                Schedule sch = alSch.get(i);
+                os.writeObject(sch);
             }
             
             os.close();
@@ -119,27 +119,27 @@ public class CoachDataAccess
         }
     }
     
-    public static ArrayList <Coach> searchCoachArrayList(String search) throws IOException
+    public static ArrayList <Schedule> searchScheduleArrayList(String search) throws IOException
     {
         // Define the variables
-        File chFl = new File("files/coach.ser");
-        ArrayList <Coach> alChSearch = new ArrayList();
+        File schFl = new File("files/schedule.ser");
+        ArrayList <Schedule> alSchSearch = new ArrayList();
         
         try
         {
-            FileInputStream fs = new FileInputStream(chFl);
+            FileInputStream fs = new FileInputStream(schFl);
             ObjectInputStream os = new ObjectInputStream(fs);
             
             try
             {
                 while(true)
                 {
-                    Coach ch = new Coach(false);
-                    ch = (Coach) os.readObject();
+                    Schedule sch = new Schedule(false);
+                    sch = (Schedule) os.readObject();
                     
-                    if(ch.getName().toLowerCase().contains(search) || ch.getSurname().toLowerCase().contains(search))
+                    if(sch.getDiscipline().toLowerCase().contains(search))
                     {
-                        alChSearch.add(ch); 
+                        alSchSearch.add(sch); 
                     }                
                 }
             }
@@ -154,6 +154,6 @@ public class CoachDataAccess
             
         }
         
-        return alChSearch;
+        return alSchSearch;
     }
 }

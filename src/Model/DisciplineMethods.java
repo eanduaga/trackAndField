@@ -5,6 +5,12 @@
  */
 package Model;
 
+/**
+ *
+ * @author DM3-1-03
+ */
+
+// Import the libraries
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,31 +20,26 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Vector;
 
-/**
- *
- * @author Eider
- */
-public class CompetitionDataAccess
+public class DisciplineMethods
 {
-    public static void writeCompetition(Competition cmp) throws IOException
+    public static void writeDiscipline(Discipline dis) throws IOException
     {
         // Define the variables
-        File cmpFl = new File("files/competition.ser");
+        File disFl = new File("files/discipline.ser");
         
         try
         {
             // If the file doesn't exist, create a new ObjectOutputStream to write the header
-            if(!cmpFl.exists())
+            if(!disFl.exists())
             {
-                FileOutputStream fs1 = new FileOutputStream(cmpFl);
+                FileOutputStream fs1 = new FileOutputStream(disFl);
                 ObjectOutputStream os1 = new ObjectOutputStream(fs1);
                 os1.close();
             }
 
             // Create another ObjectOutputStream without the header to be able to write objects without overwriting
-            FileOutputStream fs = new FileOutputStream(cmpFl, true);
+            FileOutputStream fs = new FileOutputStream(disFl, true);
             ObjectOutputStream os = new ObjectOutputStream(fs)
             {
                 @Override
@@ -49,7 +50,7 @@ public class CompetitionDataAccess
             };
             
             // Write the object and close the file
-            os.writeObject(cmp);
+            os.writeObject(dis);
             os.close();
             fs.close();
         }
@@ -59,24 +60,24 @@ public class CompetitionDataAccess
         }
     }
     
-    public static ArrayList <Competition> writeCompetitionArrayList() throws IOException
+    public static ArrayList <Discipline> writeDisciplineArrayList() throws IOException
     {
         // Define the variables
-        File compFl = new File("files/competition.ser");
-        ArrayList <Competition> alComp = new ArrayList();
+        File disFl = new File("files/discipline.ser");
+        ArrayList <Discipline> alDis = new ArrayList();
         
         try
         {
-            FileInputStream fs = new FileInputStream(compFl);
+            FileInputStream fs = new FileInputStream(disFl);
             ObjectInputStream os = new ObjectInputStream(fs);
             
             try
             {
                 while(true)
                 {
-                    Competition comp = new Competition(false);
-                    comp = (Competition) os.readObject();
-                    alComp.add(comp);                    
+                    Discipline dis = new Discipline(false);
+                    dis = (Discipline) os.readObject();
+                    alDis.add(dis);                    
                 }
             }
             catch(EOFException ex1)
@@ -90,25 +91,25 @@ public class CompetitionDataAccess
             
         }
         
-        return alComp;
+        return alDis;
     }
     
-    public static void writeCompFileFromArrayList(ArrayList <Competition> alComp) throws IOException
+    public static void writeDisFileFromArrayList(ArrayList <Discipline> alDis) throws IOException
     {
         // Define the variables
         int i;
-        File cmpFl = new File("files/competition.ser");
+        File disFl = new File("files/discipline.ser");
         
         try
         {
-            FileOutputStream fs = new FileOutputStream(cmpFl);
+            FileOutputStream fs = new FileOutputStream(disFl);
             ObjectOutputStream os = new ObjectOutputStream(fs);
 
             // Write the objects of the ArrayList and close the file
-            for(i = 0; i < alComp.size(); ++i)
+            for(i = 0; i < alDis.size(); ++i)
             {
-                Competition comp = alComp.get(i);
-                os.writeObject(comp);
+                Discipline dis = alDis.get(i);
+                os.writeObject(dis);
             }
             
             os.close();
@@ -120,27 +121,27 @@ public class CompetitionDataAccess
         }
     }
     
-    public static ArrayList <Competition> searchCompetitionArrayList(String search) throws IOException
+    public static ArrayList <Discipline> searchDisciplineArrayList(String search) throws IOException
     {
         // Define the variables
-        File compFl = new File("files/competition.ser");
-        ArrayList <Competition> alCompSearch = new ArrayList();
+        File disFl = new File("files/discipline.ser");
+        ArrayList <Discipline> alDisSearch = new ArrayList();
         
         try
         {
-            FileInputStream fs = new FileInputStream(compFl);
+            FileInputStream fs = new FileInputStream(disFl);
             ObjectInputStream os = new ObjectInputStream(fs);
             
             try
             {
                 while(true)
                 {
-                    Competition comp = new Competition(false);
-                    comp = (Competition) os.readObject();
+                    Discipline dis = new Discipline(false);
+                    dis = (Discipline) os.readObject();
                     
-                    if(comp.getName().toLowerCase().contains(search))
+                    if(dis.getName().toLowerCase().contains(search))
                     {
-                        alCompSearch.add(comp); 
+                        alDisSearch.add(dis); 
                     }                
                 }
             }
@@ -155,6 +156,6 @@ public class CompetitionDataAccess
             
         }
         
-        return alCompSearch;
+        return alDisSearch;
     }
 }

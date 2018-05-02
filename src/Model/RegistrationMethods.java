@@ -19,25 +19,25 @@ import java.util.ArrayList;
  *
  * @author Eider
  */
-public class ScheduleDataAccess
+public class RegistrationMethods
 {
-    public static void writeSchedule(Schedule sch) throws IOException
+    public static void writeRegistration(Registration reg) throws IOException
     {
         // Define the variables
-        File schFl = new File("files/schedule.ser");
+        File regFl = new File("files/registration.ser");
         
         try
         {
             // If the file doesn't exist, create a new ObjectOutputStream to write the header
-            if(!schFl.exists())
+            if(!regFl.exists())
             {
-                FileOutputStream fs1 = new FileOutputStream(schFl);
+                FileOutputStream fs1 = new FileOutputStream(regFl);
                 ObjectOutputStream os1 = new ObjectOutputStream(fs1);
                 os1.close();
             }
 
             // Create another ObjectOutputStream without the header to be able to write objects without overwriting
-            FileOutputStream fs = new FileOutputStream(schFl, true);
+            FileOutputStream fs = new FileOutputStream(regFl, true);
             ObjectOutputStream os = new ObjectOutputStream(fs)
             {
                 @Override
@@ -48,7 +48,7 @@ public class ScheduleDataAccess
             };
             
             // Write the object and close the file
-            os.writeObject(sch);
+            os.writeObject(reg);
             os.close();
             fs.close();
         }
@@ -58,24 +58,24 @@ public class ScheduleDataAccess
         }
     }
     
-    public static ArrayList <Schedule> writeScheduleArrayList() throws IOException
+    public static ArrayList <Registration> writeRegistrationArrayList() throws IOException
     {
         // Define the variables
-        File schFl = new File("files/schedule.ser");
-        ArrayList <Schedule> alSch = new ArrayList();
+        File regFl = new File("files/registration.ser");
+        ArrayList <Registration> alReg = new ArrayList();
         
         try
         {
-            FileInputStream fs = new FileInputStream(schFl);
+            FileInputStream fs = new FileInputStream(regFl);
             ObjectInputStream os = new ObjectInputStream(fs);
             
             try
             {
                 while(true)
                 {
-                    Schedule sch = new Schedule(false);
-                    sch = (Schedule) os.readObject();
-                    alSch.add(sch);                    
+                    Registration reg = new Registration(false);
+                    reg = (Registration) os.readObject();
+                    alReg.add(reg);                    
                 }
             }
             catch(EOFException ex1)
@@ -89,25 +89,25 @@ public class ScheduleDataAccess
             
         }
         
-        return alSch;
+        return alReg;
     }
     
-    public static void writeSchFileFromArrayList(ArrayList <Schedule> alSch) throws IOException
+    public static void writeRegFileFromArrayList(ArrayList <Registration> alReg) throws IOException
     {
         // Define the variables
         int i;
-        File schFl = new File("files/schedule.ser");
+        File regFl = new File("files/registration.ser");
         
         try
         {
-            FileOutputStream fs = new FileOutputStream(schFl);
+            FileOutputStream fs = new FileOutputStream(regFl);
             ObjectOutputStream os = new ObjectOutputStream(fs);
 
             // Write the objects of the ArrayList and close the file
-            for(i = 0; i < alSch.size(); ++i)
+            for(i = 0; i < alReg.size(); ++i)
             {
-                Schedule sch = alSch.get(i);
-                os.writeObject(sch);
+                Registration reg = alReg.get(i);
+                os.writeObject(reg);
             }
             
             os.close();
@@ -119,27 +119,27 @@ public class ScheduleDataAccess
         }
     }
     
-    public static ArrayList <Schedule> searchScheduleArrayList(String search) throws IOException
+    public static ArrayList <Registration> searchRegistrationArrayList(String search) throws IOException
     {
         // Define the variables
-        File schFl = new File("files/schedule.ser");
-        ArrayList <Schedule> alSchSearch = new ArrayList();
+        File regFl = new File("files/registration.ser");
+        ArrayList <Registration> alRegSearch = new ArrayList();
         
         try
         {
-            FileInputStream fs = new FileInputStream(schFl);
+            FileInputStream fs = new FileInputStream(regFl);
             ObjectInputStream os = new ObjectInputStream(fs);
             
             try
             {
                 while(true)
                 {
-                    Schedule sch = new Schedule(false);
-                    sch = (Schedule) os.readObject();
+                    Registration reg = new Registration(false);
+                    reg = (Registration) os.readObject();
                     
-                    if(sch.getDiscipline().toLowerCase().contains(search))
+                    if(reg.getAthlete().toLowerCase().contains(search))
                     {
-                        alSchSearch.add(sch); 
+                        alRegSearch.add(reg); 
                     }                
                 }
             }
@@ -154,6 +154,6 @@ public class ScheduleDataAccess
             
         }
         
-        return alSchSearch;
+        return alRegSearch;
     }
 }

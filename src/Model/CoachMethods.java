@@ -19,25 +19,25 @@ import java.util.ArrayList;
  *
  * @author Eider
  */
-public class TeamDataAccess
+public class CoachMethods
 {
-    public static void writeTeam(Team tm) throws IOException
+    public static void writeCoach(Coach ch) throws IOException
     {
         // Define the variables
-        File tmFl = new File("files/team.ser");
+        File chFl = new File("files/coach.ser");
         
         try
         {
             // If the file doesn't exist, create a new ObjectOutputStream to write the header
-            if(!tmFl.exists())
+            if(!chFl.exists())
             {
-                FileOutputStream fs1 = new FileOutputStream(tmFl);
+                FileOutputStream fs1 = new FileOutputStream(chFl);
                 ObjectOutputStream os1 = new ObjectOutputStream(fs1);
                 os1.close();
             }
 
             // Create another ObjectOutputStream without the header to be able to write objects without overwriting
-            FileOutputStream fs = new FileOutputStream(tmFl, true);
+            FileOutputStream fs = new FileOutputStream(chFl, true);
             ObjectOutputStream os = new ObjectOutputStream(fs)
             {
                 @Override
@@ -48,7 +48,7 @@ public class TeamDataAccess
             };
             
             // Write the object and close the file
-            os.writeObject(tm);
+            os.writeObject(ch);
             os.close();
             fs.close();
         }
@@ -58,24 +58,24 @@ public class TeamDataAccess
         }
     }
     
-    public static ArrayList <Team> writeTeamArrayList() throws IOException
+    public static ArrayList <Coach> writeCoachArrayList() throws IOException
     {
         // Define the variables
-        File tmFl = new File("files/team.ser");
-        ArrayList <Team> alTm = new ArrayList();
+        File chFl = new File("files/coach.ser");
+        ArrayList <Coach> alCh = new ArrayList();
         
         try
         {
-            FileInputStream fs = new FileInputStream(tmFl);
+            FileInputStream fs = new FileInputStream(chFl);
             ObjectInputStream os = new ObjectInputStream(fs);
             
             try
             {
                 while(true)
                 {
-                    Team tm = new Team(false);
-                    tm = (Team) os.readObject();
-                    alTm.add(tm);                    
+                    Coach ch = new Coach(false);
+                    ch = (Coach) os.readObject();
+                    alCh.add(ch);                    
                 }
             }
             catch(EOFException ex1)
@@ -89,25 +89,25 @@ public class TeamDataAccess
             
         }
         
-        return alTm;
+        return alCh;
     }
     
-    public static void writeTmFileFromArrayList(ArrayList <Team> alTm) throws IOException
+    public static void writeChFileFromArrayList(ArrayList <Coach> alCh) throws IOException
     {
         // Define the variables
         int i;
-        File tmFl = new File("files/team.ser");
+        File chFl = new File("files/coach.ser");
         
         try
         {
-            FileOutputStream fs = new FileOutputStream(tmFl);
+            FileOutputStream fs = new FileOutputStream(chFl);
             ObjectOutputStream os = new ObjectOutputStream(fs);
 
             // Write the objects of the ArrayList and close the file
-            for(i = 0; i < alTm.size(); ++i)
+            for(i = 0; i < alCh.size(); ++i)
             {
-                Team tm = alTm.get(i);
-                os.writeObject(tm);
+                Coach ch = alCh.get(i);
+                os.writeObject(ch);
             }
             
             os.close();
@@ -119,27 +119,27 @@ public class TeamDataAccess
         }
     }
     
-    public static ArrayList <Team> searchTeamArrayList(String search) throws IOException
+    public static ArrayList <Coach> searchCoachArrayList(String search) throws IOException
     {
         // Define the variables
-        File tmFl = new File("files/team.ser");
-        ArrayList <Team> alTmSearch = new ArrayList();
+        File chFl = new File("files/coach.ser");
+        ArrayList <Coach> alChSearch = new ArrayList();
         
         try
         {
-            FileInputStream fs = new FileInputStream(tmFl);
+            FileInputStream fs = new FileInputStream(chFl);
             ObjectInputStream os = new ObjectInputStream(fs);
             
             try
             {
                 while(true)
                 {
-                    Team tm = new Team(false);
-                    tm = (Team) os.readObject();
+                    Coach ch = new Coach(false);
+                    ch = (Coach) os.readObject();
                     
-                    if(tm.getName().toLowerCase().contains(search))
+                    if(ch.getName().toLowerCase().contains(search) || ch.getSurname().toLowerCase().contains(search))
                     {
-                        alTmSearch.add(tm); 
+                        alChSearch.add(ch); 
                     }                
                 }
             }
@@ -154,6 +154,6 @@ public class TeamDataAccess
             
         }
         
-        return alTmSearch;
+        return alChSearch;
     }
 }

@@ -42,14 +42,14 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
     Result rsModel;
     Schedule schModel;
     Team tmModel;
-    private AthleteDataAccess athMeth;
-    private CoachDataAccess chMeth;
-    private CompetitionDataAccess compMeth; // = new CompetitionDataAccess();
-    private DisciplineDataAccess disMeth;
-    private RegistrationDataAccess regMeth;
-    private ResultDataAccess rsMeth;
-    private ScheduleDataAccess schMeth;
-    private TeamDataAccess tmMeth;
+    private AthleteMethods athMeth;
+    private CoachMethods chMeth;
+    private CompetitionMethods compMeth; // = new CompetitionDataAccess();
+    private DisciplineMethods disMeth;
+    private RegistrationMethods regMeth;
+    private ResultMethods rsMeth;
+    private ScheduleMethods schMeth;
+    private TeamMethods tmMeth;
     private PasswordGenerator passwdGen;
     private SendMailMethods sendMailMeth;
     
@@ -86,8 +86,8 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
     
     // Define the constructor
     public TrackAndFieldController(Athlete ath, Coach ch, Competition comp, Discipline dis, /*Person per,*/ Registration reg, Result rs,
-    Schedule sch, Team tm, AthleteDataAccess ada, CoachDataAccess chda, CompetitionDataAccess cda, DisciplineDataAccess dda, 
-    RegistrationDataAccess rda, ResultDataAccess rsda, ScheduleDataAccess sda, TeamDataAccess tda, PasswordGenerator pg, SendMailMethods smm, 
+    Schedule sch, Team tm, AthleteMethods ada, CoachMethods chda, CompetitionMethods cda, DisciplineMethods dda, 
+    RegistrationMethods rda, ResultMethods rsda, ScheduleMethods sda, TeamMethods tda, PasswordGenerator pg, SendMailMethods smm, 
     login lgm, newAccount nav, accountRecovery ar, mainPage mp, mainPageGuest mpg, addChangeAthlete aAth, addChangeCoach aCh, 
     addChangeCompetition aComp, addChangeDiscipline aDis, addChangeRegistration aReg, addChangeResult aRs, addChangeSchedule aSch, addChangeTeam aTm, 
     manageAthlete mgAth, manageCoach mgCh, manageCompetition mgComp, manageDiscipline mgDis, manageRegistration mgReg, manageResult mgRs, 

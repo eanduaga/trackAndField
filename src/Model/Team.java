@@ -12,9 +12,6 @@ package Model;
  */
 
 // Import the libraries
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.Random;
 
@@ -27,25 +24,9 @@ public class Team implements Serializable
     private String town;
     
     // Define the constructor
-    public Team()
-    {
-        setCode();
-        setName();
-        setCountry();
-        setTown();
-    }
     public Team(boolean bl)
     {
         
-    }
-    
-    // Define a method to print the information
-    public void printInfo()
-    {
-        getCode(code);
-        getName(name);
-        getCountry(country);
-        getTown(town);
     }
     
     // Define the setters
@@ -57,7 +38,6 @@ public class Team implements Serializable
     {
         // Define the variables
         int i, digit;
-        boolean result;
         char letter;
         
         Random rnd = new Random();
@@ -78,7 +58,7 @@ public class Team implements Serializable
             randomID.append(digit);
         }
         
-        // Store the generated code in the member ID
+        // Store the generated code in the member code
         code = randomID.toString();
     }
     
@@ -86,57 +66,15 @@ public class Team implements Serializable
     {
         name = TeamName;
     }
-    public void setName()
-    {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        
-        try
-        {
-            System.out.print("Enter the team name: ");
-            name = reader.readLine();
-        }
-        catch(IOException er1)
-        {
-            System.out.println("Couldn't read.");
-        }
-    }
     
     public void setCountry(String TeamCountry)
     {
         country = TeamCountry;
     }
-    public void setCountry()
-    {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        
-        try
-        {
-            System.out.print("Enter the country: ");
-            country = reader.readLine();
-        }
-        catch(IOException er1)
-        {
-            System.out.println("Couldn't read.");
-        }
-    }
     
     public void setTown(String TeamTown)
     {
         town = TeamTown;
-    }
-    public void setTown()
-    {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        
-        try
-        {
-            System.out.print("Enter the town: ");
-            town = reader.readLine();
-        }
-        catch(IOException er1)
-        {
-            System.out.println("Couldn't read.");
-        }
     }
     
     
@@ -145,35 +83,19 @@ public class Team implements Serializable
     {
         return code;
     }
-    public void getCode(String TeamCode)
-    {
-        System.out.println("Code: " + TeamCode);
-    }
 
     public String getName()
     {
         return name;
-    }
-    public void getName(String TeamName)
-    {
-        System.out.println("Name: " + TeamName);
     }
     
     public String getCountry()
     {
         return country;
     }
-    public void getCountry(String TeamCountry)
-    {
-        System.out.println("Country: " + TeamCountry);
-    }
     
     public String getTown()
     {
         return town;
-    }
-    public void getTown(String TeamTown)
-    {
-        System.out.println("Town: " + TeamTown);
     }
 }

@@ -25,14 +25,14 @@ public class TrackAndField
     Result rsModel;
     Schedule schModel;
     Team tmModel;
-    private AthleteDataAccess athMeth;
-    private CoachDataAccess chMeth;
-    private CompetitionDataAccess compMeth; // = new CompetitionDataAccess();
-    private DisciplineDataAccess disMeth;
-    private RegistrationDataAccess regMeth;
-    private ResultDataAccess rsMeth;
-    private ScheduleDataAccess schMeth;
-    private TeamDataAccess tmMeth;
+    private AthleteMethods athMeth;
+    private CoachMethods chMeth;
+    private CompetitionMethods compMeth; // = new CompetitionDataAccess();
+    private DisciplineMethods disMeth;
+    private RegistrationMethods regMeth;
+    private ResultMethods rsMeth;
+    private ScheduleMethods schMeth;
+    private TeamMethods tmMeth;
     private PasswordGenerator passwdGen;
     private SendMailMethods sendMailMeth;
     
@@ -88,14 +88,14 @@ public class TrackAndField
         rsModel = new Result(false);
         schModel = new Schedule(false);
         tmModel = new Team(false);
-        athMeth = new AthleteDataAccess();
-        chMeth = new CoachDataAccess();
-        compMeth = new CompetitionDataAccess();
-        disMeth = new DisciplineDataAccess();
-        regMeth = new RegistrationDataAccess();
-        rsMeth = new ResultDataAccess();
-        schMeth = new ScheduleDataAccess();
-        tmMeth = new TeamDataAccess();
+        athMeth = new AthleteMethods();
+        chMeth = new CoachMethods();
+        compMeth = new CompetitionMethods();
+        disMeth = new DisciplineMethods();
+        regMeth = new RegistrationMethods();
+        rsMeth = new ResultMethods();
+        schMeth = new ScheduleMethods();
+        tmMeth = new TeamMethods();
         passwdGen = new PasswordGenerator();
         sendMailMeth = new SendMailMethods();
         

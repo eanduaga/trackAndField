@@ -19,25 +19,25 @@ import java.util.ArrayList;
  *
  * @author Eider
  */
-public class RegistrationDataAccess
+public class CompetitionMethods
 {
-    public static void writeRegistration(Registration reg) throws IOException
+    public static void writeCompetition(Competition cmp) throws IOException
     {
         // Define the variables
-        File regFl = new File("files/registration.ser");
+        File cmpFl = new File("files/competition.ser");
         
         try
         {
             // If the file doesn't exist, create a new ObjectOutputStream to write the header
-            if(!regFl.exists())
+            if(!cmpFl.exists())
             {
-                FileOutputStream fs1 = new FileOutputStream(regFl);
+                FileOutputStream fs1 = new FileOutputStream(cmpFl);
                 ObjectOutputStream os1 = new ObjectOutputStream(fs1);
                 os1.close();
             }
 
             // Create another ObjectOutputStream without the header to be able to write objects without overwriting
-            FileOutputStream fs = new FileOutputStream(regFl, true);
+            FileOutputStream fs = new FileOutputStream(cmpFl, true);
             ObjectOutputStream os = new ObjectOutputStream(fs)
             {
                 @Override
@@ -48,7 +48,7 @@ public class RegistrationDataAccess
             };
             
             // Write the object and close the file
-            os.writeObject(reg);
+            os.writeObject(cmp);
             os.close();
             fs.close();
         }
@@ -58,24 +58,24 @@ public class RegistrationDataAccess
         }
     }
     
-    public static ArrayList <Registration> writeRegistrationArrayList() throws IOException
+    public static ArrayList <Competition> writeCompetitionArrayList() throws IOException
     {
         // Define the variables
-        File regFl = new File("files/registration.ser");
-        ArrayList <Registration> alReg = new ArrayList();
+        File compFl = new File("files/competition.ser");
+        ArrayList <Competition> alComp = new ArrayList();
         
         try
         {
-            FileInputStream fs = new FileInputStream(regFl);
+            FileInputStream fs = new FileInputStream(compFl);
             ObjectInputStream os = new ObjectInputStream(fs);
             
             try
             {
                 while(true)
                 {
-                    Registration reg = new Registration(false);
-                    reg = (Registration) os.readObject();
-                    alReg.add(reg);                    
+                    Competition comp = new Competition(false);
+                    comp = (Competition) os.readObject();
+                    alComp.add(comp);                    
                 }
             }
             catch(EOFException ex1)
@@ -89,25 +89,25 @@ public class RegistrationDataAccess
             
         }
         
-        return alReg;
+        return alComp;
     }
     
-    public static void writeRegFileFromArrayList(ArrayList <Registration> alReg) throws IOException
+    public static void writeCompFileFromArrayList(ArrayList <Competition> alComp) throws IOException
     {
         // Define the variables
         int i;
-        File regFl = new File("files/registration.ser");
+        File cmpFl = new File("files/competition.ser");
         
         try
         {
-            FileOutputStream fs = new FileOutputStream(regFl);
+            FileOutputStream fs = new FileOutputStream(cmpFl);
             ObjectOutputStream os = new ObjectOutputStream(fs);
 
             // Write the objects of the ArrayList and close the file
-            for(i = 0; i < alReg.size(); ++i)
+            for(i = 0; i < alComp.size(); ++i)
             {
-                Registration reg = alReg.get(i);
-                os.writeObject(reg);
+                Competition comp = alComp.get(i);
+                os.writeObject(comp);
             }
             
             os.close();
@@ -119,27 +119,27 @@ public class RegistrationDataAccess
         }
     }
     
-    public static ArrayList <Registration> searchRegistrationArrayList(String search) throws IOException
+    public static ArrayList <Competition> searchCompetitionArrayList(String search) throws IOException
     {
         // Define the variables
-        File regFl = new File("files/registration.ser");
-        ArrayList <Registration> alRegSearch = new ArrayList();
+        File compFl = new File("files/competition.ser");
+        ArrayList <Competition> alCompSearch = new ArrayList();
         
         try
         {
-            FileInputStream fs = new FileInputStream(regFl);
+            FileInputStream fs = new FileInputStream(compFl);
             ObjectInputStream os = new ObjectInputStream(fs);
             
             try
             {
                 while(true)
                 {
-                    Registration reg = new Registration(false);
-                    reg = (Registration) os.readObject();
+                    Competition comp = new Competition(false);
+                    comp = (Competition) os.readObject();
                     
-                    if(reg.getAthlete().toLowerCase().contains(search))
+                    if(comp.getName().toLowerCase().contains(search))
                     {
-                        alRegSearch.add(reg); 
+                        alCompSearch.add(comp); 
                     }                
                 }
             }
@@ -154,6 +154,6 @@ public class RegistrationDataAccess
             
         }
         
-        return alRegSearch;
+        return alCompSearch;
     }
 }
