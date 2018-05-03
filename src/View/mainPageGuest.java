@@ -81,7 +81,6 @@ public class mainPageGuest extends javax.swing.JFrame {
         jPanel_headerGuest = new javax.swing.JPanel();
         jLabel_exit = new javax.swing.JLabel();
         jLabel_minimize = new javax.swing.JLabel();
-        jLabel_maximize = new javax.swing.JLabel();
         jPanel_usernameLeftGuest = new javax.swing.JPanel();
         jLabel_logOutGuest = new javax.swing.JLabel();
         jLabel_logOutIconGuest = new javax.swing.JLabel();
@@ -476,17 +475,7 @@ public class mainPageGuest extends javax.swing.JFrame {
                 jLabel_minimizeMouseClicked(evt);
             }
         });
-        jPanel_headerGuest.add(jLabel_minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 0, 50, 50));
-
-        jLabel_maximize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_maximize.setIcon(new javax.swing.ImageIcon("G:\\DAM\\Program\\Irudixak\\Icons\\Resized\\30x30\\30x30_maximize5.png")); // NOI18N
-        jLabel_maximize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_maximize.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_maximizeMouseClicked(evt);
-            }
-        });
-        jPanel_headerGuest.add(jLabel_maximize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 0, 50, 50));
+        jPanel_headerGuest.add(jLabel_minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 0, 50, 50));
 
         jPanel_mainPageGuest.add(jPanel_headerGuest, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1660, 50));
 
@@ -566,10 +555,6 @@ public class mainPageGuest extends javax.swing.JFrame {
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_jPanel_headerGuestMousePressed
-
-    private void jLabel_maximizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_maximizeMouseClicked
-        setExtendedState(MAXIMIZED_BOTH);
-    }//GEN-LAST:event_jLabel_maximizeMouseClicked
 
     private void jLabel_usernameGuestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_usernameGuestMouseClicked
         if(jPanel_usernameLeftGuest.isVisible())
@@ -700,43 +685,8 @@ public class mainPageGuest extends javax.swing.JFrame {
         tm.start();
     }
     
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(mainPageGuest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(mainPageGuest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(mainPageGuest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(mainPageGuest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new mainPageGuest().setVisible(true);
-            }
-        });
-    }
-
+ 
+    // Variables
     int xMouse;
     int yMouse;
     Timer tm;
@@ -790,7 +740,6 @@ public class mainPageGuest extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel_leftMenuTmGuest;
     private javax.swing.JLabel jLabel_logOutGuest;
     private javax.swing.JLabel jLabel_logOutIconGuest;
-    private javax.swing.JLabel jLabel_maximize;
     private javax.swing.JLabel jLabel_minimize;
     private javax.swing.JLabel jLabel_registrationIconGuest;
     private javax.swing.JLabel jLabel_resultIconGuest;

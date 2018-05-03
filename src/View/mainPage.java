@@ -6,9 +6,7 @@
 package View;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -85,7 +83,6 @@ public class mainPage extends javax.swing.JFrame {
         jPanel_header = new javax.swing.JPanel();
         jLabel_exit = new javax.swing.JLabel();
         jLabel_minimize = new javax.swing.JLabel();
-        jLabel_maximize = new javax.swing.JLabel();
         jPanel_usernameLeft = new javax.swing.JPanel();
         jLabel_logOut = new javax.swing.JLabel();
         jLabel_logOutIcon = new javax.swing.JLabel();
@@ -572,17 +569,7 @@ public class mainPage extends javax.swing.JFrame {
                 jLabel_minimizeMouseClicked(evt);
             }
         });
-        jPanel_header.add(jLabel_minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 0, 50, 50));
-
-        jLabel_maximize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_maximize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/30x30_maximize5.png"))); // NOI18N
-        jLabel_maximize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_maximize.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_maximizeMouseClicked(evt);
-            }
-        });
-        jPanel_header.add(jLabel_maximize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 0, 50, 50));
+        jPanel_header.add(jLabel_minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 0, 50, 50));
 
         jPanel_mainPage.add(jPanel_header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1660, 50));
 
@@ -808,10 +795,6 @@ public class mainPage extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_jPanel_headerMousePressed
 
-    private void jLabel_maximizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_maximizeMouseClicked
-        setExtendedState(MAXIMIZED_BOTH);
-    }//GEN-LAST:event_jLabel_maximizeMouseClicked
-
     private void jLabel_usernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_usernameMouseClicked
         if(jPanel_usernameLeft.isVisible())
         {
@@ -1020,47 +1003,9 @@ public class mainPage extends javax.swing.JFrame {
         });
         tm.start();
     }
+  
     
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(mainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(mainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(mainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(mainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new mainPage().setVisible(true);
-            }
-        });
-    }
-
-    
+    // Variables
     int xMouse;
     int yMouse;
     Timer tm;
@@ -1114,7 +1059,6 @@ public class mainPage extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel_leftMenuTm;
     private javax.swing.JLabel jLabel_logOut;
     private javax.swing.JLabel jLabel_logOutIcon;
-    private javax.swing.JLabel jLabel_maximize;
     private javax.swing.JLabel jLabel_minimize;
     private javax.swing.JLabel jLabel_registrationIcon;
     public javax.swing.JLabel jLabel_result1Athlete;

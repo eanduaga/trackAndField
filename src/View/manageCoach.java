@@ -8,7 +8,6 @@ package View;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 
@@ -454,21 +453,6 @@ public class manageCoach extends javax.swing.JFrame {
         jLabel_change.setForeground(new Color(52, 50, 46));
     }//GEN-LAST:event_jLabel_changeMouseExited
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new manageCoach().setVisible(true);
-            }
-        });
-    }
-
     int xMouse;
     int yMouse;
     // Variables declaration - do not modify//GEN-BEGIN:variables

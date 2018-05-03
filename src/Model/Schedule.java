@@ -13,7 +13,7 @@ package Model;
 
 // Import the libraries
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Random;
 
 public class Schedule implements Serializable
@@ -22,7 +22,7 @@ public class Schedule implements Serializable
     private String code;
     private String competition;
     private String discipline;
-    private Date sDate;
+    private LocalDate sDate;
     private String round;
     private String gender;
     
@@ -75,7 +75,7 @@ public class Schedule implements Serializable
         discipline = ScheduleDiscipline;
     }
     
-    public void setDate(Date ScheduleDate)
+    public void setDate(LocalDate ScheduleDate)
     {
         sDate = ScheduleDate;
     }
@@ -107,7 +107,7 @@ public class Schedule implements Serializable
        return discipline;
    }
    
-   public Date getDate()
+   public LocalDate getDate()
    {
        return sDate;
    }

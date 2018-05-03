@@ -13,7 +13,7 @@ package Model;
 
 // Import the libraries
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Person implements Serializable
 {
@@ -25,7 +25,7 @@ public class Person implements Serializable
     private String homeTown;
     private String address;
     private String nationality;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String email;
     private String phoneNum;
     
@@ -40,45 +40,7 @@ public class Person implements Serializable
     {
         ID = PersonID;
     }
-    /*
-    public void setID()
-    {
-        // Define the variables
-        int i;
-        
-        // Ask for the ID
-        Scanner in = new Scanner(System.in);
-        System.out.print("Enter your ID: ");
-        ID = in.nextLine();
-        
-        // Check if the ID is correct
-        if(ID.length() == 9)
-        {
-            for(i = 0; i <= ID.length() - 1; ++i)
-            {
-                char c = ID.charAt(i);
-                if(!Character.isDigit(c))
-                {
-                    System.out.println("Incorrect format.");
-                    setID();
-                }
-            }
-            
-            int ln = ID.length();
-            char cr = ID.charAt(ln);
-            if(!Character.isLetter(cr))
-            {
-                System.out.println("Incorrect format.");
-                setID();
-            }
-        }
-        else
-        {
-            System.out.println("Please enter an ID with 9 characters.");
-            setID();
-        }
-    }
-    */
+
     public void setName(String PersonName)
     {
         name = PersonName;
@@ -109,7 +71,7 @@ public class Person implements Serializable
         nationality = PersonNationality;
     }
     
-    public void setBirthDate(Date PersonBirthDate)
+    public void setBirthDate(LocalDate PersonBirthDate)
     {
         birthDate = PersonBirthDate;
     }
@@ -161,7 +123,7 @@ public class Person implements Serializable
         return nationality;
     }
     
-    public Date getBirthDate()
+    public LocalDate getBirthDate()
     {
         return birthDate;
     }
