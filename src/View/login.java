@@ -316,7 +316,7 @@ public class login extends javax.swing.JFrame {
     Font original;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton_login;
-    private javax.swing.JLabel jIcon_trackAndField;
+    public javax.swing.JLabel jIcon_trackAndField;
     private javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel_continueToApp;
     private javax.swing.JLabel jLabel_exit;

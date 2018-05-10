@@ -13,6 +13,7 @@ package Controller;
 // Import the libraries
 import Model.*;
 import View.*;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -20,11 +21,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.Year;
 import java.time.ZoneId;
-import static java.time.temporal.TemporalQueries.localDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Vector;
@@ -168,6 +166,7 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
         mainPage.jLabel_leftMenuRs.addMouseListener(this);
         mainPage.jLabel_leftMenuSch.addMouseListener(this);
         mainPage.jLabel_leftMenuTm.addMouseListener(this);
+        mainPage.jLabel_logOut.addMouseListener(this);
         mpGuest.jLabel_leftMenuAthGuest.addMouseListener(this);
         mpGuest.jLabel_leftMenuCoachGuest.addMouseListener(this);
         mpGuest.jLabel_leftMenuCompGuest.addMouseListener(this);
@@ -284,6 +283,9 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
             {
                 mainPage.setVisible(true);
                 loginMenu.setVisible(false);
+                
+                // Change the user label of the Main Page
+                mainPage.jLabel_username.setText(username);
                 
                 // The following code shows the first 3 results in the main page
                 try
@@ -1288,6 +1290,19 @@ public class TrackAndFieldController implements ActionListener, MouseListener, K
                 tmTb.setValueAt(tm.getCountry(), i, 2);
                 tmTb.setValueAt(tm.getTown(), i, 3);
             }
+        }
+        
+        else if(me.getSource() == mainPage.jLabel_logOut)
+        {
+            mainPage.setVisible(false);
+            loginMenu.setVisible(true);
+            
+            // Set login textfield values and make the main page username panel invisible
+            loginMenu.jTextField_username.setText("Enter your username");
+            loginMenu.jPasswordField_password.setText("strongPassword");
+            loginMenu.jIcon_trackAndField.requestFocus();
+            mainPage.jPanel_usernameLeft.setVisible(false);
+            mainPage.jLabel_rightArrow.setVisible(false);
         }
         
         else if(me.getSource() == mpGuest.jLabel_leftMenuAthGuest)
